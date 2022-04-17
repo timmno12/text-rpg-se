@@ -7,15 +7,21 @@ import java.awt.event.KeyEvent;
 public class MainWindow {
 
 
-
     private JPanel mainPanel;
     private JTextField userInput;
     private JTextArea mainTextShow;
-    private JTextArea infoTextShow;
+    private JTextArea locationField;
+    private JTextArea playerlvlField;
+    private int playerLvl;
+    private int livePoints;
+    private JTextArea WeaponLifePointsField;
 
 
     public MainWindow() {
-        infoTextShow.setText("Location |" + "Player Level |" + "etc. |");
+
+        locationField.setText("Start");
+        playerlvlField.setText(String.valueOf(playerLvl));
+        WeaponLifePointsField.setText(String.valueOf(livePoints));
 
         userInput.addKeyListener(new KeyAdapter() {
 

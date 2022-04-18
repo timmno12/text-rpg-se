@@ -4,13 +4,17 @@ public class user {
     private String charName;
     private String chosenClass;
     private int userDMG;
+
+    private int userLP;
+
     private int userDEF;
     private int userDODGE;
 
-    public user(String charName, String chosenClass, int userDMG, int userDEF, int userDODGE){
+    public user(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE) {
         this.charName = charName;
         this.chosenClass = chosenClass;
         this.userDMG = userDMG;
+        this.userLP = userLP;
         this.userDEF = userDEF;
         this.userDODGE = userDODGE;
     }
@@ -37,6 +41,14 @@ public class user {
 
     public void setUserDMG(int userDMG) {
         this.userDMG = userDMG;
+    }
+
+    public int getUserLP() {
+        return userLP;
+    }
+
+    public void setUserLP(int userLP) {
+        this.userLP = userLP;
     }
 
     public int getUserDEF() {

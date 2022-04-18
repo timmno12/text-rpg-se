@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 public class window {
     private JTextArea location;
     private JTextArea playerlvl;
-    private JTextArea livepoints;
+    private JTextArea lifepoints;
     private JTextArea storyfield;
     private JTextField input;
     private JPanel mainPanel;
@@ -24,7 +24,7 @@ public class window {
     public window(){
         location.setText("Ort: " + currentLocation);
         playerlvl.setText("LVL: " + String.valueOf(currentLvl));
-        livepoints.setText("LP: " + String.valueOf(currentLivePoints));
+        lifepoints.setText("LP: " + String.valueOf(currentLivePoints));
 
 
         input.addKeyListener(new KeyAdapter() {

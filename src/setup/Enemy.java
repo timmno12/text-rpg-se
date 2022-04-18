@@ -1,6 +1,6 @@
 package setup;
 
-public class enemy {
+public class Enemy {
 
     private String enemName;
     private int enemDMG;
@@ -9,7 +9,7 @@ public class enemy {
     private int enemDODGE;
 
 
-    public enemy(String enemName, int enemDMG, int enemLP, int enemDEF, int enemDODGE){
+    public Enemy(String enemName, int enemDMG, int enemLP, int enemDEF, int enemDODGE){
         this.enemName = enemName;
         this.enemDMG = enemDMG;
         this.enemLP = enemLP;

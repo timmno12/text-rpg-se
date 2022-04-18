@@ -1,16 +1,16 @@
 package setup;
 
-public class item {
+public class Item {
     private String itemName;
     private String itemDescription;
     private  int damageIncrease;
     private int defenseIncrease;
-    public item(String itemName, String itemDescription){
+    public Item(String itemName, String itemDescription){
         this.itemName = itemName;
         this.itemDescription = itemDescription;
     }
 
-    public item(String itemName, String itemDescription, int damageIncrease, int defenseIncrease){
+    public Item(String itemName, String itemDescription, int damageIncrease, int defenseIncrease){
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.damageIncrease = damageIncrease;

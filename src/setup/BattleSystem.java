@@ -2,16 +2,16 @@ package setup;
 
 import java.util.Random;
 
-public class battleSystem {
+public class BattleSystem {
 
     static Random random = new Random();
-    static user user = new user();
-    static enemy enemy = new enemy();
+    //static User user = new User();
+    //static Enemy enemy = new Enemy();
     static int min = 1;
     static int max = 10;
     static int rand;
-    static int tempUserLP = user.getUserLP();
-    static int tempEneLP = enemy.getEnemLP();
+  // static int tempUserLP = user.getUserLP();
+  //  static int tempEneLP = enemy.getEnemLP();
 
     /* Dodgelogik
     Es wird max + Dodge gerechnet. User kommt dabei zb auf Gesamtwert = (max =) 10 + (dodge =) 10 = 20. dann wird eine
@@ -35,7 +35,7 @@ public class battleSystem {
     Falls Dodge erfolgreich Wahrscheinlichkeit 50%, dass Crit
      */
 
-    static public void userDodge(user user, enemy enemy){
+    static public void userDodge(User user, Enemy enemy){
         int dodgeValue = max + user.getUserDODGE();
         rand = random.nextInt(dodgeValue+ min) + min;
         if(dodgeValue < max){
@@ -45,7 +45,7 @@ public class battleSystem {
         }
     }
 
-    static public void enemyDodge(user user, enemy enemy){
+    static public void enemyDodge(User user, Enemy enemy){
         int dodgeValue = max + enemy.getEnemDODGE();
         rand = random.nextInt(dodgeValue+ min) + min;
         if(dodgeValue < max){
@@ -55,7 +55,7 @@ public class battleSystem {
         }
     }
 
-    static public void enemyWasHit(user user, enemy enemy){
+    static public void enemyWasHit(User user, Enemy enemy){
 
         //Ene.LP - charDMG -> Berechnung DMG (zufällig gerollt) DEF einbeziehen
         //Ausgabe: Ene wurde getroffen
@@ -63,14 +63,14 @@ public class battleSystem {
 
     }
 
-    static public void enemyDodged(user user, enemy enemy){
+    static public void enemyDodged(User user, Enemy enemy){
 
         //Ausgabe: Ene wurde nicht getroffen
         userDodge(user, enemy);
     }
 
 
-    static public void userWasHit(user user, enemy enemy){
+    static public void userWasHit(User user, Enemy enemy){
 
         //Ene.LP - charDMG -> Berechnung DMG (zufällig gerollt) DEF einbeziehen
         //Ausgabe: Ene wurde getroffen
@@ -79,13 +79,13 @@ public class battleSystem {
 
     }
 
-    static public void userDodged(user user, enemy enemy){
+    static public void userDodged(User user, Enemy enemy){
 
         //Ausgabe: Du konntest ausweichen.
         enemyDodge(user, enemy);
     }
 
-    static public void lifepointChecker(user user, enemy enemy){
+    static public void lifepointChecker(User user, Enemy enemy){
         if(user.getUserLP() <= 0){
             //Ausgabe: Du wurdest besiegt
             //Aus battleSystem rausspringen
@@ -95,7 +95,7 @@ public class battleSystem {
             //Aus battleSystem rausspringen
         }
     }
-    static public void keepFighting(user user, enemy enemy){
+    static public void keepFighting(User user, Enemy enemy){
         //Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
         //Input: Ja -> enemyDodge(user, enemy); wird aufgerufen
         //Input: Nein -> battleSystem wird beendet

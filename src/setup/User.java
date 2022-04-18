@@ -1,6 +1,6 @@
 package setup;
 
-public class user {
+public class User {
     private String charName;
     private String chosenClass;
     private int userDMG;
@@ -10,7 +10,10 @@ public class user {
     private int userDEF;
     private int userDODGE;
 
-    public user(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE) {
+
+    //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen
+    //TODO Eventuell durch Index einer Liste -> Main Ablauf Klasse??!?!?
+    public User(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE) {
         this.charName = charName;
         this.chosenClass = chosenClass;
         this.userDMG = userDMG;

@@ -59,12 +59,12 @@ public class window {
     //für Custom stuff wie buttondesign
     private void createUIComponents() {
         //Scalierung des Bildest
-        ImageIcon bigcatCard = new ImageIcon("firstCard.png");
+        ImageIcon bigcatCard = new ImageIcon("src/GUI/resources/firstCard.png");
         Image catImage = bigcatCard.getImage();
         Image newCatImg = catImage.getScaledInstance(180,250,Image.SCALE_SMOOTH);
         ImageIcon smolCatCard = new ImageIcon(newCatImg);
         //Macht auf den button das Kartenbild
-        ImageLogo = new JButton(new ImageIcon("kartenIcon.png"));
+        ImageLogo = new JButton(new ImageIcon("src/GUI/resources/kartenIcon.png"));
 
         //Neues Label für die erste karte
         JLabel card1 = new JLabel();

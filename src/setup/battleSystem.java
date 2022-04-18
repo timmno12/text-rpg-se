@@ -5,10 +5,13 @@ import java.util.Random;
 public class battleSystem {
 
     static Random random = new Random();
+    static user user = new user();
+    static enemy enemy = new enemy();
     static int min = 1;
     static int max = 10;
-
     static int rand;
+    static int tempUserLP = user.getUserLP();
+    static int tempEneLP = enemy.getEnemLP();
 
     /* Dodgelogik
     Es wird max + Dodge gerechnet. User kommt dabei zb auf Gesamtwert = (max =) 10 + (dodge =) 10 = 20. dann wird eine
@@ -19,8 +22,12 @@ public class battleSystem {
      */
 
     /*
+    TODO Am Ende des Kampfes müssen die LP zurück auf 100 gesetzt werden
+     */
+
+    /*
     TODO Wenn wir wollen, dass der User den Kampf unterbrechen kann, dann muss jeder Methodenaufruf enemyDodge umgewandelt
-    TODO werden in zb:   static public void keepfighting(){}
+    TODO werden in zb: static public void keepfighting(){}
     TODO enemyDodge beschreibt die Methode, wenn sich der Nutzer entscheidet anzugreifen (aka. userAttack sozusagen)
      */
 
@@ -52,8 +59,7 @@ public class battleSystem {
 
         //Ene.LP - charDMG -> Berechnung DMG (zufällig gerollt) DEF einbeziehen
         //Ausgabe: Ene wurde getroffen
-        //LifepointChecker
-        userDodge(user, enemy);
+        lifepointChecker(user, enemy);
 
     }
 
@@ -75,11 +81,24 @@ public class battleSystem {
 
     static public void userDodged(user user, enemy enemy){
 
-        //Ausgabe: Du wurdest nicht getroffen
+        //Ausgabe: Du konntest ausweichen.
         enemyDodge(user, enemy);
     }
 
-    static public void LifepointChecker(user user, enemy enemy){
-
+    static public void lifepointChecker(user user, enemy enemy){
+        if(user.getUserLP() <= 0){
+            //Ausgabe: Du wurdest besiegt
+            //Aus battleSystem rausspringen
+        }
+        if(enemy.getEnemLP() <= 0){
+            //Ausgabe: Der Gegener wurde besiegt
+            //Aus battleSystem rausspringen
+        }
     }
+    static public void keepFighting(user user, enemy enemy){
+        //Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
+        //Input: Ja -> enemyDodge(user, enemy); wird aufgerufen
+        //Input: Nein -> battleSystem wird beendet
+    }
+
 }

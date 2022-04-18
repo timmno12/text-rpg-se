@@ -1,4 +1,4 @@
-package window_mika_try;
+package setup;
 
 import javax.swing.*;
 
@@ -13,7 +13,7 @@ public class UserInputService {
 
 
     public static void receiveUserInput(JTextField userInput, JTextArea mainTextShow) {
-        mainTextShow.append("\\>" + userInput.getText() + "\n");
+        mainTextShow.append(">" + userInput.getText() + "\n");
 
 
         mainTextShow.append("NPC: " + ReactionToUserInput.reactToUserInput(userInput) + "\n");

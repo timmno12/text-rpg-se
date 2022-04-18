@@ -1,4 +1,4 @@
-package window_mika_try;
+package setup;
 
 import javax.swing.*;
 import java.util.Map;

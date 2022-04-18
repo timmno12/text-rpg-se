@@ -1,4 +1,6 @@
-package window_mika_try;
+package GUI;
+
+import setup.UserInputService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class bennytestet {
+public class window {
     private JTextArea location;
     private JTextArea playerlvl;
     private JTextArea livepoints;
@@ -19,7 +21,7 @@ public class bennytestet {
     private int currentLvl = 5;
     private int currentLivePoints = 10;
 
-    public bennytestet(){
+    public window(){
         location.setText("Ort: " + currentLocation);
         playerlvl.setText("LVL: " + String.valueOf(currentLvl));
         livepoints.setText("LP: " + String.valueOf(currentLivePoints));
@@ -48,7 +50,7 @@ public class bennytestet {
     public static void main(String[] args) {
         JFrame window = new JFrame("Benny hat Spaß");
         window.setResizable(false);
-        window.setContentPane(new bennytestet().mainPanel);
+        window.setContentPane(new window().mainPanel);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(1280, 720);
         window.setLocationRelativeTo(null);
@@ -57,12 +59,12 @@ public class bennytestet {
     //für Custom stuff wie buttondesign
     private void createUIComponents() {
         //Scalierung des Bildest
-        ImageIcon bigcatCard = new ImageIcon("test.png");
+        ImageIcon bigcatCard = new ImageIcon("firstCard.png");
         Image catImage = bigcatCard.getImage();
         Image newCatImg = catImage.getScaledInstance(180,250,Image.SCALE_SMOOTH);
         ImageIcon smolCatCard = new ImageIcon(newCatImg);
         //Macht auf den button das Kartenbild
-        ImageLogo = new JButton(new ImageIcon("kartenTry.png"));
+        ImageLogo = new JButton(new ImageIcon("kartenIcon.png"));
 
         //Neues Label für die erste karte
         JLabel card1 = new JLabel();

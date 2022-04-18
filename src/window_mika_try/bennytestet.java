@@ -68,12 +68,14 @@ public class bennytestet {
         JLabel card1 = new JLabel();
         card1.setIcon(smolCatCard);
         card1.setHorizontalAlignment(JLabel.LEFT);
+        card1.setBackground(Color.black);
         JFrame cardFrame = new JFrame("Your collected Cards");
         cardFrame.setSize(800,500);
         cardFrame.setResizable(false);
         cardFrame.add(card1);
         cardFrame.setLocationRelativeTo(null);
         cardFrame.setVisible(false);
+        cardFrame.getContentPane().setBackground(Color.black);
 
         ImageLogo.addActionListener(new ActionListener() {
             @Override

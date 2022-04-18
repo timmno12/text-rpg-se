@@ -7,6 +7,7 @@ public class battleSystem {
     static Random random = new Random();
     static int min = 1;
     static int max = 10;
+
     static int rand;
 
     /* Dodgelogik
@@ -15,6 +16,12 @@ public class battleSystem {
     dass zufallszahl > max ist.
     Bsp1: User -> DOD=2, Gesamtwert = 12 -> max/gesamtwert = 10/12 = 5/6 -> Wahrscheinlichkeit von 83,3% getroffen zu werden
     Bsp2: User -> DOD=10, Gesamtwert = 20 -> max/gesamtwert = 10/20 = 1/2 -> Wahrscheinlichkeit von 50% getroffen zu werden
+     */
+
+    /*
+    TODO Wenn wir wollen, dass der User den Kampf unterbrechen kann, dann muss jeder Methodenaufruf enemyDodge umgewandelt
+    TODO werden in zb:   static public void keepfighting(){}
+    TODO enemyDodge beschreibt die Methode, wenn sich der Nutzer entscheidet anzugreifen (aka. userAttack sozusagen)
      */
 
     /* Critlogik
@@ -45,7 +52,8 @@ public class battleSystem {
 
         //Ene.LP - charDMG -> Berechnung DMG (zufällig gerollt) DEF einbeziehen
         //Ausgabe: Ene wurde getroffen
-        //enemy greift an
+        //LifepointChecker
+        userDodge(user, enemy);
 
     }
 
@@ -60,7 +68,8 @@ public class battleSystem {
 
         //Ene.LP - charDMG -> Berechnung DMG (zufällig gerollt) DEF einbeziehen
         //Ausgabe: Ene wurde getroffen
-        //enemy greift an
+        //LifepointChecker
+        enemyDodge(user, enemy);
 
     }
 

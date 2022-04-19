@@ -48,7 +48,7 @@
               <text value="test"/>
             </properties>
           </component>
-          <component id="c3cd4" class="javax.swing.JTextArea" binding="livepoints">
+          <component id="c3cd4" class="javax.swing.JTextArea" binding="lifepoints">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>

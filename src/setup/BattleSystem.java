@@ -80,7 +80,7 @@ public class BattleSystem {
         //Zufallsfaktor in DMG des Users
         rand2 = (random.nextInt((max + user.getUserDMG()) + (min + user.getUserDMG())) + min);
         int resultDEF = (rand / DEFValue) * balanceValue;
-        enemy.getEnemLP() = enemy.getEnemLP() - ((1.0 - resultDEF) * rand2);
+        //enemy.getEnemLP() = enemy.getEnemLP() - ((1.0 - resultDEF) * rand2);
         //TODO Ausgabe: Ene wurde getroffen
         lifepointChecker(user, enemy);
         userDodge(user, enemy);
@@ -101,7 +101,7 @@ public class BattleSystem {
         //Zufallsfaktor in DMG des Enemies
         rand2 = (random.nextInt((max + enemy.getEnemDMG()) + (min + enemy.getEnemDMG())) + min);
         int resultDEF = (rand / DEFValue) * balanceValue;
-        user.getUserLP() = user.getUserLP() - ((1.0 - resultDEF) * rand2);
+        //user.getUserLP() = user.getUserLP() - ((1.0 - resultDEF) * rand2);
         //TODO Ausgabe: Du wurdest getroffen
         lifepointChecker(user, enemy);
         keepFighting(user, enemy); //oder enemyDodge(user, enemy);

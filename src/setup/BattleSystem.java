@@ -9,6 +9,8 @@ public class BattleSystem {
     static int max = 10;
     static int rand;
     static int rand2;
+    static boolean crit = false;
+    static int critValue = 3/2; //-> 1.5 entspricht einem Crit von 50% extra auf den normalen Schaden
 
     /* Dodgelogik
     Es wird max + Dodge gerechnet. User kommt dabei zb auf Gesamtwert = (max =) 10 + (dodge =) 10 = 20. dann wird eine
@@ -75,12 +77,21 @@ public class BattleSystem {
     static public void enemyWasHit(User user, Enemy enemy){
         int DEFValue = max + enemy.getEnemDEF();
         int balanceValue = 1/2;
+
         //Zufallsfaktor in DEF des Enemy, zuerst random zahl zwischen min und max gepickt und dann + enemy.DEF gerechnet
         rand = (random.nextInt(max + min) + min) + enemy.getEnemDEF();
-        //Zufallsfaktor in DMG des Users
-        rand2 = (random.nextInt((max + user.getUserDMG()) + (min + user.getUserDMG())) + min);
+
+        //Zufallsfaktor in DMG des Users und Crit
+        if(crit == true){
+            rand2 = (random.nextInt((max + user.getUserDMG()) + (min + user.getUserDMG())) + min) * critValue;
+        } else{
+            rand2 = (random.nextInt((max + user.getUserDMG()) + (min + user.getUserDMG())) + min);
+        }
+
         int resultDEF = (rand / DEFValue) * balanceValue;
         //enemy.getEnemLP() = enemy.getEnemLP() - ((1.0 - resultDEF) * rand2);
+        crit = false;
+
         //TODO Ausgabe: Ene wurde getroffen
         lifepointChecker(user, enemy);
         userDodge(user, enemy);
@@ -90,6 +101,7 @@ public class BattleSystem {
 
         //TODO Ausgabe: Ene konnte ausweichen und wurde nicht getroffen.
         userDodge(user, enemy);
+        crit = true;
     }
 
 
@@ -98,10 +110,16 @@ public class BattleSystem {
         int balanceValue = 1/2;
         //Zufallsfaktor in DEF des Users zuerst random zahl zwischen min und max gepickt und dann + user.DEF gerechnet
         rand = (random.nextInt(max + min) + min) + user.getUserDEF();
-        //Zufallsfaktor in DMG des Enemies
-        rand2 = (random.nextInt((max + enemy.getEnemDMG()) + (min + enemy.getEnemDMG())) + min);
+
+        //Zufallsfaktor in DMG des Enemies und Crit
+        if(crit == true){
+            rand2 = (random.nextInt((max + enemy.getEnemDMG()) + (min + enemy.getEnemDMG())) + min) * critValue;
+        } else {
+            rand2 = (random.nextInt((max + enemy.getEnemDMG()) + (min + enemy.getEnemDMG())) + min);
+        }
         int resultDEF = (rand / DEFValue) * balanceValue;
         //user.getUserLP() = user.getUserLP() - ((1.0 - resultDEF) * rand2);
+        crit = false;
         //TODO Ausgabe: Du wurdest getroffen
         lifepointChecker(user, enemy);
         keepFighting(user, enemy); //oder enemyDodge(user, enemy);
@@ -111,6 +129,7 @@ public class BattleSystem {
     static public void userDodged(User user, Enemy enemy){
 
         //TODO Ausgabe: Du konntest ausweichen.
+        crit = true;
         keepFighting(user, enemy); //oder enemyDodge(user, enemy);
     }
 

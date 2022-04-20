@@ -4,13 +4,17 @@ import java.util.Random;
 
 public class BattleSystem {
 
+    // TODO: Falls LP-Potions eingebaut werden muss nochmal über die keepfighting geschaut werden in Hinblick auf tempLP
+
     static Random random = new Random();
     static int min = 1;
     static int max = 10;
-    static int rand;
-    static int rand2;
+    static float rand;
+    static float rand2;
     static boolean crit = false;
-    static int critValue = 3/2; //-> 1.5 entspricht einem Crit von 50% extra auf den normalen Schaden
+    static float critValue = 1.5f; //-> 1.5 entspricht einem Crit von 50% extra auf den normalen Schaden
+    static float tempUserLP;
+    static float tempEnemLP;
 
     /* Dodgelogik
     Es wird max + Dodge gerechnet. User kommt dabei zb auf Gesamtwert = (max =) 10 + (dodge =) 10 = 20. dann wird eine
@@ -41,22 +45,20 @@ public class BattleSystem {
      */
 
     /*
-    TODO Am Ende des Kampfes müssen die LP zurück auf 100 gesetzt werden
-     */
-
-    /*
     TODO Wenn wir wollen, dass der User den Kampf unterbrechen kann, dann muss jeder Methodenaufruf enemyDodge umgewandelt
     TODO werden in zb: static public void keepfighting(){}
     TODO enemyDodge beschreibt die Methode, wenn sich der Nutzer entscheidet anzugreifen (aka. userAttack sozusagen)
      */
 
-    /* Critlogik
-    Falls Dodge erfolgreich Wahrscheinlichkeit 50%, dass Crit
-     */
+    static public void startFight(User user, Enemy enemy){
+        tempUserLP = user.getUserLP();
+        tempEnemLP = enemy.getEnemLP();
+        enemyDodge(user, enemy);
+    }
 
     static public void userDodge(User user, Enemy enemy){
         int dodgeValue = max + user.getUserDODGE();
-        rand = random.nextInt(dodgeValue+ min) + min;
+        rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
         if(dodgeValue < max){
             userWasHit(user, enemy);
         } else {
@@ -66,7 +68,7 @@ public class BattleSystem {
 
     static public void enemyDodge(User user, Enemy enemy){
         int dodgeValue = max + enemy.getEnemDODGE();
-        rand = random.nextInt(dodgeValue+ min) + min;
+        rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
         if(dodgeValue < max){
             enemyWasHit(user, enemy);
         } else {
@@ -79,17 +81,17 @@ public class BattleSystem {
         int balanceValue = 1/2;
 
         //Zufallsfaktor in DEF des Enemy, zuerst random zahl zwischen min und max gepickt und dann + enemy.DEF gerechnet
-        rand = (random.nextInt(max + min) + min) + enemy.getEnemDEF();
+        rand = ((random.nextInt((max - min)+1) + min) + enemy.getEnemDEF()) / 1.0f;
 
         //Zufallsfaktor in DMG des Users und Crit
         if(crit == true){
-            rand2 = (random.nextInt((max + user.getUserDMG()) + (min + user.getUserDMG())) + min) * critValue;
+            rand2 = (random.nextInt((max + user.getUserDMG()) - (min + user.getUserDMG())+ 1) + min + user.getUserDMG()) * critValue;
         } else{
-            rand2 = (random.nextInt((max + user.getUserDMG()) + (min + user.getUserDMG())) + min);
+            rand2 = (random.nextInt((max + user.getUserDMG()) - (min + user.getUserDMG()) + 1) + min + user.getUserDMG());
         }
 
-        int resultDEF = (rand / DEFValue) * balanceValue;
-        //enemy.getEnemLP() = enemy.getEnemLP() - ((1.0 - resultDEF) * rand2);
+        float resultDEF = (rand / DEFValue) * balanceValue;
+        tempEnemLP = tempEnemLP - ((1.0f - resultDEF) * rand2);
         crit = false;
 
         //TODO Ausgabe: Ene wurde getroffen
@@ -108,35 +110,36 @@ public class BattleSystem {
     static public void userWasHit(User user, Enemy enemy){
         int DEFValue = max + user.getUserDEF();
         int balanceValue = 1/2;
+
         //Zufallsfaktor in DEF des Users zuerst random zahl zwischen min und max gepickt und dann + user.DEF gerechnet
-        rand = (random.nextInt(max + min) + min) + user.getUserDEF();
+        rand = (random.nextInt((max - min) +1) + min) + user.getUserDEF();
 
         //Zufallsfaktor in DMG des Enemies und Crit
         if(crit == true){
-            rand2 = (random.nextInt((max + enemy.getEnemDMG()) + (min + enemy.getEnemDMG())) + min) * critValue;
+            rand2 = (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG())+ 1) + min + enemy.getEnemDMG()) * critValue;
         } else {
-            rand2 = (random.nextInt((max + enemy.getEnemDMG()) + (min + enemy.getEnemDMG())) + min);
+            rand2 = (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG())+ 1) + min + enemy.getEnemDMG());
         }
-        int resultDEF = (rand / DEFValue) * balanceValue;
-        //user.getUserLP() = user.getUserLP() - ((1.0 - resultDEF) * rand2);
+
+        float resultDEF = (rand / DEFValue) * balanceValue;
+        tempUserLP = tempUserLP - ((1.0f - resultDEF) * rand2);
         crit = false;
+
         //TODO Ausgabe: Du wurdest getroffen
         lifepointChecker(user, enemy);
-        keepFighting(user, enemy); //oder enemyDodge(user, enemy);
-
+        keepFighting(user, enemy);
     }
 
     static public void userDodged(User user, Enemy enemy){
 
         //TODO Ausgabe: Du konntest ausweichen.
         crit = true;
-        keepFighting(user, enemy); //oder enemyDodge(user, enemy);
+        keepFighting(user, enemy);
     }
 
     static public void lifepointChecker(User user, Enemy enemy){
         if(user.getUserLP() <= 0){
             //TODO Ausgabe: Du wurdest besiegt
-            //user.getLP werden wieder hergestellt
             //Aus battleSystem rausspringen
         }
         if(enemy.getEnemLP() <= 0){
@@ -145,15 +148,14 @@ public class BattleSystem {
         }
     }
 
-
     static public void keepFighting(User user, Enemy enemy){
         /*
         //TODO Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
-        if(User Input: "yes"){
+        if(User eInput: "ys"){
             enemyDodge(user, enemy);
         }
         if(User Input: "no"){
-            //battleSystem wird beendet, LP werden wieder hergestellt
+            //battleSystem wird beendet
         } else{
             //Output "Tell me. Do you want to keep fighting? Yes or no?"
         } */

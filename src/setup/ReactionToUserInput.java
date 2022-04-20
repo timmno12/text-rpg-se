@@ -19,8 +19,6 @@ public class ReactionToUserInput {
 
     public ReactionToUserInput() {
         this.userInput = userInput;
-
-
     }
 
 
@@ -31,12 +29,20 @@ public class ReactionToUserInput {
 
         }
 
-        if (dialogues.get(userInput.getText()) != null) {
+        //Überprüft mit welchem Command der eingegebene Text beginnt und verarbeitet anschließend den darauf folgenden restlichen Text.
+        if (userInput.getText().startsWith("say ")) {
+            String text = userInput.getText().replace("say ", "");
 
-            return dialogues.get(userInput.getText());
-        } else {
-            return "This is unbelievable !";
+            if (dialogues.get(text) != null) {
+
+                return dialogues.get(text);
+            } else {
+                return "This is unbelievable !";
+            }
+        } else{
+            return "command not found";
         }
+
 
 
     }

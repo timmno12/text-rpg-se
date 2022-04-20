@@ -95,7 +95,7 @@ public class BattleSystem {
         crit = false;
 
         //TODO Ausgabe: Ene wurde getroffen
-        lifepointChecker(user, enemy);
+        lifepointChecker();
         userDodge(user, enemy);
     }
 
@@ -126,7 +126,7 @@ public class BattleSystem {
         crit = false;
 
         //TODO Ausgabe: Du wurdest getroffen
-        lifepointChecker(user, enemy);
+        lifepointChecker();
         keepFighting(user, enemy);
     }
 
@@ -137,28 +137,27 @@ public class BattleSystem {
         keepFighting(user, enemy);
     }
 
-    static public void lifepointChecker(User user, Enemy enemy){
-        if(user.getUserLP() <= 0){
+    static public void lifepointChecker(){
+        if(tempUserLP<= 0){
             //TODO Ausgabe: Du wurdest besiegt
             //Aus battleSystem rausspringen
         }
-        if(enemy.getEnemLP() <= 0){
+        if(tempEnemLP <= 0){
             //TODO Ausgabe: Der Gegener wurde besiegt
             //Aus battleSystem rausspringen
         }
     }
 
     static public void keepFighting(User user, Enemy enemy){
-        /*
+
         //TODO Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
-        if(User eInput: "ys"){
+        if(user.getUserLP()*0.3f > tempUserLP){
+            //Window abfrage: still wanna fight?
+            //UserInputService.sendWindowMessage();
+
+        }else{
             enemyDodge(user, enemy);
         }
-        if(User Input: "no"){
-            //battleSystem wird beendet
-        } else{
-            //Output "Tell me. Do you want to keep fighting? Yes or no?"
-        } */
     }
 
 }

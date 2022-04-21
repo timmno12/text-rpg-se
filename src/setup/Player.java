@@ -1,6 +1,8 @@
 package setup;
 
-public class User {
+import java.util.ArrayList;
+
+public class Player {
     private String charName;
     private String chosenClass;
     private int userDMG;
@@ -10,16 +12,19 @@ public class User {
     private int userDEF;
     private int userDODGE;
 
+    private ArrayList<Item> itemList = new ArrayList<Item>();
+
 
     //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen
     //TODO Eventuell durch Index einer Liste -> Main Ablauf Klasse??!?!?
-    public User(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE) {
+    public Player(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE, ArrayList<Item> itemList) {
         this.charName = charName;
         this.chosenClass = chosenClass;
         this.userDMG = userDMG;
         this.userLP = userLP;
         this.userDEF = userDEF;
         this.userDODGE = userDODGE;
+        this.itemList = itemList;
     }
 
     public String getCharName() {

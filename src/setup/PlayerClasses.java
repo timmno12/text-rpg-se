@@ -1,6 +1,6 @@
 package setup;
 
-public class Classes {
+public class PlayerClasses {
     private String className;
     private int classLP;
     private int classATK;
@@ -8,7 +8,7 @@ public class Classes {
     private int classDodge;
 
 
-    public Classes(String className, int classLP, int classATK, int classDEF, int classDodge) {
+    public PlayerClasses(String className, int classLP, int classATK, int classDEF, int classDodge) {
         this.className = className;
         this.classLP = classLP;
         this.classATK = classATK;
@@ -16,6 +16,6 @@ public class Classes {
         this.classDodge = classDodge;
     }
 
-    public Classes baseClass = new Classes("Basis Klasse", 100,7,7,6);
+    public PlayerClasses baseClass = new PlayerClasses("Basis Klasse", 100,7,7,6);
 
 }

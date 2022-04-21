@@ -7,6 +7,7 @@ public class BattleSystem {
     // TODO: Falls LP-Potions eingebaut werden muss nochmal über die keepfighting geschaut werden in Hinblick auf tempLP
 
     static Random random = new Random();
+
     static int min = 1;
     static int max = 10;
     static float rand;
@@ -50,33 +51,33 @@ public class BattleSystem {
     TODO enemyDodge beschreibt die Methode, wenn sich der Nutzer entscheidet anzugreifen (aka. userAttack sozusagen)
      */
 
-    static public void startFight(User user, Enemy enemy){
-        tempUserLP = user.getUserLP();
+    static public void startFight(Player player, Enemy enemy){
+        tempUserLP = player.getUserLP();
         tempEnemLP = enemy.getEnemLP();
-        enemyDodge(user, enemy);
+        enemyDodge(player, enemy);
     }
 
-    static public void userDodge(User user, Enemy enemy){
-        int dodgeValue = max + user.getUserDODGE();
+    static public void userDodge(Player player, Enemy enemy){
+        int dodgeValue = max + player.getUserDODGE();
         rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
         if(dodgeValue < max){
-            userWasHit(user, enemy);
+            userWasHit(player, enemy);
         } else {
-            userDodged(user, enemy);
+            userDodged(player, enemy);
         }
     }
 
-    static public void enemyDodge(User user, Enemy enemy){
+    static public void enemyDodge(Player player, Enemy enemy){
         int dodgeValue = max + enemy.getEnemDODGE();
         rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
         if(dodgeValue < max){
-            enemyWasHit(user, enemy);
+            enemyWasHit(player, enemy);
         } else {
-            enemyDodged(user, enemy);
+            enemyDodged(player, enemy);
         }
     }
 
-    static public void enemyWasHit(User user, Enemy enemy){
+    static public void enemyWasHit(Player player, Enemy enemy){
         int DEFValue = max + enemy.getEnemDEF();
         int balanceValue = 1/2;
 
@@ -85,9 +86,9 @@ public class BattleSystem {
 
         //Zufallsfaktor in DMG des Users und Crit
         if(crit == true){
-            rand2 = (random.nextInt((max + user.getUserDMG()) - (min + user.getUserDMG())+ 1) + min + user.getUserDMG()) * critValue;
+            rand2 = (random.nextInt((max + player.getUserDMG()) - (min + player.getUserDMG())+ 1) + min + player.getUserDMG()) * critValue;
         } else{
-            rand2 = (random.nextInt((max + user.getUserDMG()) - (min + user.getUserDMG()) + 1) + min + user.getUserDMG());
+            rand2 = (random.nextInt((max + player.getUserDMG()) - (min + player.getUserDMG()) + 1) + min + player.getUserDMG());
         }
 
         float resultDEF = (rand / DEFValue) * balanceValue;
@@ -96,23 +97,23 @@ public class BattleSystem {
 
         //TODO Ausgabe: Ene wurde getroffen
         lifepointChecker();
-        userDodge(user, enemy);
+        userDodge(player, enemy);
     }
 
-    static public void enemyDodged(User user, Enemy enemy){
+    static public void enemyDodged(Player player, Enemy enemy){
 
         //TODO Ausgabe: Ene konnte ausweichen und wurde nicht getroffen.
-        userDodge(user, enemy);
+        userDodge(player, enemy);
         crit = true;
     }
 
 
-    static public void userWasHit(User user, Enemy enemy){
-        int DEFValue = max + user.getUserDEF();
+    static public void userWasHit(Player player, Enemy enemy){
+        int DEFValue = max + player.getUserDEF();
         int balanceValue = 1/2;
 
         //Zufallsfaktor in DEF des Users zuerst random zahl zwischen min und max gepickt und dann + user.DEF gerechnet
-        rand = (random.nextInt((max - min) +1) + min) + user.getUserDEF();
+        rand = (random.nextInt((max - min) +1) + min) + player.getUserDEF();
 
         //Zufallsfaktor in DMG des Enemies und Crit
         if(crit == true){
@@ -127,14 +128,14 @@ public class BattleSystem {
 
         //TODO Ausgabe: Du wurdest getroffen
         lifepointChecker();
-        keepFighting(user, enemy);
+        keepFighting(player, enemy);
     }
 
-    static public void userDodged(User user, Enemy enemy){
+    static public void userDodged(Player player, Enemy enemy){
 
         //TODO Ausgabe: Du konntest ausweichen.
         crit = true;
-        keepFighting(user, enemy);
+        keepFighting(player, enemy);
     }
 
     static public void lifepointChecker(){
@@ -148,15 +149,15 @@ public class BattleSystem {
         }
     }
 
-    static public void keepFighting(User user, Enemy enemy){
+    static public void keepFighting(Player player, Enemy enemy){
 
         //TODO Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
-        if(user.getUserLP()*0.3f > tempUserLP){
+        if(player.getUserLP()*0.3f > tempUserLP){
             //Window abfrage: still wanna fight?
             //UserInputService.sendWindowMessage();
 
         }else{
-            enemyDodge(user, enemy);
+            enemyDodge(player, enemy);
         }
     }
 

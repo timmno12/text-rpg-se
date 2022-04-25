@@ -85,8 +85,9 @@
               <editable value="false"/>
               <enabled value="true"/>
               <foreground color="-1"/>
-              <lineWrap value="false"/>
+              <lineWrap value="true"/>
               <rows value="0"/>
+              <wrapStyleWord value="true"/>
             </properties>
           </component>
         </children>

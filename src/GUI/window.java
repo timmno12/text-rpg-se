@@ -1,5 +1,8 @@
 package GUI;
 
+import setup.Spawner;
+import setup.StoryTracker;
+import setup.Target;
 import setup.UserInputService;
 
 import javax.swing.*;
@@ -8,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 public class window {
     private JTextArea location;
@@ -17,7 +21,7 @@ public class window {
     private JTextField input;
     private JPanel mainPanel;
     private JButton ImageLogo;
-    private String currentLocation = "Haus";
+    private String currentLocation = "Cage";
     private int currentLvl = 5;
     private int currentLivePoints = 10;
 
@@ -25,8 +29,12 @@ public class window {
         location.setText("Ort: " + currentLocation);
         playerlvl.setText("LVL: " + String.valueOf(currentLvl));
         lifepoints.setText("LP: " + String.valueOf(currentLivePoints));
+        StoryTracker storyTracker = new StoryTracker();
+        ArrayList<Target> targets = new ArrayList<>();
+        Spawner spawner = new Spawner();
+        spawner.spawnObjects(storyTracker.getLocation(),targets);
 
-
+        //TODO: if player hasnt been created -> create new player (work with spawner)
         input.addKeyListener(new KeyAdapter() {
 
             @Override
@@ -36,7 +44,7 @@ public class window {
                 if (key == KeyEvent.VK_ENTER) {
                     //mainTextShow.append("Playername : " + userInput.getText() + "\n");
                     if(input.getText().length() > 0) {
-                        UserInputService.receiveUserInput(input, storyfield);
+                        UserInputService.receiveUserInput(input, storyfield, storyTracker.getLocation(),targets);
                     }
 
 
@@ -45,7 +53,9 @@ public class window {
             }
         });
     }
-
+    public void sendMessageFromBackend(String message){
+        storyfield.append("Gott: " + message + "\n");
+    }
 
     public static void main(String[] args) {
         JFrame window = new JFrame("Benny hat Spaß");

@@ -13,11 +13,11 @@ public class Player {
     private int userDODGE;
 
     private ArrayList<Item> itemList = new ArrayList<Item>();
-
+    private String location;
 
     //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen
     //TODO Eventuell durch Index einer Liste -> Main Ablauf Klasse??!?!?
-    public Player(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE, ArrayList<Item> itemList) {
+    public Player(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE, ArrayList<Item> itemList, String location) {
         this.charName = charName;
         this.chosenClass = chosenClass;
         this.userDMG = userDMG;
@@ -25,6 +25,7 @@ public class Player {
         this.userDEF = userDEF;
         this.userDODGE = userDODGE;
         this.itemList = itemList;
+        this.location = location;
     }
 
     public String getCharName() {
@@ -73,5 +74,13 @@ public class Player {
 
     public void setUserDODGE(int userDODGE) {
         this.userDODGE = userDODGE;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

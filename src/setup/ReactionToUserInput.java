@@ -37,10 +37,11 @@ public class ReactionToUserInput {
                 if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.equalsIgnoreCase(t.getName())){
                     System.out.println(firstWord);
                     return storyHandler.handle(t,targets);
-                    }else if (firstWord.equalsIgnoreCase("attack")){
-                            //battle handler
-                            return "Into battle!!";
                     }
+//                    else if (firstWord.equalsIgnoreCase("attack")){
+//                            //battle handler
+//                            return "Into battle!!";
+//                    }
 
             }
         }

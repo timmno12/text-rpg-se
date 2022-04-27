@@ -19,7 +19,8 @@ public class StoryHandler {
             }
             // TODO: Check state of objects in location(here: targets).
             //  The targets list given to handle() is going to get changed to a list with different classes (Enemy,Item,etc.) -> some superclass maybe
-            //  Change the targets ArrayList<> (in window, spawner and everywhere)
+            //  Change the targets ArrayList<> (in window, spawner and everywhere
+            //  Maybe: check state , set a state to get into battleHandler from here, set a State to get into Basic Handler
         }
         return "";
     }

@@ -17,7 +17,22 @@ public class window {
     private JTextArea location;
     private JTextArea playerlvl;
     private JTextArea lifepoints;
+
     private JTextArea storyfield;
+
+    private boolean nameEntered = false;
+    private boolean animalChosen = false;
+
+    public String getTempPlayerName() {
+        return tempPlayerName;
+    }
+
+    public void setTempPlayerName(String tempPlayerName) {
+        this.tempPlayerName = tempPlayerName;
+    }
+
+    private String tempPlayerName;
+
     private JTextField input;
     private JPanel mainPanel;
     private JButton ImageLogo;
@@ -33,20 +48,39 @@ public class window {
         ArrayList<Target> targets = new ArrayList<>();
         Spawner spawner = new Spawner();
         spawner.spawnObjects(storyTracker.getLocation(),targets);
+        sendMessageFromBackend("What is your name, fellow Traveller?");
 
         //TODO: if player hasnt been created -> create new player (work with spawner)
         input.addKeyListener(new KeyAdapter() {
 
             @Override
             public void keyPressed(KeyEvent e) {
+
                 int key = e.getKeyCode();
                 super.keyPressed(e);
                 if (key == KeyEvent.VK_ENTER) {
                     //mainTextShow.append("Playername : " + userInput.getText() + "\n");
                     if(input.getText().length() > 0) {
-                        UserInputService.receiveUserInput(input, storyfield, storyTracker.getLocation(),targets);
-                    }
+                        if (!nameEntered && !animalChosen) {
+                            storyfield.append(">" + input.getText() + "\n");
+                            setTempPlayerName(input.getText());
+                            sendMessageFromBackend("Hello " + getTempPlayerName() + ". Which animal do you wanna be - \n" +
+                                    "Basic: Attack: 7, Defense: 7, Dodge: 6\n" +
+                                    "Mouse: Attack: 9, Defense: 10, Dodge: 1\n" +
+                                    "Squirrel: Attack: 10, Defense: 5, Dodge: 5\n" +
+                                    "Frog: Attack: 7, Defense: 3, Dodge: 10\n" +
+                                    "Enter the animal:");
+                            nameEntered = true;
+                            input.setText("");
+                        } else if (nameEntered && !animalChosen) {
+                            storyfield.append(">" + input.getText() + "\n");
+                            UserInputService.userSetup(input, storyfield, getTempPlayerName());
+                            animalChosen = true;
 
+                        } else {
+                            UserInputService.receiveUserInput(input, storyfield, storyTracker.getLocation(), targets);
+                        }
+                    }
 
                 }
 
@@ -54,17 +88,19 @@ public class window {
         });
     }
     public void sendMessageFromBackend(String message){
-        storyfield.append("Gott: " + message + "\n");
+        storyfield.append("God: " + message + "\n");
     }
 
     public static void main(String[] args) {
-        JFrame window = new JFrame("Benny hat Spaß");
+        JFrame window = new JFrame("Textadventure");
         window.setResizable(false);
         window.setContentPane(new window().mainPanel);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(1280, 720);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+
+
     }
     //für Custom stuff wie buttondesign
     private void createUIComponents() {

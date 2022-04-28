@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Player {
     private String charName;
+    private String animalName;
     private String chosenClass;
     private int userDMG;
 
@@ -17,9 +18,10 @@ public class Player {
 
     //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen
     //TODO Eventuell durch Index einer Liste -> Main Ablauf Klasse??!?!?
-    public Player(String charName, String chosenClass, int userDMG, int userLP, int userDEF, int userDODGE, ArrayList<Item> itemList, String location) {
+    public Player(String charName, PlayerClasses chosenClass/*, ArrayList<Item> itemList, String location */) {
         this.charName = charName;
-        this.chosenClass = chosenClass;
+        this.chosenClass = chosenClass.getClassName();
+        this.animalName = chosenClass.getAnimalName();
         this.userDMG = userDMG;
         this.userLP = userLP;
         this.userDEF = userDEF;
@@ -36,6 +38,14 @@ public class Player {
         this.charName = charName;
     }
 
+    public String getAnimalName() {
+        return animalName;
+    }
+
+    public void setAnimalName(String animalName) {
+        this.animalName = animalName;
+    }
+
     public String getChosenClass() {
         return chosenClass;
     }
@@ -43,7 +53,6 @@ public class Player {
     public void setChosenClass(String chosenClass) {
         this.chosenClass = chosenClass;
     }
-
     public int getUserDMG() {
         return userDMG;
     }

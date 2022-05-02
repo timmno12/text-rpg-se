@@ -13,7 +13,7 @@ public class ReactionToUserInput {
     private static String secondWord="";
 
 
-    public static String reactToUserInput(JTextField userInput, String location, ArrayList<Target> targets) {
+    public static String reactToUserInput(JTextField userInput, StoryTracker storyTracker, JTextArea location,ArrayList<Target> targets) {
         StoryHandler storyHandler = new StoryHandler();
         String input = userInput.getText();
         int spaceIndex = input.indexOf(" ");
@@ -31,12 +31,12 @@ public class ReactionToUserInput {
             secondWord = input.substring(spaceIndex+1);
         }
 
-        for (Target t:targets){
-            if (location.equalsIgnoreCase(t.getLocation())){
+        for (Target t:data.DATA){
+            if (storyTracker.getLocation().equalsIgnoreCase(t.getLocation())){
                 // check if valid command in location ->
                 if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.equalsIgnoreCase(t.getName())){
-                    System.out.println(firstWord);
-                    return storyHandler.handle(t,targets);
+
+                    return storyHandler.handle(t, storyTracker, location);
                     }
 //                    else if (firstWord.equalsIgnoreCase("attack")){
 //                            //battle handler

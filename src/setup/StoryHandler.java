@@ -1,5 +1,6 @@
 package setup;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class StoryHandler {
@@ -7,7 +8,13 @@ public class StoryHandler {
     // check if progress, check state of objects in location (dialog/norm text)
     private ArrayList<String> dialogue = new ArrayList<>();
     //gets target t, check state
-    public String handle(Target t, ArrayList<Target> targets){
+    public String handle(Target t, StoryTracker storyTracker, JTextArea location){
+
+        if (t.isProgression()){
+            storyTracker.progress();
+            location.setText("Location: "+storyTracker.getLocation());
+            t.setProgression(false);
+        }
         if(t.getState() == 10){
             return t.getDialogue();
         }

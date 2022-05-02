@@ -29,12 +29,12 @@ public class window {
     private JTextField input;
     private JPanel mainPanel;
     private JButton ImageLogo;
-    private String currentLocation = "Cage";
+    private String currentLocation = "???";
     private int currentLvl = 5;
     private int currentLivePoints = 10;
 
     public window(){
-        location.setText("Ort: " + currentLocation);
+        location.setText("Location: "+currentLocation);
         playerlvl.setText("LVL: " + String.valueOf(currentLvl));
         lifepoints.setText("LP: " + String.valueOf(currentLivePoints));
         StoryTracker storyTracker = new StoryTracker();
@@ -67,11 +67,11 @@ public class window {
                             input.setText("");
                         } else if (nameEntered && !animalChosen) {
                             storyfield.append(">" + input.getText() + "\n");
-                            UserInputService.userSetup(input, storyfield, player);
+                            UserInputService.userSetup(input, storyfield, player, storyTracker, location);
                             animalChosen = true;
 
                         } else {
-                            UserInputService.receiveUserInput(input, storyfield, storyTracker.getLocation(), targets);
+                            UserInputService.receiveUserInput(input, storyfield, storyTracker,location, targets);
                         }
                     }
 

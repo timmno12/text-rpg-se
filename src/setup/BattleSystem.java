@@ -1,6 +1,8 @@
 package setup;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BattleSystem {
 
@@ -8,10 +10,14 @@ public class BattleSystem {
 
     static Random random = new Random();
 
+    static long delayInMS = 2000;
+
     static int min = 1;
     static int max = 10;
     static float rand;
     static float rand2;
+
+    static float crit_rand;
     static boolean crit = false;
     static float critValue = 1.5f; //-> 1.5 entspricht einem Crit von 50% extra auf den normalen Schaden
     static float tempUserLP;
@@ -45,11 +51,10 @@ public class BattleSystem {
 
      */
 
-    /*
-    TODO Wenn wir wollen, dass der User den Kampf unterbrechen kann, dann muss jeder Methodenaufruf enemyDodge umgewandelt
-    TODO werden in zb: static public void keepfighting(){}
-    TODO enemyDodge beschreibt die Methode, wenn sich der Nutzer entscheidet anzugreifen (aka. userAttack sozusagen)
-     */
+    //Hinter jeder Ausgabe in die GUI wird ein Thread.sleep() für 2 Sekunden ausgelöst -> insgesamt 6stk
+
+
+
 
     static public void startFight(Player player, Enemy enemy){
         tempUserLP = player.getUserLP();
@@ -96,6 +101,12 @@ public class BattleSystem {
         crit = false;
 
         //TODO Ausgabe: Ene wurde getroffen
+        try {
+            Thread.sleep(delayInMS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         lifepointChecker();
         userDodge(player, enemy);
     }
@@ -103,8 +114,22 @@ public class BattleSystem {
     static public void enemyDodged(Player player, Enemy enemy){
 
         //TODO Ausgabe: Ene konnte ausweichen und wurde nicht getroffen.
+        try {
+            Thread.sleep(delayInMS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
         userDodge(player, enemy);
-        crit = true;
+
+
+        crit_rand = (random.nextInt(3 - 1 + 1) + 1);
+        if (crit_rand == 1){
+            crit = true;
+        } else {
+            crit = false;
+        }
     }
 
 
@@ -117,7 +142,7 @@ public class BattleSystem {
 
         //Zufallsfaktor in DMG des Enemies und Crit
         if(crit == true){
-            rand2 = (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG())+ 1) + min + enemy.getEnemDMG()) * critValue;
+            rand2 =  (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG())+ 1) + min + enemy.getEnemDMG())* critValue;
         } else {
             rand2 = (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG())+ 1) + min + enemy.getEnemDMG());
         }
@@ -127,6 +152,13 @@ public class BattleSystem {
         crit = false;
 
         //TODO Ausgabe: Du wurdest getroffen
+        try {
+            Thread.sleep(delayInMS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
         lifepointChecker();
         keepFighting(player, enemy);
     }
@@ -134,17 +166,42 @@ public class BattleSystem {
     static public void userDodged(Player player, Enemy enemy){
 
         //TODO Ausgabe: Du konntest ausweichen.
-        crit = true;
+        try {
+            Thread.sleep(delayInMS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        crit_rand = (random.nextInt(3 - 1 + 1) + 1);
+        if (crit_rand == 1){
+            crit = true;
+        } else {
+            crit = false;
+        }
         keepFighting(player, enemy);
     }
 
     static public void lifepointChecker(){
         if(tempUserLP<= 0){
             //TODO Ausgabe: Du wurdest besiegt
+            try {
+                Thread.sleep(delayInMS);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+
             //Aus battleSystem rausspringen
         }
         if(tempEnemLP <= 0){
             //TODO Ausgabe: Der Gegener wurde besiegt
+            try {
+                Thread.sleep(delayInMS);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+
             //Aus battleSystem rausspringen
         }
     }

@@ -18,10 +18,8 @@ public class Player {
 
     //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen
     //TODO Eventuell durch Index einer Liste -> Main Ablauf Klasse??!?!?
-    public Player(String charName, PlayerClasses chosenClass/*, ArrayList<Item> itemList, String location */) {
+    public Player(/*, ArrayList<Item> itemList, String location */) {
         this.charName = charName;
-        this.chosenClass = chosenClass.getClassName();
-        this.animalName = chosenClass.getAnimalName();
         this.userDMG = userDMG;
         this.userLP = userLP;
         this.userDEF = userDEF;
@@ -42,16 +40,15 @@ public class Player {
         return animalName;
     }
 
-    public void setAnimalName(String animalName) {
-        this.animalName = animalName;
+    public void setAnimalName(PlayerClasses chosenClass) {this.animalName = chosenClass.getAnimalName();
     }
 
     public String getChosenClass() {
         return chosenClass;
     }
 
-    public void setChosenClass(String chosenClass) {
-        this.chosenClass = chosenClass;
+    public void setChosenClass(PlayerClasses chosenClass) {
+        this.chosenClass = chosenClass.getClassName();
     }
     public int getUserDMG() {
         return userDMG;

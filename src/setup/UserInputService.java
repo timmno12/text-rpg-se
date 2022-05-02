@@ -28,7 +28,7 @@ public class UserInputService {
         userInput.setText("");
 
     }
-    public static void userSetup(JTextField userInput,JTextArea mainTextShow, String playerName){
+    public static void userSetup(JTextField userInput,JTextArea mainTextShow, Player player){
         PlayerClasses base = new PlayerClasses("Base","Base",100,7,7,6);
         PlayerClasses mage = new PlayerClasses("Mage","Squirrel",100,10,5,5);
         PlayerClasses warrior = new PlayerClasses("Warrior","Mouse",100,9,10,1);
@@ -39,17 +39,18 @@ public class UserInputService {
         playerClasses.add(mage);
         playerClasses.add(warrior);
         playerClasses.add(assassin);
-        ArrayList<String> className = new ArrayList<>();
-        className.add(base.getAnimalName());
-        className.add(mage.getAnimalName());
-        className.add(warrior.getAnimalName());
-        className.add(assassin.getAnimalName());
+        ArrayList<String> animalName = new ArrayList<>();
+        animalName.add(base.getAnimalName());
+        animalName.add(mage.getAnimalName());
+        animalName.add(warrior.getAnimalName());
+        animalName.add(assassin.getAnimalName());
 
-        for(String pc: className){
+        for(String pc: animalName){
             if(userInput.getText().equalsIgnoreCase(pc)){
-                int indexClass = className.indexOf(pc);
-                Player user = new Player(playerName,playerClasses.get(indexClass));
-                mainTextShow.append("You've choosen the " + user.getChosenClass() + "/" + user.getAnimalName() + "! Now the Story can begin!1\n");
+                int indexClass = animalName.indexOf(pc);
+                player.setChosenClass(playerClasses.get(indexClass));
+                player.setAnimalName(playerClasses.get(indexClass));
+                mainTextShow.append("You've choosen the " + player.getChosenClass() + "/" + player.getAnimalName() + "! Now the Story can begin!\n");
             }
         }
 

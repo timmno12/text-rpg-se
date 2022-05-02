@@ -4,6 +4,7 @@ import setup.Spawner;
 import setup.StoryTracker;
 import setup.Target;
 import setup.UserInputService;
+import setup.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,15 +24,7 @@ public class window {
     private boolean nameEntered = false;
     private boolean animalChosen = false;
 
-    public String getTempPlayerName() {
-        return tempPlayerName;
-    }
-
-    public void setTempPlayerName(String tempPlayerName) {
-        this.tempPlayerName = tempPlayerName;
-    }
-
-    private String tempPlayerName;
+    private Player player;
 
     private JTextField input;
     private JPanel mainPanel;
@@ -50,7 +43,7 @@ public class window {
         spawner.spawnObjects(storyTracker.getLocation(),targets);
         sendMessageFromBackend("What is your name, fellow Traveller?");
 
-        //TODO: if player hasnt been created -> create new player (work with spawner)
+        player = spawner.spawnPlayer();
         input.addKeyListener(new KeyAdapter() {
 
             @Override
@@ -63,9 +56,9 @@ public class window {
                     if(input.getText().length() > 0) {
                         if (!nameEntered && !animalChosen) {
                             storyfield.append(">" + input.getText() + "\n");
-                            setTempPlayerName(input.getText());
-                            sendMessageFromBackend("Hello " + getTempPlayerName() + ". Which animal do you wanna be - \n" +
-                                    "Basic: Attack: 7, Defense: 7, Dodge: 6\n" +
+                            player.setCharName(input.getText());
+                            sendMessageFromBackend("Hello " + player.getCharName() + ". Which animal do you wanna be - \n" +
+                                    "Base: Attack: 7, Defense: 7, Dodge: 6\n" +
                                     "Mouse: Attack: 9, Defense: 10, Dodge: 1\n" +
                                     "Squirrel: Attack: 10, Defense: 5, Dodge: 5\n" +
                                     "Frog: Attack: 7, Defense: 3, Dodge: 10\n" +
@@ -74,7 +67,7 @@ public class window {
                             input.setText("");
                         } else if (nameEntered && !animalChosen) {
                             storyfield.append(">" + input.getText() + "\n");
-                            UserInputService.userSetup(input, storyfield, getTempPlayerName());
+                            UserInputService.userSetup(input, storyfield, player);
                             animalChosen = true;
 
                         } else {

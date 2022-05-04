@@ -46,9 +46,13 @@ public class ReactionToUserInput {
             }
         }
         //if loop has been completed and no return so far -> basic Handler
-        firstWord ="";
-        secondWord ="";
-        return "can't identify command";
+        //firstWord ="";
+        //secondWord ="";
+
+        return BasicHandler.handle(firstWord, secondWord);
+
+
+
     }
 
 

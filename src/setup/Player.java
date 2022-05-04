@@ -13,7 +13,7 @@ public class Player {
     private int userDEF;
     private int userDODGE;
 
-    private ArrayList<Item> itemList = new ArrayList<Item>();
+    private static ArrayList<Item> itemList = new ArrayList<Item>();
     private String location;
 
     //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen
@@ -89,4 +89,25 @@ public class Player {
     public void setLocation(String location) {
         this.location = location;
     }
-}
+
+    public static String showInventory(){
+        String ans="";
+        if (itemList.isEmpty() || itemList==null) {
+            return  "You have no Items";
+        }
+        else {
+
+            for (Item i : itemList){
+                ans+=i.getItemName() + " \n";
+
+
+            }
+        }
+        return ans;
+    };
+
+
+
+
+    };
+

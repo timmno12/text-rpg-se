@@ -28,5 +28,7 @@ public class data {
             new Target("Hallway (Basement)","cat", "talk", "There’s only one person with authority to enter this room and you are not them. ", 1,false),
             new Target("Hallway (Basement)","cat", "talk", "I’m taking a nap on my job, so why don’t you let me be?", 1,false),
             new Target("Hallway (Basement)","cat", "talk", "You seem suspicious. I will have to get rid off you", 1,true),
+
+
     };
 }

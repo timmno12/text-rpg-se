@@ -66,10 +66,11 @@ public class window {
                             nameEntered = true;
                             input.setText("");
                         } else if (nameEntered && !animalChosen) {
-                            storyfield.append(">" + input.getText() + "\n");
-                            UserInputService.userSetup(input, storyfield, player, storyTracker, location);
-                            animalChosen = true;
-
+                            while (input.getText().equalsIgnoreCase("Base") || input.getText().equalsIgnoreCase("Mouse") || input.getText().equalsIgnoreCase("Squirrel") || input.getText().equalsIgnoreCase("Frog")){
+                                storyfield.append(">" + input.getText() + "\n");
+                                UserInputService.userSetup(input, storyfield, player, storyTracker, location);
+                                animalChosen = true;
+                            }
                         } else {
                             UserInputService.receiveUserInput(input, storyfield, storyTracker,location, targets);
                         }

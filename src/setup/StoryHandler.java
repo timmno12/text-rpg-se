@@ -20,7 +20,7 @@ public class StoryHandler {
         }
         else if (t.getState()<10){
             for(Target temp: data.DATA){
-                if(temp.getLocation().equals(t.getLocation()) && temp.getName().equalsIgnoreCase(t.getLocation()) && temp.getActionType().equalsIgnoreCase(t.getActionType())){
+                if(temp.getLocation().equals(t.getLocation()) && temp.getName().equalsIgnoreCase(t.getName()) && temp.getActionType().equalsIgnoreCase(t.getActionType())){
                     dialogue.add(temp.getDialogue());
                 }
             }

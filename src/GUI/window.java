@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class window {
     private JTextArea location;
@@ -114,16 +115,33 @@ public class window {
         JFrame cardFrame = new JFrame("Your collected Cards");
         cardFrame.setSize(800,500);
         cardFrame.setResizable(false);
+        card1.setVisible(false);
         cardFrame.add(card1);
         cardFrame.setLocationRelativeTo(null);
         cardFrame.setVisible(false);
         cardFrame.getContentPane().setBackground(Color.black);
 
+        //"Achievement list"
+        String[] achievementNames = {"Cat", "Temple"};
+
+
         ImageLogo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Wenn auf den Button geklickt wird, wird die cardframe visible
+               // player.getAchievements()[0][1] = "1"; //this is a way to change if achievement is unlocked
+                for (int i = 0; i < player.getAchievements().length; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        if(player.getAchievements()[i][j].equalsIgnoreCase("Cat") && player.getAchievements()[i][j+1] == "1"){ //only Cat Achievement
+                           // System.out.println(player.getAchievements()[i][j] + " - " + player.getAchievements()[i][j+1]
+                            card1.setVisible(true);
+                            }
+                        }
+
+                    }
+
+
                 cardFrame.setVisible(true);
+
 
             }
         });

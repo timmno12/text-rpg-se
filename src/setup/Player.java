@@ -14,6 +14,18 @@ public class Player {
     private int userDODGE;
 
     private static ArrayList<Item> itemList = new ArrayList<Item>();
+
+    public String[][] getAchievements() {
+        return achievements;
+    }
+
+
+    public void setAchievements(String[][] achievements) {
+        this.achievements = achievements;
+    }
+
+    private String[][] achievements = {{"cat","1"},{"temple", "0"}};
+
     private String location;
 
     //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen

@@ -38,11 +38,11 @@ public class data {
 
 
     };
-    public static List<Item> items = Arrays.asList(
-            new Item("item","its an item yo", 0,0),
-            new Item("item2","its an item 2 yo" , 0 ,0)
+    public static Item[] items = {
+            new Item("item", "its an item yo", 0, 0),
+            new Item("item2", "its an item 2 yo", 0, 0)
 
-    );
+    };
 
 
 }

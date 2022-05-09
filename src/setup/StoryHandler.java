@@ -8,7 +8,7 @@ public class StoryHandler {
     // check if progress, check state of objects in location (dialog/norm text)
     private ArrayList<String> dialogue = new ArrayList<>();
     //gets target t, check state
-    public String handle(Target t, StoryTracker storyTracker, JTextArea location){
+    public String handle(Target t, StoryTracker storyTracker, JTextArea location, Player player){
 
         if (t.isProgression()){
             storyTracker.progress();
@@ -16,6 +16,10 @@ public class StoryHandler {
             t.setProgression(false);
         }
         if(t.getState() == 10){
+            if (t.getActionType()=="take")
+            {
+                player.addToInventory(t.getName());
+            }
             return t.getDialogue();
         }
         else if (t.getState()<10){

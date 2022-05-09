@@ -1,5 +1,9 @@
 package setup;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class data {
     public static Target[] DATA={
             new Target("Cage","piece of wire", "look", "Whoever kidnapped you must’ve underestimated the power of a piece of wire because this piece of wire is your trusty lock-pick.", 10,false),
@@ -8,6 +12,9 @@ public class data {
             new Target("Cage","sister", "talk", "I’m so scared, I want to go home.", 0,false),
             new Target("Cage","sister", "talk", "Thank you. I don’t know what I would do without you.", 1,false),
             new Target("Cage","sister", "talk", "It’s really dark and there’s some weird objects here. ", 1,false),
+            //test entry
+            new Target("Cage","item", "take", "You picked up the item" , 10,false),
+            new Target("Cage","item2", "take", "You picked up the item 2" , 10,false),
 
             new Target("Storage Room","sister", "talk", "Let's get out of here!", 10,false),
             new Target("Storage Room","piece of wire", "use", "You successfully unlock your sister's cage as well.", 10,true),
@@ -31,4 +38,11 @@ public class data {
 
 
     };
+    public static List<Item> items = Arrays.asList(
+            new Item("item","its an item yo", 0,0),
+            new Item("item2","its an item 2 yo" , 0 ,0)
+
+    );
+
+
 }

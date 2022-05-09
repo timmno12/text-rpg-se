@@ -1,7 +1,6 @@
 package setup;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class UserInputService {
@@ -18,11 +17,11 @@ public class UserInputService {
     }
 
 
-    public static void receiveUserInput(JTextField userInput, JTextArea mainTextShow, StoryTracker storyTracker, JTextArea location,ArrayList<Target> targets) {
+    public static void receiveUserInput(JTextField userInput, JTextArea mainTextShow, StoryTracker storyTracker, JTextArea location, ArrayList<Target> targets, Player player) {
         mainTextShow.append(">" + userInput.getText() + "\n");
 
 
-        mainTextShow.append(ReactionToUserInput.reactToUserInput(userInput,storyTracker, location, targets) + "\n");
+        mainTextShow.append(ReactionToUserInput.reactToUserInput(userInput,storyTracker, location, targets,player) + "\n");
 
 
         userInput.setText("");

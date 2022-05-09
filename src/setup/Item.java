@@ -1,5 +1,7 @@
 package setup;
 
+import java.util.ArrayList;
+
 public class Item {
     private String itemName;
     private String itemDescription;
@@ -29,5 +31,7 @@ public class Item {
     public int getDefenseIncrease() {
         return defenseIncrease;
     }
+
+
 
 }

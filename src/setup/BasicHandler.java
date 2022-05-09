@@ -9,7 +9,7 @@ public class BasicHandler {
     }
 
 
-    public static String handle(String firstWord, String secondWord) {
+    public static String handle(String firstWord, String secondWord, Player player) {
 
        String ans=null;
        switch (firstWord){
@@ -42,7 +42,7 @@ public class BasicHandler {
                //return "You try to combine " + secondWord +   " and " +  secondWord + ". You don’t succeed.";
            case "inventory":
 
-               ans= Player.showInventory();
+               ans= player.showInventory();
                break;
            case "locations":
 

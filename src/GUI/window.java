@@ -73,7 +73,7 @@ public class window {
                                 animalChosen = true;
                             }
                         } else {
-                            UserInputService.receiveUserInput(input, storyfield, storyTracker,location, targets);
+                            UserInputService.receiveUserInput(input, storyfield, storyTracker,location, targets,player);
                         }
                     }
 

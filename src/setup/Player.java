@@ -13,7 +13,7 @@ public class Player {
     private int userDEF;
     private int userDODGE;
 
-    private static ArrayList<Item> itemList = new ArrayList<Item>();
+    public static ArrayList<Item> itemList = new ArrayList<Item>();
 
     public String[][] getAchievements() {
         return achievements;
@@ -102,7 +102,23 @@ public class Player {
         this.location = location;
     }
 
-    public static String showInventory(){
+
+
+    public void addToInventory(String itemName){
+
+        for (Item item: data.items){
+            if (item.getItemName()==itemName && !itemList.contains(item)){
+                itemList.add(item);
+
+            }
+
+        }
+
+
+        };
+
+
+    public  String showInventory(){
         String ans="";
         if (itemList.isEmpty() || itemList==null) {
             return  "You have no Items";

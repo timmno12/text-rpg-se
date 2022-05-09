@@ -13,7 +13,7 @@ public class ReactionToUserInput {
     private static String secondWord="";
 
 
-    public static String reactToUserInput(JTextField userInput, StoryTracker storyTracker, JTextArea location,ArrayList<Target> targets) {
+    public static String reactToUserInput(JTextField userInput, StoryTracker storyTracker, JTextArea location, ArrayList<Target> targets, Player player) {
         StoryHandler storyHandler = new StoryHandler();
         String input = userInput.getText();
         int spaceIndex = input.indexOf(" ");
@@ -36,11 +36,10 @@ public class ReactionToUserInput {
                 // check if valid command in location ->
                 if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.equalsIgnoreCase(t.getName())){
 
-                    return storyHandler.handle(t, storyTracker, location);
+                    return storyHandler.handle(t, storyTracker, location,player);
                     }
 //                    else if (firstWord.equalsIgnoreCase("attack")){
-//                            //battle handler
-//                            return "Into battle!!";
+//                            BattleSystem.keepFighting();
 //                    }
 
             }
@@ -49,7 +48,7 @@ public class ReactionToUserInput {
         //firstWord ="";
         //secondWord ="";
 
-        return BasicHandler.handle(firstWord, secondWord);
+        return BasicHandler.handle(firstWord, secondWord,player);
 
 
 

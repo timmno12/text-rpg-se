@@ -7,13 +7,14 @@ import java.util.ArrayList;
 
 public class ReactionToUserInput {
     private static JTextField userInput;
-    private boolean locked = false;
+    private static boolean locked = false;
+    private static Target oldTarget;
 
     private static String firstWord="";
     private static String secondWord="";
 
 
-    public static String reactToUserInput(JTextField userInput, StoryTracker storyTracker, JTextArea location, ArrayList<Target> targets, Player player) {
+    public static String reactToUserInput(JTextField userInput, StoryTracker storyTracker, JTextArea location, ArrayList<Target> targets, Player player, JTextArea mainTextShow) {
         StoryHandler storyHandler = new StoryHandler();
         String input = userInput.getText();
         int spaceIndex = input.indexOf(" ");
@@ -26,54 +27,42 @@ public class ReactionToUserInput {
         }
 
         if (spaceIndex != -1) {
-            // firstWord = actionType, secondWord = name (of target)
-            firstWord = input.substring(0,spaceIndex);
-            secondWord = input.substring(spaceIndex+1);
+            firstWord = input.substring(0, spaceIndex);
+            secondWord = input.substring(spaceIndex + 1);
         }
 
-        for (Target t:data.DATA){
-            if (storyTracker.getLocation().equalsIgnoreCase(t.getLocation())){
-                // check if valid command in location ->
-                if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.equalsIgnoreCase(t.getName())){
+        if (locked == true) {
+            Integer option = Integer.parseInt(firstWord);
+            Reaction out = storyHandler.handle(new Reaction(option, locked, oldTarget));
+            locked = out.isLocked();
+            return out.getTarget().getDialogue();
+        }
 
-                    return storyHandler.handle(t, storyTracker, location,player);
+        for (Target t : data.DATA) {
+            if (storyTracker.getLocation().equalsIgnoreCase(t.getLocation())) {
+                // check if valid command in location ->
+                if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.equalsIgnoreCase(t.getName())) {
+                    Reaction reaction = new Reaction(t, storyTracker, location, mainTextShow); //in
+                    Reaction out = storyHandler.handle(reaction);
+                    locked = out.isLocked();
+                    oldTarget = out.getTarget();
+                    if (locked == true) {
+                        return "";
                     }
+                    return out.getTarget().getDialogue();
 //                    else if (firstWord.equalsIgnoreCase("attack")){
 //                            BattleSystem.keepFighting();
 //                    }
 
+                }
             }
         }
-        //if loop has been completed and no return so far -> basic Handler
-        //firstWord ="";
-        //secondWord ="";
-
-        return BasicHandler.handle(firstWord, secondWord,player);
+            return BasicHandler.handle(firstWord, secondWord, player);
 
 
 
     }
-
-
-
-        //Überprüft mit welchem Command der eingegebene Text beginnt und verarbeitet anschließend den darauf folgenden restlichen Text.
-//        if (userInput.getText().startsWith("say ")) {
-//            String text = userInput.getText().replace("say ", "");
-//
-//            if (dialogues.get(text) != null) {
-//
-//                return dialogues.get(text);
-//            } else {
-//                return "This is unbelievable !";
-//            }
-//        } else{
-//            return "command not found";
-//        }
-
-
-
-    }
-
+}
 
 
 

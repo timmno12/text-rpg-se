@@ -21,7 +21,7 @@ public class UserInputService {
         mainTextShow.append(">" + userInput.getText() + "\n");
 
 
-        mainTextShow.append(ReactionToUserInput.reactToUserInput(userInput,storyTracker, location, targets,player) + "\n");
+        mainTextShow.append(ReactionToUserInput.reactToUserInput(userInput,storyTracker, location, targets,player, mainTextShow) + "\n");
 
 
         userInput.setText("");

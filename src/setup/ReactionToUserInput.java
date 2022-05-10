@@ -42,7 +42,7 @@ public class ReactionToUserInput {
             if (storyTracker.getLocation().equalsIgnoreCase(t.getLocation())) {
                 // check if valid command in location ->
                 if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.equalsIgnoreCase(t.getName())) {
-                    Reaction reaction = new Reaction(t, storyTracker, location, mainTextShow); //in
+                    Reaction reaction = new Reaction(t, storyTracker, location, mainTextShow, player); //in
                     Reaction out = storyHandler.handle(reaction);
                     locked = out.isLocked();
                     oldTarget = out.getTarget();

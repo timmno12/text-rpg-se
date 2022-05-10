@@ -18,8 +18,9 @@ public class Reaction {
 
     private Integer option;
 
+    private Player player;
 
-    public Reaction(Target target, StoryTracker storyTracker, JTextArea location, JTextArea mainTextShow) {
+    public Reaction(Target target, StoryTracker storyTracker, JTextArea location, JTextArea mainTextShow, Player player) {
 
         this.target = target;
 
@@ -29,6 +30,7 @@ public class Reaction {
 
         this.mainTextShow = mainTextShow;
 
+        this.player = player;
     }
 
 
@@ -71,6 +73,14 @@ public class Reaction {
 
         return storyTracker;
 
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public void setStoryTracker(StoryTracker storyTracker) {

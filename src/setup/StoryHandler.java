@@ -17,21 +17,25 @@ public class StoryHandler {
             }
 
             //simple targets
-            if(reaction.getTarget().getState() == 10){
-                reaction.setLocked(false);
-                return reaction;
+            if(reaction.getTarget().getState() == 10) {
+                if (reaction.getTarget().getActionType() == "take") {
+                    reaction.getPlayer().addToInventory(reaction.getTarget().getName());
+                    reaction.setLocked(false);
+                    return reaction;
+                }
             }
 
             //output for first time talking
-            if(reaction.getMainTextShow()!=null) {
+            if(reaction.getMainTextShow()!=null && reaction.getTarget().getActionType().equalsIgnoreCase("talk")) {
                 for (Target temp : data.DATA) {
                     if (temp.getLocation().equals(reaction.getTarget().getLocation()) && temp.getName().equalsIgnoreCase(reaction.getTarget().getName()) && temp.getActionType().equalsIgnoreCase(reaction.getTarget().getActionType())) {
                         if (temp.getState() == 1 || temp.getState() == 9) {
                             playerAnswers.add(temp);
-                        }
+                           }
                     }
                 }
                 reaction.getMainTextShow().append(reaction.getTarget().getName() + ": " + reaction.getTarget().getDialogue() + "\nYou say...\n");
+
                 int i = 0;
                 while (i < playerAnswers.size()) {
                     reaction.getMainTextShow().append(i + 1 + ". " + playerAnswers.get(i).getDialogue() + "\n");
@@ -54,7 +58,7 @@ public class StoryHandler {
         }
 
         //takes char input and gives correct dialogue
-        if(reaction.getOption() > 0){
+        if(reaction.getOption() != null){
             //end conversation with last dialogue option
             if(reaction.getOption() == playerAnswers.size()){
                 Target t = genAnswers.get(reaction.getOption()-1);

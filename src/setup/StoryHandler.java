@@ -61,11 +61,12 @@ public class StoryHandler {
                 reaction.setTarget(t);
                 reaction.setLocked(false);
             }
-
+            else {
             //other dialogue
             Target t = genAnswers.get(reaction.getOption()-1);
             reaction.setTarget(t);
             reaction.setLocked(true);
+            }
         }return reaction;
 
 

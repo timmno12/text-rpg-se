@@ -20,9 +20,9 @@ public class StoryHandler {
             if(reaction.getTarget().getState() == 10) {
                 if (reaction.getTarget().getActionType() == "take") {
                     reaction.getPlayer().addToInventory(reaction.getTarget().getName());
-                    reaction.setLocked(false);
-                    return reaction;
                 }
+                reaction.setLocked(false);
+                return reaction;
             }
 
             //output for first time talking

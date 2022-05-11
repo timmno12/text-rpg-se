@@ -28,7 +28,11 @@ public class ReactionToUserInput {
 
         if (spaceIndex != -1) {
             firstWord = input.substring(0, spaceIndex);
-            secondWord = input.substring(spaceIndex + 1);
+            secondWord = input.substring(spaceIndex +1);
+        }
+        if (spaceIndex == -1){
+            firstWord = input.substring(0);
+            secondWord = "";
         }
 
         if (locked == true) {
@@ -36,7 +40,7 @@ public class ReactionToUserInput {
                 Integer option = Integer.parseInt(firstWord);
                 Reaction out = storyHandler.handle(new Reaction(option, locked, oldTarget));
                 locked = out.isLocked();
-                return out.getTarget().getDialogue();
+                return out.getTarget().getName() + ": " + out.getTarget().getDialogue();
             }catch (NumberFormatException e){
                 return "Input has to be a number\n";
             }

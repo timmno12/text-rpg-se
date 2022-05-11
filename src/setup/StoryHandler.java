@@ -38,7 +38,9 @@ public class StoryHandler {
 
                 int i = 0;
                 while (i < playerAnswers.size()) {
+                    System.out.println("Aufruf:" + i);
                     reaction.getMainTextShow().append(i + 1 + ". " + playerAnswers.get(i).getDialogue() + "\n");
+
                     i++;
                 }
                 reaction.setLocked(true);

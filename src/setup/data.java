@@ -15,7 +15,7 @@ public class data {
             new Target("Cage","sister", "talk", "End conversation.", 9,false),
             new Target("Cage","sister", "talk", "Thank you. I don’t know what I would do without you.", 2,false),
             new Target("Cage","sister", "talk", "It’s really dark and there’s some weird objects here. ", 2,false),
-            new Target("Cage","sister", "talk", "You turn away.", 2,false),
+            new Target("Cage","sister", "talk", "I'm scared..", 2,false),
 
             //test entry
             new Target("Cage","item", "take", "You picked up the item" , 10,false),

@@ -21,7 +21,7 @@ public class UserInputService {
         mainTextShow.append(">" + userInput.getText() + "\n");
 
 
-        mainTextShow.append(ReactionToUserInput.reactToUserInput(userInput,storyTracker, location, targets,player, mainTextShow) + "\n");
+        mainTextShow.append(ReactionToUserInput.reactToUserInput(userInput,storyTracker, location, targets,player, mainTextShow)); //TODO if something BUGGY add "\n" after first )
 
 
         userInput.setText("");
@@ -46,12 +46,13 @@ public class UserInputService {
 
         for(String pc: animalName){
             if(userInput.getText().equalsIgnoreCase(pc)){
-                int indexClass = animalName.indexOf(pc);
-                player.setChosenClass(playerClasses.get(indexClass));
-                player.setAnimalName(playerClasses.get(indexClass));
-                mainTextShow.append("You've choosen the " + player.getChosenClass() + "/" + player.getAnimalName() + "! Now the Story can begin!\n You wake up to the rattling cage right next to you. Your head aches. It’s dark but you can tell the "+ player.getAnimalName().toLowerCase()+" in the other cage is your little sister.\n");
-                location.setText("Location: "+ storyTracker.getLocation());
-            }
+                    int indexClass = animalName.indexOf(pc);
+                    player.setChosenClass(playerClasses.get(indexClass));
+                    player.setAnimalName(playerClasses.get(indexClass));
+                    mainTextShow.append("You've choosen the " + player.getChosenClass() + "/" + player.getAnimalName() + "! Now the Story can begin!\n You wake up to the rattling cage right next to you. Your head aches. It’s dark but you can tell the " + player.getAnimalName().toLowerCase() + " in the other cage is your little sister.\n");
+                    location.setText("Location: " + storyTracker.getLocation());
+                }
+
         }
 
         userInput.setText("");

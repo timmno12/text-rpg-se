@@ -32,10 +32,14 @@ public class ReactionToUserInput {
         }
 
         if (locked == true) {
-            Integer option = Integer.parseInt(firstWord);
-            Reaction out = storyHandler.handle(new Reaction(option, locked, oldTarget));
-            locked = out.isLocked();
-            return out.getTarget().getDialogue();
+            try {
+                Integer option = Integer.parseInt(firstWord);
+                Reaction out = storyHandler.handle(new Reaction(option, locked, oldTarget));
+                locked = out.isLocked();
+                return out.getTarget().getDialogue();
+            }catch (NumberFormatException e){
+                return "Input has to be a number\n";
+            }
         }
 
         for (Target t : data.DATA) {

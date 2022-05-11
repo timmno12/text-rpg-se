@@ -24,7 +24,7 @@ public class Player {
         this.achievements = achievements;
     }
 
-    private String[][] achievements = {{"cat","1"},{"temple", "0"}};
+    private String[][] achievements = {{"Cat","1"},{"temple", "1"}};
 
     private String location;
 

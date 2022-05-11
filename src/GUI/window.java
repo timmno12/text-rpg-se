@@ -99,7 +99,7 @@ public class window {
     }
     //für Custom stuff wie buttondesign
     private void createUIComponents() {
-        //Scalierung des Bildest
+        //Scalierung des 1.Bildes
         ImageIcon bigcatCard = new ImageIcon("src/GUI/resources/firstCard.png");
         Image catImage = bigcatCard.getImage();
         Image newCatImg = catImage.getScaledInstance(180,250,Image.SCALE_SMOOTH);
@@ -107,16 +107,30 @@ public class window {
         //Macht auf den button das Kartenbild
         ImageLogo = new JButton(new ImageIcon("src/GUI/resources/kartenIcon.png"));
 
+        //Second Image
+        ImageIcon shinybigCat = new ImageIcon("src/GUI/resources/secondCard.png");
+        Image shinyCat = shinybigCat.getImage();
+        Image newshinyCat = shinyCat.getScaledInstance(180,250,Image.SCALE_SMOOTH);
+        ImageIcon smolshinyCard = new ImageIcon(newshinyCat);
+
         //Neues Label für die erste karte
         JLabel card1 = new JLabel();
         card1.setIcon(smolCatCard);
         card1.setHorizontalAlignment(JLabel.LEFT);
         card1.setBackground(Color.black);
+        JLabel card2 = new JLabel();
+        card2.setIcon(smolshinyCard);
+        card2.setHorizontalAlignment(JLabel.RIGHT);
+        card2.setBackground(Color.black);
         JFrame cardFrame = new JFrame("Your collected Cards");
+        cardFrame.setLayout(new FlowLayout(FlowLayout.LEFT, 10,100));
+        cardFrame.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         cardFrame.setSize(800,500);
         cardFrame.setResizable(false);
         card1.setVisible(false);
+        card2.setVisible(false);
         cardFrame.add(card1);
+        cardFrame.add(card2);
         cardFrame.setLocationRelativeTo(null);
         cardFrame.setVisible(false);
         cardFrame.getContentPane().setBackground(Color.black);
@@ -132,9 +146,13 @@ public class window {
                 for (int i = 0; i < player.getAchievements().length; i++) {
                     for (int j = 0; j < 2; j++) {
                         if(player.getAchievements()[i][j].equalsIgnoreCase("Cat") && player.getAchievements()[i][j+1] == "1"){ //only Cat Achievement
-                           // System.out.println(player.getAchievements()[i][j] + " - " + player.getAchievements()[i][j+1]
+                           System.out.println(player.getAchievements()[i][j] + " - " + player.getAchievements()[i][j+1]);
                             card1.setVisible(true);
                             }
+                        if(player.getAchievements()[i][j].equalsIgnoreCase("temple") && player.getAchievements()[i][j+1] == "1"){
+                            System.out.println(player.getAchievements()[i][j] + " - " + player.getAchievements()[i][j+1]);
+                            card2.setVisible((true));
+                        }
                         }
 
                     }

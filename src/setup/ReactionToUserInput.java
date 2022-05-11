@@ -57,7 +57,7 @@ public class ReactionToUserInput {
                     if (locked == true) {
                         return "";
                     }
-                    return out.getTarget().getDialogue();
+                    return out.getTarget().getDialogue() + "\n";
 //                    else if (firstWord.equalsIgnoreCase("attack")){
 //                            BattleSystem.keepFighting();
 //                    }
@@ -65,7 +65,7 @@ public class ReactionToUserInput {
                 }
             }
         }
-            return BasicHandler.handle(firstWord, secondWord, player);
+            return BasicHandler.handle(firstWord, secondWord, player) + "\n";
 
 
 

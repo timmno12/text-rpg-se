@@ -40,7 +40,7 @@ public class ReactionToUserInput {
                 Integer option = Integer.parseInt(firstWord);
                 Reaction out = storyHandler.handle(new Reaction(option, locked, oldTarget));
                 locked = out.isLocked();
-                return out.getTarget().getName() + ": " + out.getTarget().getDialogue();
+                return out.getTarget().getName() + ": " + out.getTarget().getDialogue() +"\n";
             }catch (NumberFormatException e){
                 return "Input has to be a number\n";
             }

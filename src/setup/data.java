@@ -10,6 +10,14 @@ public class data {
             new Item("item2", "its an item 2 yo", 0, 0)
 
     };
+    public static PlayerClasses[] playerClasses = {
+            new PlayerClasses("Base","Base",100,7,7,6),
+            new PlayerClasses("Mage","Squirrel",100,10,5,5),
+            new PlayerClasses("Warrior","Mouse",100,9,10,1),
+            new PlayerClasses("Assassin","Frog",100,7,3,10)
+    };
+
+
     public static Target[] DATA={
             new Target("Cage","piece of wire", "look", items[0].getItemDescription(), 10,false),
             new Target("Cage","piece of wire", "use", "After fiddling around for a little you manage to unlock your cage.", 10,true),

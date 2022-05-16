@@ -7,6 +7,7 @@ public class StoryHandler {
 
         ArrayList<Target> playerAnswers = new ArrayList<>();
         ArrayList<Target> genAnswers = new ArrayList<>();
+        Proxy proxy = new Proxy();
 
         if(reaction.getTarget()!=null) {
             //progress
@@ -27,16 +28,9 @@ public class StoryHandler {
 
             //output for first time talking
             if(reaction.getMainTextShow()!=null && reaction.getTarget().getActionType().equalsIgnoreCase("talk")) {
-                for (Target temp : data.DATA) {
-                    if (temp.getLocation().equals(reaction.getTarget().getLocation()) && temp.getName().equalsIgnoreCase(reaction.getTarget().getName()) && temp.getActionType().equalsIgnoreCase(reaction.getTarget().getActionType())) {
-                        if (temp.getState() == 1 || temp.getState() == 9) {
-                            playerAnswers.add(temp);
-                           }
-                    }
-                }
-                reaction.getMainTextShow().append(reaction.getTarget().getName() + ": " + reaction.getTarget().getDialogue() + "\nYou say...\n");
-
+                playerAnswers = proxy.firstTimeTalking(playerAnswers,reaction);
                 int i = 0;
+                reaction.getMainTextShow().append(reaction.getTarget().getName() + ": " + reaction.getTarget().getDialogue() + "\nYou say...\n");
                 while (i < playerAnswers.size()) {
                     System.out.println("Aufruf:" + i);
                     reaction.getMainTextShow().append(i + 1 + ". " + playerAnswers.get(i).getDialogue() + "\n");

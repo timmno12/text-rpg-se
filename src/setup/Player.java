@@ -116,6 +116,16 @@ public class Player {
 
 
         };
+    public void removeFromInventory(String itemName){
+        for (Item item: data.items){
+            if (item.getItemName()==itemName && itemList.contains(item)){
+                itemList.remove(item);
+
+            }
+
+        }
+
+    };
 
 
     public  String showInventory(){

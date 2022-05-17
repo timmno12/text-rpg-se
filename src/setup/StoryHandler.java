@@ -22,6 +22,9 @@ public class StoryHandler {
                 if (reaction.getTarget().getActionType() == "take") {
                     reaction.getPlayer().addToInventory(reaction.getTarget().getName());
                 }
+                if (reaction.getTarget().getActionType()=="use"){
+                    reaction.getPlayer().removeFromInventory(reaction.getTarget().getName());
+                }
                 reaction.setLocked(false);
                 return reaction;
             }

@@ -16,7 +16,6 @@ public class BattleSystem {
     static int max = 10;
     static float rand;
     static float rand2;
-
     static float crit_rand;
     static boolean crit = false;
     static float critValue = 1.5f; //-> 1.5 entspricht einem Crit von 50% extra auf den normalen Schaden
@@ -100,7 +99,8 @@ public class BattleSystem {
         tempEnemLP = tempEnemLP - ((1.0f - resultDEF) * rand2);
         crit = false;
 
-        //TODO Ausgabe: Ene wurde getroffen
+
+
         try {
             Thread.sleep(delayInMS);
         } catch (InterruptedException e) {
@@ -191,7 +191,7 @@ public class BattleSystem {
             }
 
 
-            //Aus battleSystem rausspringen
+            //TODO Aus battleSystem rausspringen
         }
         if(tempEnemLP <= 0){
             //TODO Ausgabe: Der Gegener wurde besiegt
@@ -202,7 +202,7 @@ public class BattleSystem {
             }
 
 
-            //Aus battleSystem rausspringen
+            //TODO Aus battleSystem rausspringen
         }
     }
 
@@ -210,8 +210,8 @@ public class BattleSystem {
 
         //TODO Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
         if(player.getUserLP()*0.3f > tempUserLP){
-            //Window abfrage: still wanna fight?
-            //UserInputService.sendWindowMessage();
+            //TODO Window abfrage: still wanna fight?
+            //TODO UserInputService.sendWindowMessage();
 
         }else{
             enemyDodge(player, enemy);

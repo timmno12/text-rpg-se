@@ -55,7 +55,54 @@ public class data {
             new Target("Hallway (Basement)","cat", "talk", "I’m taking a nap on my job, so why don’t you let me be?", 1,false),
             new Target("Hallway (Basement)","cat", "talk", "You seem suspicious. I will have to get rid off you", 1,true),
 
+            //Chapter 2
+            //TODO Fängt nach Fight mit der Katze automatisch neues Kap an und werden bereits angegebene Commands zurückgesetzt? zB: Hallway(Basement) "" "look"
 
+            //TODO dirty button wird dem Inventar automatisch hinzugefügt
+            //Text hinzufügen: You breathe heavily after giving the cat a hard blow. Growling, it jumps to the side and flees to some corner of the room. You don't see where she's gone, because a sparkling something draws all your attention. You pick it up, pluck off the last cat hairs and are the new owner of a dirty button (button).
+            new Target("Hallway (Basement)","", "look", "The cat seems to have disappeared. You hold your breath for a moment to listen, but there is nothing but your own excited heartbeat. The hallway has not changed. There are still 4 doors, but the one to the left is now clear of cats (left door). Opposite of it you see a simple wooden door, nothing special, but sturdy (right door). The big arch is still overgrown with plants (door ahead). It doesn't look like they're going to die anytime soon. In your back is the storage room (door behind).", 10,false),
+            new Target("Hallway (Basement)","door ahead", "look", "The arched entryway is overgrown. The vines are so dense that you can’t see past them.", 10,false),
+            new Target("Hallway (Basement)","right door", "look", "It is a normal, wooden door. As your eyes wander higher from below, you can see a raven sitting on the doorknob far above, eyeing you with an unpleasantly interested look.", 10,false),
+            new Target("Hallway (Basement)","left door", "look", "The cat is gone. The door is free.", 10,false),
+            new Target("Hallway (Basement)","left door", "use", "You are about to push open the door when you are shrouded in a huge shadow. The raven holds itself in the air above you. ~Bring me treasure! Bring me gold!~ he crows. ~And I will help you to pass the right door~ You don't answer, but enter the darkness that extends behind the door.", 10,true),
+            new Target("Hallway (Basement)","door behind", "look", "This is where you came from. Nothing exciting there.", 10,false),
+            //To Sister. Player: Are you ok?
+            new Target("Hallway (Basement)","sister", "talk", "I am fine. Did the beast hurt you? No? Phew… ok. I am relieved. I cannot imagine going through this without you.", 1,false),
+            //To Sister. Player: Did you see where the cat went?
+            new Target("Hallway (Basement)","sister", "talk", "No. I was covering my eyes all the time.", 1,false),
+            //To Sister. Player: End conversation
+            new Target("Hallway (Basement)","sister", "talk", "I’m sorry I couldn't help you.", 1,false),
+            //TODO Text hinzufügen: You gather all your courage and address the giant bird.
+            //To Raven. Player: Do you want to fight me as well?
+            new Target("Hallway (Basement)","raven", "talk", "I don't think that those are my plans for you and that little thing beside you.", 1,false),
+            //To Raven. Player: Who are you?
+            new Target("Hallway (Basement)","raven", "talk", "Do you really want to know that? Let’s say… I have eyes and ears everywhere.", 1,false),
+            //To Raven. Player: Can you open the door for me?
+            new Target("Hallway (Basement)","raven", "talk", "I could do that for you, if you gave me some pure gold and nothing less.", 1,false),
+            //To Raven. Player: End conversation
+            new Target("Hallway (Basement)","raven", "talk", "Bring me treasure, little thing.", 1,false),
+            new Target("Hallway (Basement)","button", /*name2: "raven",*/ "look", "~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
+            new Target("Hallway (Basement)","button", "look", "The button looks really dirty. You try to scrape off some of the dirt with your fingers, but no chance. The stuff is just too tight. If only there was some way to clean it.", 10,false),
+
+            new Target("Eerie Crypt (left room)", "", "look", "You almost slip as you take your first steps. The ground is slippery and it makes a sound as if you were walking through honey. Your feet are wet and with every step you feel the water coming out of the mossy ground. It is very dark. Glowing torches light the room to the bare minimum. You shiver as the humidity reaches your skin. As far as you can see, the room is almost completely empty. You see a small sphere on a stone pedestal(pedestal) in the center.", 10, false),
+            new Target("Eerie Crypt (left room)","pedestal", "look", "You move closer and now you can get a good look at the sphere (marble). It looks like a big marble and as if it were made of glass.", 10,false),
+            new Target("Eerie Crypt (left room)","marble", "look", "You bend down a bit. You notice that the sphere is not completely clear. It looks as if it has many cracks and is only composed of splinters that magically hold themselves together.", 10,false),
+            new Target("Eerie Crypt (left room)","marble", "use", "You hold your little sister's hand with one hand and stretch out the other. The surface of the sphere feels cold under your fingertips and you notice how the sphere begins to vibrate. Terrified, your hand jerks back. You can feel that your sister is also terrified. But you don't have time to react, because at the same moment the sphere explodes with a clinking sound and the glass fragments simply remain floating in space, while a short shower of sparks lights up the room. You are blinded and hold your hand in front of your aching eyes. When you open them again, blinking, a breathtaking sight expands before you. You are standing in a huge, collapsed chapel (chapel).", 10,false),
+            new Target("Eerie Crypt (left room)","chapel", "look", "Light refracts in the dirty, splintered windows. Nature has reclaimed most of the building and it looks like no one has been here in decades. Your sister still holds your hand with a firm grip. In the center you see a huge statue made of stone. It looks like a lion (lion). At its foot lies a small piece of cloth.(cloth).", 10,false),
+            new Target("Eerie Crypt (left room)","cloth", "look", "It looks pretty dirty and you wonder why it catches your eye so much.", 10,false),
+            new Target("Eerie Crypt (left room)","lion", "look", "The lion statue is huge. Not even necessarily by its mass, but by its charisma. As soon as your eyes reach the lion, it's hard to take your eyes off it. The statue looks so alive, although it is obviously made of stone.", 10,false),
+            new Target("Eerie Crypt (left room)","button", /*name2: "chapel",*/ "use", "The button falls down. It echoes unreal loud in the chapel. You bend down and pick up the dirty button. It goes back into your pocket.", 10,false),
+            new Target("Eerie Crypt (left room)","button", /*name2: "lion",*/ "use", "~This is the prize you received when you selflessly faced the beast.~", 10,false),
+            //To Lion. Player: What happened?
+            new Target("Eerie Crypt (left room)","lion", "talk", "You just traveled between the worlds. Something happened so that you proved your bravery. I saw you fighting off a creature not just bigger, but more dangerous and deceitful than you are. You were brave and protected your sister at all costs. This is why you are here.", 1,false),
+            //To Lion. Player: Who are you?
+            new Target("Eerie Crypt (left room)","lion", "talk", "Just a lost memory of a god that honored the brave back in the days to pass every obstacle they encountered. I am the force to give you this power. You proved your character and nothing shall hold you back.", 1,false),
+            //To Lion. Player: End conversation
+            new Target("Eerie Crypt (left room)","lion", "talk", "Take care and be mindful of the power I gave you.", 1,false),
+            new Target("Eerie Crypt (left room)","cloth", "take", "You pick up the piece of fabric. It still looks a bit dirty at first glance, but it is much silkier than expected.", 10,false),
+            new Target("Eerie Crypt (left room)","cloth", /*name2: "button",*/ "use", "This is not the right place to combine this. You should wait until you get back.", 10,false),
+
+            //Chapter 3 //TODO: Es wird in Chapter 3 gewechselt, wenn der Lion-Dialog einmal mit End Conversation beendet wurde und Cloth im Inventar liegt
     };
 
 

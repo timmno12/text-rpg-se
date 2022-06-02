@@ -1,3 +1,4 @@
+
 package setup;
 
 import java.util.Random;
@@ -55,63 +56,68 @@ public class BattleSystem {
 
 
 
-    static public void startFight(Player player, Enemy enemy){
-        tempUserLP = player.getUserLP();
+    static public void startFight(Reaction reaction, Enemy enemy){
+        System.out.println("Start fight " + reaction.getPlayer().getUserLP());
+        tempUserLP = reaction.getPlayer().getUserLP();
         tempEnemLP = enemy.getEnemLP();
-        enemyDodge(player, enemy);
+        enemyDodge(reaction, enemy);
     }
 
-    static public void userDodge(Player player, Enemy enemy){
-        int dodgeValue = max + player.getUserDODGE();
+    static public void userDodge(Reaction reaction, Enemy enemy){
+        int dodgeValue = max + reaction.getPlayer().getUserDODGE();
         rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
-        if(dodgeValue < max){
-            userWasHit(player, enemy);
+        if(rand < max){
+            userWasHit(reaction, enemy);
         } else {
-            userDodged(player, enemy);
+            userDodged(reaction, enemy);
         }
     }
 
-    static public void enemyDodge(Player player, Enemy enemy){
+    static public void enemyDodge(Reaction reaction, Enemy enemy){
         int dodgeValue = max + enemy.getEnemDODGE();
         rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
-        if(dodgeValue < max){
-            enemyWasHit(player, enemy);
+        if(rand < max){
+            enemyWasHit(reaction, enemy);
         } else {
-            enemyDodged(player, enemy);
+            enemyDodged(reaction, enemy);
         }
     }
 
-    static public void enemyWasHit(Player player, Enemy enemy){
-        int DEFValue = max + enemy.getEnemDEF();
-        int balanceValue = 1/2;
+    static public void enemyWasHit(Reaction reaction, Enemy enemy) {
+        if (lifepointChecker()) {
+            System.out.println("DEAD" + tempUserLP + " ---" +tempEnemLP);
+        } else {
 
-        //Zufallsfaktor in DEF des Enemy, zuerst random zahl zwischen min und max gepickt und dann + enemy.DEF gerechnet
-        rand = ((random.nextInt((max - min)+1) + min) + enemy.getEnemDEF()) / 1.0f;
+            int DEFValue = max + enemy.getEnemDEF();
+            int balanceValue = 1 / 2;
 
-        //Zufallsfaktor in DMG des Users und Crit
-        if(crit == true){
-            rand2 = (random.nextInt((max + player.getUserDMG()) - (min + player.getUserDMG())+ 1) + min + player.getUserDMG()) * critValue;
-        } else{
-            rand2 = (random.nextInt((max + player.getUserDMG()) - (min + player.getUserDMG()) + 1) + min + player.getUserDMG());
+            //Zufallsfaktor in DEF des Enemy, zuerst random zahl zwischen min und max gepickt und dann + enemy.DEF gerechnet
+            rand = ((random.nextInt((max - min) + 1) + min) + enemy.getEnemDEF()) / 1.0f;
+
+            //Zufallsfaktor in DMG des Users und Crit
+            if (crit == true) {
+                rand2 = (random.nextInt((max + reaction.getPlayer().getUserDMG()) - (min + reaction.getPlayer().getUserDMG()) + 1) + min + reaction.getPlayer().getUserDMG()) * critValue;
+            } else {
+                rand2 = (random.nextInt((max + reaction.getPlayer().getUserDMG()) - (min + reaction.getPlayer().getUserDMG()) + 1) + min + reaction.getPlayer().getUserDMG());
+            }
+
+            float resultDEF = (rand / DEFValue) * balanceValue;
+            tempEnemLP = tempEnemLP - ((1.0f - resultDEF) * rand2);
+            crit = false;
+            System.out.println(tempUserLP);
+
+            try {
+                Thread.sleep(delayInMS);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+
+            userDodge(reaction, enemy);
         }
-
-        float resultDEF = (rand / DEFValue) * balanceValue;
-        tempEnemLP = tempEnemLP - ((1.0f - resultDEF) * rand2);
-        crit = false;
-
-
-
-        try {
-            Thread.sleep(delayInMS);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        lifepointChecker();
-        userDodge(player, enemy);
     }
 
-    static public void enemyDodged(Player player, Enemy enemy){
+    static public void enemyDodged(Reaction reaction, Enemy enemy){
 
         //TODO Ausgabe: Ene konnte ausweichen und wurde nicht getroffen.
         try {
@@ -121,7 +127,7 @@ public class BattleSystem {
         }
 
 
-        userDodge(player, enemy);
+        userDodge(reaction, enemy);
 
 
         crit_rand = (random.nextInt(3 - 1 + 1) + 1);
@@ -133,37 +139,41 @@ public class BattleSystem {
     }
 
 
-    static public void userWasHit(Player player, Enemy enemy){
-        int DEFValue = max + player.getUserDEF();
-        int balanceValue = 1/2;
+    static public void userWasHit(Reaction reaction, Enemy enemy){
+        if(lifepointChecker()) {
+            System.out.println("DEAD" + tempUserLP + " ---" +tempEnemLP);
+        }else{
+            int DEFValue = max + reaction.getPlayer().getUserDEF();
+            int balanceValue = 1 / 2;
 
-        //Zufallsfaktor in DEF des Users zuerst random zahl zwischen min und max gepickt und dann + user.DEF gerechnet
-        rand = (random.nextInt((max - min) +1) + min) + player.getUserDEF();
+            //Zufallsfaktor in DEF des Users zuerst random zahl zwischen min und max gepickt und dann + user.DEF gerechnet
+            rand = (random.nextInt((max - min) + 1) + min) + reaction.getPlayer().getUserDEF();
 
-        //Zufallsfaktor in DMG des Enemies und Crit
-        if(crit == true){
-            rand2 =  (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG())+ 1) + min + enemy.getEnemDMG())* critValue;
-        } else {
-            rand2 = (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG())+ 1) + min + enemy.getEnemDMG());
+            //Zufallsfaktor in DMG des Enemies und Crit
+            if (crit == true) {
+                rand2 = (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG()) + 1) + min + enemy.getEnemDMG()) * critValue;
+            } else {
+                rand2 = (random.nextInt((max + enemy.getEnemDMG()) - (min + enemy.getEnemDMG()) + 1) + min + enemy.getEnemDMG());
+            }
+
+            float resultDEF = (rand / DEFValue) * balanceValue;
+            tempUserLP = tempUserLP - ((1.0f - resultDEF) * rand2);
+            crit = false;
+
+            //TODO Ausgabe: Du wurdest getroffen
+            try {
+                Thread.sleep(delayInMS);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            keepFighting(reaction, enemy);
         }
 
-        float resultDEF = (rand / DEFValue) * balanceValue;
-        tempUserLP = tempUserLP - ((1.0f - resultDEF) * rand2);
-        crit = false;
 
-        //TODO Ausgabe: Du wurdest getroffen
-        try {
-            Thread.sleep(delayInMS);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        lifepointChecker();
-        keepFighting(player, enemy);
     }
 
-    static public void userDodged(Player player, Enemy enemy){
+    static public void userDodged(Reaction reaction, Enemy enemy){
 
         //TODO Ausgabe: Du konntest ausweichen.
         try {
@@ -178,43 +188,46 @@ public class BattleSystem {
         } else {
             crit = false;
         }
-        keepFighting(player, enemy);
+        keepFighting(reaction, enemy);
     }
 
-    static public void lifepointChecker(){
+    static public boolean lifepointChecker(){
         if(tempUserLP<= 0){
-            //TODO Ausgabe: Du wurdest besiegt
+
             try {
                 Thread.sleep(delayInMS);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
+            return true;
 
             //TODO Aus battleSystem rausspringen
         }
         if(tempEnemLP <= 0){
             //TODO Ausgabe: Der Gegener wurde besiegt
+
             try {
                 Thread.sleep(delayInMS);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            return true;
 
 
             //TODO Aus battleSystem rausspringen
         }
+        return false;
     }
 
-    static public void keepFighting(Player player, Enemy enemy){
+    static public void keepFighting(Reaction reaction, Enemy enemy){
 
         //TODO Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
-        if(player.getUserLP()*0.3f > tempUserLP){
+        if(reaction.getPlayer().getUserLP()*0.3f > tempUserLP){
             //TODO Window abfrage: still wanna fight?
             //TODO UserInputService.sendWindowMessage();
 
         }else{
-            enemyDodge(player, enemy);
+            enemyDodge(reaction, enemy);
         }
     }
 

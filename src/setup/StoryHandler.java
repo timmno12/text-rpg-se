@@ -8,6 +8,7 @@ public class StoryHandler {
         ArrayList<Target> playerAnswers = new ArrayList<>();
         ArrayList<Target> genAnswers = new ArrayList<>();
         Proxy proxy = new Proxy();
+        BattleSystem battleSystem = new BattleSystem();
 
         if(reaction.getTarget()!=null) {
             //progress
@@ -52,8 +53,13 @@ public class StoryHandler {
             //end conversation with last dialogue option
             if(reaction.getOption() == playerAnswers.size()){
                 Target t = genAnswers.get(reaction.getOption()-1);
+                if(t.getState() == 8){
+                    battleSystem.startFight(reaction,data.enemies[0]);
+                }
+
                 reaction.setTarget(t);
                 reaction.setLocked(false);
+
             }
             else {
             //other dialogue

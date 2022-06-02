@@ -55,6 +55,15 @@ public class Reaction {
 
         this.target = target;
 
+    }    public Reaction(Integer option, boolean locked, Target target, Player player) {
+
+        this.option = option;
+
+        this.locked = locked;
+
+        this.target = target;
+
+        this.player = player;
     }
 
     public Target getTarget() {

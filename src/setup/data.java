@@ -17,6 +17,9 @@ public class data {
             new PlayerClasses("Assassin","Frog",100,7,3,10)
     };
 
+    public static Enemy[] enemies = {
+            new Enemy("cat",7,50,4,7)
+    };
 
     public static Target[] DATA={
             new Target("Cage","piece of wire", "look", items[0].getItemDescription(), 10,false),
@@ -46,14 +49,18 @@ public class data {
 
             new Target("Hallway (Basement)","arched entryway overgrown with vines", "look", "The vines are so dense that you can’t see past them. ", 10,false),
             new Target("Hallway (Basement)","", "look", "A sizable wooden hallway with a few decorative paintings. It’s dimly lit with a candle on each wall and connects to 4 rooms in total. You notice a cat curled up in front of one of the doors. At the end of the hallway there’s an arched entryway overgrown with vines that spread into the ceiling and the floor.", 10,false),
-            new Target("Hallway (Basement)","cat", "attack", "You attack!", 10,true),
+            new Target("Hallway (Basement)","cat", "attack", "You attack!", 8,true),
             new Target("Hallway (Basement)","sister", "talk", "If we wouldn’t have gotten knocked out and dumped into a cage I would almost say it’s cozy. But right now this place is scary, I just really want to get out of here. ", 1,false),
             new Target("Hallway (Basement)","sister", "talk", "There must be a way out of here. Sometimes you need to look at the bigger picture first to understand. ", 1,false),
-            new Target("Hallway (Basement)","cat", "talk", "The cat opens its' eyes groggily and looks at you confused.", 1,false),
-            new Target("Hallway (Basement)","cat", "talk", "Ah, is that so? I don’t remember anyone new getting adopted. ", 1,false),
-            new Target("Hallway (Basement)","cat", "talk", "There’s only one person with authority to enter this room and you are not them. ", 1,false),
-            new Target("Hallway (Basement)","cat", "talk", "I’m taking a nap on my job, so why don’t you let me be?", 1,false),
-            new Target("Hallway (Basement)","cat", "talk", "You seem suspicious. I will have to get rid off you", 1,true),
+            new Target("Hallway (Basement)","cat", "talk", "The cat opens its' eyes groggily and looks at you confused.", 0,false),
+            new Target("Hallway (Basement)","cat", "talk", "I’m new here!", 1,false),
+            new Target("Hallway (Basement)","cat", "talk", "Could you let us pass through that door?", 1,false),
+            new Target("Hallway (Basement)","cat", "talk", "What are you doing here", 1,false),
+            new Target("Hallway (Basement)","cat", "talk", "End conversation", 1,false),
+            new Target("Hallway (Basement)","cat", "talk", "Ah, is that so? I don’t remember anyone new getting adopted. ", 2,false),
+            new Target("Hallway (Basement)","cat", "talk", "There’s only one person with authority to enter this room and you are not them. ", 2,false),
+            new Target("Hallway (Basement)","cat", "talk", "I’m taking a nap on my job, so why don’t you let me be?", 2,false),
+            new Target("Hallway (Basement)","cat", "talk", "You seem suspicious. I will have to get rid off you", 8,true),
 
             //Chapter 2
             //TODO Fängt nach Fight mit der Katze automatisch neues Kap an und werden bereits angegebene Commands zurückgesetzt? zB: Hallway(Basement) "" "look"

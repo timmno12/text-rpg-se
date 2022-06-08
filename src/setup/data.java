@@ -23,8 +23,9 @@ public class data {
 
     public static Target[] DATA={
             new Target("Cage","piece of wire", "look", items[0].getItemDescription(), 10,false),
+            new Target("Cage","piece of wire", "take", "You pick up the piece of wire.", 10,false),
             new Target("Cage","piece of wire", "use", "After fiddling around for a little you manage to unlock your cage.", 10,true),
-            new Target("Cage","", "look", "It’s dark here, the only light coming from the cracks in the door. You look outside your cage and down the shelf you're on, the distance is not too bad. On your right is your sister's cage, she seems nervous and is fiddling around with the metal bars. There’s a big jar to your left which is filled with suspiciously glowing water. ", 10,false),
+            new Target("Cage","", "look", "It’s dark here, the only light coming from the cracks in the door. You look outside your cage and down the shelf you're on, the distance is not too bad. On your right is your sister's cage, she seems nervous and is fiddling around with the metal bars. Besides an old rusty piece of wire there’s only a big jar to your left which is filled with suspiciously glowing water. ", 10,false),
             new Target("Cage","sister", "talk", "I’m so scared, I want to go home.", 0,false),
             new Target("Cage","sister", "talk", "Don't worry, I'll find a way.", 1,false),
             new Target("Cage","sister", "talk", "Did you notice anything? ", 1,false),
@@ -39,7 +40,7 @@ public class data {
             new Target("Cage","item2", "use", "You used the item  2 lel" , 10,false),
 
             new Target("Storage Room","sister", "talk", "Let's get out of here!", 10,false),
-            new Target("Storage Room","piece of wire", "use", "You successfully unlock your sister's cage as well.", 10,true),
+            new Target("Storage Room","piece of wire cage", "use", "You successfully unlock your sister's cage as well.", 10,true),
             new Target("Storage Room","", "look", "This is definitely a storage room. Lots of shelves filled with gruesome things you don’t really want to look at closely. The door seems like the only way out.", 10,false),
             new Target("Storage Room","door", "use", "Your sister yells out in protest. Were you gonna leave without her?", 10,false),
 

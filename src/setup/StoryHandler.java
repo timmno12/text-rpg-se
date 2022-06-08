@@ -10,7 +10,7 @@ public class StoryHandler {
         Proxy proxy = new Proxy();
         BattleSystem battleSystem = new BattleSystem();
 
-        if(reaction.getTarget()!=null) {
+        if(reaction.getOption()==null) {
             //progress
             if (reaction.getTarget().isProgression()) {
                 reaction.getStoryTracker().progress();
@@ -46,7 +46,6 @@ public class StoryHandler {
         proxy.dialogue(playerAnswers,genAnswers,reaction);
 
         //takes char input and gives correct dialogue
-        if(reaction.getOption() != null){
             //end conversation with last dialogue option
             if(reaction.getOption() == playerAnswers.size()){
                 Target t = genAnswers.get(reaction.getOption()-1);
@@ -63,7 +62,7 @@ public class StoryHandler {
             Target t = genAnswers.get(reaction.getOption()-1);
             reaction.setTarget(t);
             reaction.setLocked(true);
-            }
+
         }return reaction;
 
 

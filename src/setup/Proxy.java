@@ -3,6 +3,8 @@ package setup;
 import java.util.ArrayList;
 
 public class Proxy {
+    public Proxy() {
+    }
 
     public int userChosenClass(String userInput){
         for(PlayerClasses pc : data.playerClasses){

@@ -9,15 +9,13 @@ public class StoryHandler {
         ArrayList<Target> genAnswers = new ArrayList<>();
         Proxy proxy = new Proxy();
         BattleSystem battleSystem = new BattleSystem();
-
+        //progress
+        if (reaction.getTarget().isProgression()) {
+            reaction.getStoryTracker().progress();
+            reaction.getLocation().setText("Location: " + reaction.getStoryTracker().getLocation());
+            reaction.getTarget().setProgression(false);
+        }
         if(reaction.getOption()==null) {
-            //progress
-            if (reaction.getTarget().isProgression()) {
-                reaction.getStoryTracker().progress();
-                reaction.getLocation().setText("Location: " + reaction.getStoryTracker().getLocation());
-                reaction.getTarget().setProgression(false);
-            }
-
             //simple targets
             if(reaction.getTarget().getState() == 10) {
                 if (reaction.getTarget().getActionType() == "take") {
@@ -53,6 +51,13 @@ public class StoryHandler {
 
                     battleSystem.startFight(reaction,data.enemies[0]);
                     reaction.getMainTextShow().append("You started a fight with " + reaction.getTarget().getName() + "\n");
+                    System.out.println("progress?  - " + playerAnswers.get(reaction.getOption()-1).isProgression());
+                    if(playerAnswers.get(reaction.getOption()-1).isProgression()){
+                        reaction.getStoryTracker().progress();
+                        reaction.getLocation().setText("Location: " + reaction.getStoryTracker().getLocation());
+                        reaction.getTarget().setProgression(false);
+                        System.out.println("yes progress");
+                    }
                 }
 
                 reaction.setTarget(t);

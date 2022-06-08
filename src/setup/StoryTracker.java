@@ -3,7 +3,7 @@ package setup;
 public class StoryTracker {
     private int tracker = 0;
 
-    private String[] locations = {"Cage","Storage Room", "Hallway (Basement)", "Hallway (Basement)", "Eerie Crypt (left room)", "Eerie Crypt (left room)", "Eerie Crypt (left room)"};
+    private String[] locations = {"Cage","Storage Room", "Hallway (Basement)", "Hallway (Basement) II", "Eerie Crypt (left room)", "Eerie Crypt (left room)", "Eerie Crypt (left room)"};
 
     private String[] targets_0= {"sister","piece of wire"};
     private String[] targets_1= {"sister","piece of wire","door"};

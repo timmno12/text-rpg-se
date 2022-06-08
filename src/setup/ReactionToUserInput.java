@@ -38,7 +38,7 @@ public class ReactionToUserInput {
         if (locked == true) {
             try {
                 Integer option = Integer.parseInt(firstWord);
-                Reaction out = storyHandler.handle(new Reaction(option, locked, oldTarget, player,mainTextShow));
+                Reaction out = storyHandler.handle(new Reaction(storyTracker,location,option, locked, oldTarget, player,mainTextShow));
                 locked = out.isLocked();
                 //System.out.println(locked + " ------" + option + "-------" + out.getOption());
                 return out.getTarget().getName() + ": " + out.getTarget().getDialogue() +"\n";

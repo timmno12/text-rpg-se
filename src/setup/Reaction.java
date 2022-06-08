@@ -46,8 +46,10 @@ public class Reaction {
 
     }
 
-    public Reaction(Integer option, boolean locked, Target target, Player player, JTextArea mainTextShow) {
+    public Reaction(StoryTracker storyTracker,JTextArea location, Integer option, boolean locked, Target target, Player player, JTextArea mainTextShow) {
 
+        this.storyTracker = storyTracker;
+        this.location = location;
         this.option = option;
 
         this.locked = locked;

@@ -57,7 +57,7 @@ public class data {
             new Target("Hallway (Basement)","cat", "talk", "I’m new here!", 1,false),
             new Target("Hallway (Basement)","cat", "talk", "Could you let us pass through that door?", 1,false),
             new Target("Hallway (Basement)","cat", "talk", "What are you doing here", 1,false),
-            new Target("Hallway (Basement)","cat", "talk", "End conversation", 9,false),
+            new Target("Hallway (Basement)","cat", "talk", "End conversation", 9,true),
             new Target("Hallway (Basement)","cat", "talk", "Ah, is that so? I don’t remember anyone new getting adopted. ", 2,false),
             new Target("Hallway (Basement)","cat", "talk", "There’s only one person with authority to enter this room and you are not them. ", 2,false),
             new Target("Hallway (Basement)","cat", "talk", "I’m taking a nap on my job, so why don’t you let me be?", 2,false),
@@ -68,37 +68,37 @@ public class data {
 
             //TODO dirty button wird dem Inventar automatisch hinzugefügt
             //Text hinzufügen: You breathe heavily after giving the cat a hard blow. Growling, it jumps to the side and flees to some corner of the room. You don't see where she's gone, because a sparkling something draws all your attention. You pick it up, pluck off the last cat hairs and are the new owner of a dirty button (button).
-            new Target("Hallway (Basement)","", "look", "The cat seems to have disappeared. You hold your breath for a moment to listen, but there is nothing but your own excited heartbeat. The hallway has not changed. There are still 4 doors, but the one to the left is now clear of cats (left door). Opposite of it you see a simple wooden door, nothing special, but sturdy (right door). The big arch is still overgrown with plants (door ahead). It doesn't look like they're going to die anytime soon. In your back is the storage room (door behind).", 10,false),
-            new Target("Hallway (Basement)","door ahead", "look", "The arched entryway is overgrown. The vines are so dense that you can’t see past them.", 10,false),
-            new Target("Hallway (Basement)","right door", "look", "It is a normal, wooden door. As your eyes wander higher from below, you can see a raven sitting on the doorknob far above, eyeing you with an unpleasantly interested look.", 10,false),
-            new Target("Hallway (Basement)","left door", "look", "The cat is gone. The door is free.", 10,false),
-            new Target("Hallway (Basement)","left door", "use", "You are about to push open the door when you are shrouded in a huge shadow. The raven holds itself in the air above you. ~Bring me treasure! Bring me gold!~ he crows. ~And I will help you to pass the right door~ You don't answer, but enter the darkness that extends behind the door.", 10,true),
-            new Target("Hallway (Basement)","door behind", "look", "This is where you came from. Nothing exciting there.", 10,false),
+            new Target("Hallway (Basement) II","", "look", "The cat seems to have disappeared. You hold your breath for a moment to listen, but there is nothing but your own excited heartbeat. The hallway has not changed. There are still 4 doors, but the one to the left is now clear of cats (left door). Opposite of it you see a simple wooden door, nothing special, but sturdy (right door). The big arch is still overgrown with plants (door ahead). It doesn't look like they're going to die anytime soon. In your back is the storage room (door behind).", 10,false),
+            new Target("Hallway (Basement) II","door ahead", "look", "The arched entryway is overgrown. The vines are so dense that you can’t see past them.", 10,false),
+            new Target("Hallway (Basement) II","right door", "look", "It is a normal, wooden door. As your eyes wander higher from below, you can see a raven sitting on the doorknob far above, eyeing you with an unpleasantly interested look.", 10,false),
+            new Target("Hallway (Basement) II","left door", "look", "The cat is gone. The door is free.", 10,false),
+            new Target("Hallway (Basement) II","left door", "use", "You are about to push open the door when you are shrouded in a huge shadow. The raven holds itself in the air above you. ~Bring me treasure! Bring me gold!~ he crows. ~And I will help you to pass the right door~ You don't answer, but enter the darkness that extends behind the door.", 10,true),
+            new Target("Hallway (Basement) II","door behind", "look", "This is where you came from. Nothing exciting there.", 10,false),
             //To Sister. Player: Are you ok?
-            new Target("Hallway (Basement)","sister", "talk", "Are you ok?", 1,false),
-            new Target("Hallway (Basement)","sister", "talk", "I am fine. Did the beast hurt you? No? Phew… ok. I am relieved. I cannot imagine going through this without you.", 2,false),
+            new Target("Hallway (Basement) II","sister", "talk", "Are you ok?", 1,false),
+            new Target("Hallway (Basement) II","sister", "talk", "I am fine. Did the beast hurt you? No? Phew… ok. I am relieved. I cannot imagine going through this without you.", 2,false),
             //To Sister. Player: Did you see where the cat went?
-            new Target("Hallway (Basement)","sister", "talk", "Did you see where the cat went?", 1,false),
-            new Target("Hallway (Basement)","sister", "talk", "No. I was covering my eyes all the time.", 2,false),
+            new Target("Hallway (Basement) II","sister", "talk", "Did you see where the cat went?", 1,false),
+            new Target("Hallway (Basement) II","sister", "talk", "No. I was covering my eyes all the time.", 2,false),
             //To Sister. Player: End conversation
-            new Target("Hallway (Basement)","sister", "talk", "End conversation", 1,false),
-            new Target("Hallway (Basement)","sister", "talk", "I’m sorry I couldn't help you.", 2,false),
+            new Target("Hallway (Basement) II","sister", "talk", "End conversation", 1,false),
+            new Target("Hallway (Basement) II","sister", "talk", "I’m sorry I couldn't help you.", 2,false),
             //Text when conversation with raven is started:
-            new Target("Hallway (Basement)","raven", "talk", "You gather all your courage and address the giant bird.", 0,false),
+            new Target("Hallway (Basement) II","raven", "talk", "You gather all your courage and address the giant bird.", 0,false),
             //To Raven. Player: Do you want to fight me as well?
-            new Target("Hallway (Basement)","raven", "talk", "Do you want to fight me as well?", 1,false),
-            new Target("Hallway (Basement)","raven", "talk", "I don't think that those are my plans for you and that little thing beside you.", 2,false),
+            new Target("Hallway (Basement) II","raven", "talk", "Do you want to fight me as well?", 1,false),
+            new Target("Hallway (Basement) II","raven", "talk", "I don't think that those are my plans for you and that little thing beside you.", 2,false),
             //To Raven. Player: Who are you?
-            new Target("Hallway (Basement)","raven", "talk", "Who are you?", 1,false),
-            new Target("Hallway (Basement)","raven", "talk", "Do you really want to know that? Let’s say… I have eyes and ears everywhere.", 2,false),
+            new Target("Hallway (Basement) II","raven", "talk", "Who are you?", 1,false),
+            new Target("Hallway (Basement) II","raven", "talk", "Do you really want to know that? Let’s say… I have eyes and ears everywhere.", 2,false),
             //To Raven. Player: Can you open the door for me?
-            new Target("Hallway (Basement)","raven", "talk", "Can you open the door for me?", 1,false),
-            new Target("Hallway (Basement)","raven", "talk", "I could do that for you, if you gave me some pure gold and nothing less.", 2,false),
+            new Target("Hallway (Basement) II","raven", "talk", "Can you open the door for me?", 1,false),
+            new Target("Hallway (Basement) II","raven", "talk", "I could do that for you, if you gave me some pure gold and nothing less.", 2,false),
             //To Raven. Player: End conversation
-            new Target("Hallway (Basement)","raven", "talk", "End Conversation", 1,false),
-            new Target("Hallway (Basement)","raven", "talk", "Bring me treasure, little thing.", 2,false),
-            new Target("Hallway (Basement)","button", /*name2: "raven",*/ "look", "Raven: ~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
-            new Target("Hallway (Basement)","button", "look", "The button looks really dirty. You try to scrape off some of the dirt with your fingers, but no chance. The stuff is just too tight. If only there was some way to clean it.", 10,false),
+            new Target("Hallway (Basement) II","raven", "talk", "End Conversation", 1,false),
+            new Target("Hallway (Basement) II","raven", "talk", "Bring me treasure, little thing.", 2,false),
+            new Target("Hallway (Basement) II","button", /*name2: "raven",*/ "look", "Raven: ~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
+            new Target("Hallway (Basement) II","button", "look", "The button looks really dirty. You try to scrape off some of the dirt with your fingers, but no chance. The stuff is just too tight. If only there was some way to clean it.", 10,false),
 
             new Target("Eerie Crypt (left room)", "", "look", "You almost slip as you take your first steps. The ground is slippery and it makes a sound as if you were walking through honey. Your feet are wet and with every step you feel the water coming out of the mossy ground. It is very dark. Glowing torches light the room to the bare minimum. You shiver as the humidity reaches your skin. As far as you can see, the room is almost completely empty. You see a small sphere on a stone pedestal(pedestal) in the center.", 10, false),
             new Target("Eerie Crypt (left room)","pedestal", "look", "You move closer and now you can get a good look at the sphere (marble). It looks like a big marble and as if it were made of glass.", 10,false),

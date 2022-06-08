@@ -7,7 +7,7 @@ import java.util.List;
 public class data {
     public static Item[] items = {
             new Item("piece of wire", "Whoever kidnapped you must’ve underestimated the power of a piece of wire because this piece of wire is your trusty lock-pick.", 0, 0),
-            new Item("item2", "its an item 2 yo", 0, 0),
+            new Item("item2", "its an item 2 yo", 0, 0)
 
     };
     public static PlayerClasses[] playerClasses = {
@@ -22,11 +22,9 @@ public class data {
     };
 
     public static Target[] DATA={
-
             new Target("Cage","piece of wire", "look", items[0].getItemDescription(), 10,false),
-            new Target("Cage","piece of wire", "take", "You pick up the piece of wire.", 10,false),
             new Target("Cage","piece of wire", "use", "After fiddling around for a little you manage to unlock your cage.", 10,true),
-            new Target("Cage","", "look", "It’s dark here, the only light coming from the cracks in the door. You look outside your cage and down the shelf you're on, the distance is not too bad. On your right is your sister's cage, she seems nervous and is fiddling around with the metal bars. Besides an old rusty piece of wire there’s only a big jar to your left which is filled with suspiciously glowing water. ", 10,false),
+            new Target("Cage","", "look", "It’s dark here, the only light coming from the cracks in the door. You look outside your cage and down the shelf you're on, the distance is not too bad. On your right is your sister's cage, she seems nervous and is fiddling around with the metal bars. There’s a big jar to your left which is filled with suspiciously glowing water. ", 10,false),
             new Target("Cage","sister", "talk", "I’m so scared, I want to go home.", 0,false),
             new Target("Cage","sister", "talk", "Don't worry, I'll find a way.", 1,false),
             new Target("Cage","sister", "talk", "Did you notice anything? ", 1,false),
@@ -34,9 +32,6 @@ public class data {
             new Target("Cage","sister", "talk", "Thank you. I don’t know what I would do without you.", 2,false),
             new Target("Cage","sister", "talk", "It’s really dark and there’s some weird objects here. ", 2,false),
             new Target("Cage","sister", "talk", "I'm scared..", 2,false),
-
-
-
 
             //test entry
             new Target("Cage","item", "take", "You picked up the item" , 10,false),

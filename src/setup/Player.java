@@ -107,7 +107,7 @@ public class Player {
     public void addToInventory(String itemName){
 
         for (Item item: data.items){
-            if (item.getItemName()==itemName && !itemList.contains(item)){
+            if (item.getItemName().equals(itemName) && !itemList.contains(item)){
                 itemList.add(item);
 
             }
@@ -116,9 +116,20 @@ public class Player {
 
 
         };
+    public boolean isInInventory(String itemName){
+        for (Item item: data.items){
+            if(item.getItemName().equals(itemName)&&itemList.contains(item)){
+                return true;
+
+            }
+
+        }
+        return false;
+
+    };
     public void removeFromInventory(String itemName){
         for (Item item: data.items){
-            if (item.getItemName()==itemName && itemList.contains(item)){
+            if (item.getItemName().equals(itemName) && itemList.contains(item)){
                 itemList.remove(item);
 
             }

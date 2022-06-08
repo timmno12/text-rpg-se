@@ -7,7 +7,7 @@ public class StoryTracker {
 
     private String[] targets_0= {"sister","piece of wire"};
     private String[] targets_1= {"sister","piece of wire","door"};
-    private String[] targets_2= {"sister","piece of wire", "door ahead", "cat"}; //dfwef
+    private String[] targets_2= {"sister","piece of wire", "door ahead", "cat"};
     private String[] targets_3= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button"};
     private String[] targets_4= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble"};
     private String[] targets_5= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion"};

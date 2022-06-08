@@ -46,16 +46,7 @@ public class Reaction {
 
     }
 
-
-    public Reaction(Integer option, boolean locked, Target target) {
-
-        this.option = option;
-
-        this.locked = locked;
-
-        this.target = target;
-
-    }    public Reaction(Integer option, boolean locked, Target target, Player player, JTextArea mainTextShow) {
+    public Reaction(Integer option, boolean locked, Target target, Player player, JTextArea mainTextShow) {
 
         this.option = option;
 

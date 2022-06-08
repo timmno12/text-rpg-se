@@ -70,10 +70,13 @@ public class data {
             //Text hinzufügen: You breathe heavily after giving the cat a hard blow. Growling, it jumps to the side and flees to some corner of the room. You don't see where she's gone, because a sparkling something draws all your attention. You pick it up, pluck off the last cat hairs and are the new owner of a dirty button (button).
             new Target("Hallway (Basement) II","", "look", "The cat seems to have disappeared. You hold your breath for a moment to listen, but there is nothing but your own excited heartbeat. The hallway has not changed. There are still 4 doors, but the one to the left is now clear of cats (left door). Opposite of it you see a simple wooden door, nothing special, but sturdy (right door). The big arch is still overgrown with plants (door ahead). It doesn't look like they're going to die anytime soon. In your back is the storage room (door behind).", 10,false),
             new Target("Hallway (Basement) II","door ahead", "look", "The arched entryway is overgrown. The vines are so dense that you can’t see past them.", 10,false),
+            new Target("Hallway (Basement) II","door ahead", "use", "Even if you could get to the door the huge creepers would make it impossible for you to go through.", 10,false),
             new Target("Hallway (Basement) II","right door", "look", "It is a normal, wooden door. As your eyes wander higher from below, you can see a raven sitting on the doorknob far above, eyeing you with an unpleasantly interested look.", 10,false),
+            new Target("Hallway (Basement) II","right door", "use", "You hear the fierce flapping of huge wings above you. When you ignore it and try to push the door open, it doesn't move an inch. Above you, you hear scornful laughter.", 10,false),
             new Target("Hallway (Basement) II","left door", "look", "The cat is gone. The door is free.", 10,false),
             new Target("Hallway (Basement) II","left door", "use", "You are about to push open the door when you are shrouded in a huge shadow. The raven holds itself in the air above you. ~Bring me treasure! Bring me gold!~ he crows. ~And I will help you to pass the right door~ You don't answer, but enter the darkness that extends behind the door.", 10,true),
             new Target("Hallway (Basement) II","door behind", "look", "This is where you came from. Nothing exciting there.", 10,false),
+            new Target("Hallway (Basement) II","door behind", "use", "You hear your sister's thin voice: ~I don't think we'll find anything in there, besides, it's dark and I never want to see those cages again!~ You turn back toward the hallway.", 10,false),
             //To Sister. Player: Are you ok?
             new Target("Hallway (Basement) II","sister", "talk", "Are you ok?", 1,false),
             new Target("Hallway (Basement) II","sister", "talk", "I am fine. Did the beast hurt you? No? Phew… ok. I am relieved. I cannot imagine going through this without you.", 2,false),
@@ -83,6 +86,7 @@ public class data {
             //To Sister. Player: End conversation
             new Target("Hallway (Basement) II","sister", "talk", "End conversation", 1,false),
             new Target("Hallway (Basement) II","sister", "talk", "I’m sorry I couldn't help you.", 2,false),
+            new Target("Hallway (Basement) II","raven", "look", "The huge raven sits calmly on the door handle and doesn't avert its penetrating gaze from you for a second. Every time you try to look at him, you have to turn away because you can't withstand his gaze on you. You shudder at the thought of the animal at your back and squeeze your sister's little hand a little tighter.", 10,false),
             //Text when conversation with raven is started:
             new Target("Hallway (Basement) II","raven", "talk", "You gather all your courage and address the giant bird.", 0,false),
             //To Raven. Player: Do you want to fight me as well?

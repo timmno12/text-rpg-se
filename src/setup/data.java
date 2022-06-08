@@ -40,7 +40,7 @@ public class data {
             new Target("Cage","item2", "use", "You used the item  2 lel" , 10,false),
 
             new Target("Storage Room","sister", "talk", "Let's get out of here!", 10,false),
-            new Target("Storage Room","piece of wire cage", "use", "You successfully unlock your sister's cage as well.", 10,true),
+            new Target("Storage Room","piece of wire", "use", "You successfully unlock your sister's cage as well.", 10,true),
             new Target("Storage Room","", "look", "This is definitely a storage room. Lots of shelves filled with gruesome things you don’t really want to look at closely. The door seems like the only way out.", 10,false),
             new Target("Storage Room","door", "use", "Your sister yells out in protest. Were you gonna leave without her?", 10,false),
 
@@ -57,7 +57,7 @@ public class data {
             new Target("Hallway (Basement)","cat", "talk", "I’m new here!", 1,false),
             new Target("Hallway (Basement)","cat", "talk", "Could you let us pass through that door?", 1,false),
             new Target("Hallway (Basement)","cat", "talk", "What are you doing here", 1,false),
-            new Target("Hallway (Basement)","cat", "talk", "End conversation", 1,false),
+            new Target("Hallway (Basement)","cat", "talk", "End conversation", 9,false),
             new Target("Hallway (Basement)","cat", "talk", "Ah, is that so? I don’t remember anyone new getting adopted. ", 2,false),
             new Target("Hallway (Basement)","cat", "talk", "There’s only one person with authority to enter this room and you are not them. ", 2,false),
             new Target("Hallway (Basement)","cat", "talk", "I’m taking a nap on my job, so why don’t you let me be?", 2,false),

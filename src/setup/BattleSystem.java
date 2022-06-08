@@ -58,8 +58,7 @@ public class BattleSystem {
 
 
     static public void startFight(Reaction reaction, Enemy enemy){
-        System.out.println("Start fight " + reaction.getPlayer().getUserLP());
-        reaction.getMainTextShow().append("Start fight " + reaction.getPlayer().getUserLP());
+        //System.out.println("Start fight " + reaction.getPlayer().getUserLP());
         tempUserLP = reaction.getPlayer().getUserLP();
         tempEnemLP = enemy.getEnemLP();
         enemyDodge(reaction, enemy);

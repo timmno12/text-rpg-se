@@ -50,7 +50,9 @@ public class StoryHandler {
             if(reaction.getOption() == playerAnswers.size()){
                 Target t = genAnswers.get(reaction.getOption()-1);
                 if(t.getState() == 8){
+
                     battleSystem.startFight(reaction,data.enemies[0]);
+                    reaction.getMainTextShow().append("You started a fight with " + reaction.getTarget().getName() + "\n");
                 }
 
                 reaction.setTarget(t);
@@ -62,6 +64,7 @@ public class StoryHandler {
             Target t = genAnswers.get(reaction.getOption()-1);
             reaction.setTarget(t);
             reaction.setLocked(true);
+
 
         }return reaction;
 

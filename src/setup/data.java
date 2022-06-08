@@ -48,7 +48,7 @@ public class data {
             new Target("Storage Room","", "look", "This is definitely a storage room. Lots of shelves filled with gruesome things you don’t really want to look at closely. The door seems like the only way out.", 10,false),
             new Target("Storage Room","door", "use", "It’s not even locked. You open the door just enough to fit through and leave the room.", 10,true),
 
-            new Target("Hallway (Basement)","arched entryway overgrown with vines", "look", "The vines are so dense that you can’t see past them. ", 10,false),
+            new Target("Hallway (Basement)","door ahead", "look", "The vines are so dense that you can’t see past them. ", 10,false),
             new Target("Hallway (Basement)","", "look", "A sizable wooden hallway with a few decorative paintings. It’s dimly lit with a candle on each wall and connects to 4 rooms in total. You notice a cat curled up in front of one of the doors. At the end of the hallway there’s an arched entryway overgrown with vines that spread into the ceiling and the floor.", 10,false),
             new Target("Hallway (Basement)","cat", "attack", "You attack!", 8,true),
             new Target("Hallway (Basement)","sister", "talk", "If we wouldn’t have gotten knocked out and dumped into a cage I would almost say it’s cozy. But right now this place is scary, I just really want to get out of here. ", 1,false),
@@ -75,21 +75,29 @@ public class data {
             new Target("Hallway (Basement)","left door", "use", "You are about to push open the door when you are shrouded in a huge shadow. The raven holds itself in the air above you. ~Bring me treasure! Bring me gold!~ he crows. ~And I will help you to pass the right door~ You don't answer, but enter the darkness that extends behind the door.", 10,true),
             new Target("Hallway (Basement)","door behind", "look", "This is where you came from. Nothing exciting there.", 10,false),
             //To Sister. Player: Are you ok?
-            new Target("Hallway (Basement)","sister", "talk", "I am fine. Did the beast hurt you? No? Phew… ok. I am relieved. I cannot imagine going through this without you.", 1,false),
+            new Target("Hallway (Basement)","sister", "talk", "Are you ok?", 1,false),
+            new Target("Hallway (Basement)","sister", "talk", "I am fine. Did the beast hurt you? No? Phew… ok. I am relieved. I cannot imagine going through this without you.", 2,false),
             //To Sister. Player: Did you see where the cat went?
-            new Target("Hallway (Basement)","sister", "talk", "No. I was covering my eyes all the time.", 1,false),
+            new Target("Hallway (Basement)","sister", "talk", "Did you see where the cat went?", 1,false),
+            new Target("Hallway (Basement)","sister", "talk", "No. I was covering my eyes all the time.", 2,false),
             //To Sister. Player: End conversation
-            new Target("Hallway (Basement)","sister", "talk", "I’m sorry I couldn't help you.", 1,false),
-            //TODO Text hinzufügen: You gather all your courage and address the giant bird.
+            new Target("Hallway (Basement)","sister", "talk", "End conversation", 1,false),
+            new Target("Hallway (Basement)","sister", "talk", "I’m sorry I couldn't help you.", 2,false),
+            //Text when conversation with raven is started:
+            new Target("Hallway (Basement)","raven", "talk", "You gather all your courage and address the giant bird.", 0,false),
             //To Raven. Player: Do you want to fight me as well?
-            new Target("Hallway (Basement)","raven", "talk", "I don't think that those are my plans for you and that little thing beside you.", 1,false),
+            new Target("Hallway (Basement)","raven", "talk", "Do you want to fight me as well?", 1,false),
+            new Target("Hallway (Basement)","raven", "talk", "I don't think that those are my plans for you and that little thing beside you.", 2,false),
             //To Raven. Player: Who are you?
-            new Target("Hallway (Basement)","raven", "talk", "Do you really want to know that? Let’s say… I have eyes and ears everywhere.", 1,false),
+            new Target("Hallway (Basement)","raven", "talk", "Who are you?", 1,false),
+            new Target("Hallway (Basement)","raven", "talk", "Do you really want to know that? Let’s say… I have eyes and ears everywhere.", 2,false),
             //To Raven. Player: Can you open the door for me?
-            new Target("Hallway (Basement)","raven", "talk", "I could do that for you, if you gave me some pure gold and nothing less.", 1,false),
+            new Target("Hallway (Basement)","raven", "talk", "Can you open the door for me?", 1,false),
+            new Target("Hallway (Basement)","raven", "talk", "I could do that for you, if you gave me some pure gold and nothing less.", 2,false),
             //To Raven. Player: End conversation
-            new Target("Hallway (Basement)","raven", "talk", "Bring me treasure, little thing.", 1,false),
-            new Target("Hallway (Basement)","button", /*name2: "raven",*/ "look", "~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
+            new Target("Hallway (Basement)","raven", "talk", "End Conversation", 1,false),
+            new Target("Hallway (Basement)","raven", "talk", "Bring me treasure, little thing.", 2,false),
+            new Target("Hallway (Basement)","button", /*name2: "raven",*/ "look", "Raven: ~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
             new Target("Hallway (Basement)","button", "look", "The button looks really dirty. You try to scrape off some of the dirt with your fingers, but no chance. The stuff is just too tight. If only there was some way to clean it.", 10,false),
 
             new Target("Eerie Crypt (left room)", "", "look", "You almost slip as you take your first steps. The ground is slippery and it makes a sound as if you were walking through honey. Your feet are wet and with every step you feel the water coming out of the mossy ground. It is very dark. Glowing torches light the room to the bare minimum. You shiver as the humidity reaches your skin. As far as you can see, the room is almost completely empty. You see a small sphere on a stone pedestal(pedestal) in the center.", 10, false),

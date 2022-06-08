@@ -55,7 +55,7 @@ public class Reaction {
 
         this.target = target;
 
-    }    public Reaction(Integer option, boolean locked, Target target, Player player) {
+    }    public Reaction(Integer option, boolean locked, Target target, Player player, JTextArea mainTextShow) {
 
         this.option = option;
 
@@ -64,6 +64,8 @@ public class Reaction {
         this.target = target;
 
         this.player = player;
+
+        this.mainTextShow = mainTextShow;
     }
 
     public Target getTarget() {

@@ -99,7 +99,7 @@ public class data {
             //To Raven. Player: End conversation
             new Target("Hallway (Basement) II","raven", "talk", "End Conversation", 1,false),
             new Target("Hallway (Basement) II","raven", "talk", "Bring me treasure, little thing.", 2,false),
-            new Target("Hallway (Basement) II","button", /*name2: "raven",*/ "look", "Raven: ~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
+            new Target("Hallway (Basement) II","button", /*name2: "raven",*/ "use", "Raven: ~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
             new Target("Hallway (Basement) II","button", "look", "The button looks really dirty. You try to scrape off some of the dirt with your fingers, but no chance. The stuff is just too tight. If only there was some way to clean it.", 10,false),
 
             new Target("Eerie Crypt (left room)", "", "look", "You almost slip as you take your first steps. The ground is slippery and it makes a sound as if you were walking through honey. Your feet are wet and with every step you feel the water coming out of the mossy ground. It is very dark. Glowing torches light the room to the bare minimum. You shiver as the humidity reaches your skin. As far as you can see, the room is almost completely empty. You see a small sphere on a stone pedestal(pedestal) in the center.", 10, false),
@@ -123,9 +123,44 @@ public class data {
             new Target("Ruins of a crumbled church ","lion", "talk", "End Conversation", 1,false),
             new Target("Ruins of a crumbled church ","lion", "talk", "Take care and be mindful of the power I gave you.", 2,true),
 
-            //Chapter 3 //TODO: Es wird in Chapter 3 gewechselt, wenn der Lion-Dialog einmal mit End Conversation beendet wurde und Cloth im Inventar liegt
-            new Target("Eerie Crypt (left room) II","", "look", " ", 10,false),
-
+            //Chapter 3
+            //TODO Text hinzufügen: A small light emerges from inside the statue. You see how it floats calmly towards you. You do not retreat and the light touches you. A warm tingling sensation flows through you and the fear you have been carrying around with you suddenly dissolves into thin air. You look at your sister. She looks at you uncertainly, but the smile you give her also makes her smile hopefully. Suddenly you find yourself back in the hallway with your sister holding your hand.
+            new Target("Hallway (Basement) III","", "look", "Still no sign of the cat. But you realize that suddenly you are no longer afraid that she might come back. The hallway has changed. There are suddenly only 3 doors. The door to your left has disappeared. In its place, a picture has appeared showing a small dandelion (dandelion) breaking out of paved ground. Opposite you see a simple wooden door, nothing special, but sturdy (right door). The large arch is still overgrown with plants (door ahead). Doesn't look like they're going to die anytime soon. In your back is the storage room (door behind).", 10,false),
+            new Target("Hallway (Basement) III","dandelion", "look", "The paved floor resembles that of the chapel you were in just moments ago. The stones actually look exactly the same. The dandelion looks strong and is in full bloom. You think about him for a while and finally turn away from the image.", 10,false),
+            new Target("Hallway (Basement) III","dandelion", "use", "You remember the magic orb that transported you to the chapel. Something about that picture seems magical. You are drawn into its spell and hold your breath in anticipation as you reach out your fingers to touch the frame. You are sure that something special will happen when your fingers touch the picture. You are only an inch away. Your fingertips touch the cold surface of the glass..... Nothing happens.", 10,false),
+            //Text when conversation with raven is started:
+            new Target("Hallway (Basement) III","raven", "talk", "The raven still sits calm and sublime on the door handle. He seems to be waiting for you to comply with your wishes. His gaze is still as unpleasant as before.", 0,false),
+            //To Raven. Player: Can you finally let me through?
+            new Target("Hallway (Basement) III","raven", "talk", "Can you finally let me through?", 1,false),
+            new Target("Hallway (Basement) III","raven", "talk", "TREASURE! OR NO PASS!", 2,false),
+            //To Raven. Player: Are we going to fight now?
+            new Target("Hallway (Basement) III","raven", "talk", "Are we going to fight now?", 1,false),
+            new Target("Hallway (Basement) III","raven", "talk", "You don't seriously think that I would bend even a feather just to exterminate such an unworthy creature like you? Ridiculous, now get lost.", 2,false),
+            //To Raven. Player: You won't believe what happened to me!
+            new Target("Hallway (Basement) III","raven", "talk", "You won't believe what happened to me!", 1,false),
+            new Target("Hallway (Basement) III","raven", "talk", "I am mentally superior to you. Don't try to lie to me. I've eaten some animals twice the size of you and your little companion.", 2,false),
+            //To Raven. Player: End Conversation
+            new Target("Hallway (Basement) III","raven", "talk", "End Conversation", 1,false),
+            new Target("Hallway (Basement) III","raven", "talk", "Bring me treasure, little thing.", 2,false),
+            new Target("Hallway (Basement) III","cloth", /*name2: "button",*/ "use", "You start polishing the dirty button with the silky cloth. Slowly it begins to shimmer beautifully. Looks almost like a golden coin.", 10,true),
+            new Target("Hallway (Basement) IV","button", /*name2: "raven",*/ "use", "Raven: ~Oh that looks shiny. Give it to me and I'll open the door for you~ You hand the polished, glittery button to the raven. ~Gold. Jewelry. Valuables.~ he cheers. For a moment, you watch the raven rejoice in his newfound treasures. He doesn't seem to notice that it's a simple plastic gold-plated button. You feel a slight pang of guilt, but you would do anything to save your sister. Besides, the raven seems to be thievishly happy about your offering. A brief moment passes as you watch the raven rejoice in its new possession. Then, without giving you another glance, he opens the door, fluttering. Without hesitation, you walk through, your sister close behind you, before the raven can change its mind.", 10,true),
+            new Target("Foggy Void","", "look", "You take a step through the door. You have the feeling you can still hear the raven laughing behind you, but when you focus on it, you hear nothing but deafening silence. It is so quiet, as if you were deaf. And in front of you stretches a sea of white fog. You can't tell if you're looking into eternity or if it's only a few centimeters you can see. When you turn around, there is nothing but fog behind you. The door seems to have been swallowed up or to have simply dissolved. You can't make out how big the room is that you're in. Are you even in a room or are you outside? No matter where you look, it's just white. You could try to go straight ahead, but how smart is it to get even more lost in the dense fog (use ahead)? Or you try to find the wall of the room on the right (use right) or on the left (use left)?", 10,false),
+            //right combination is: left, ahead, left
+            //first movement in fog
+            new Target("Foggy void","ahead", "use", "Thick fog envelops you and your sister as you continue forward, but the environment around you doesn't change a bit. Which way now? Ahead, left or right?", 10,false),
+            new Target("Foggy void","right", "use", "Although you realize you've taken some steps, it looks like you haven't moved a bit. Which way now? Ahead, left or right?", 10,false),
+            new Target("Foggy void","left", "use", "Carefully, you move to the left with your sister. For a moment, you think the fog is lifting, when it thickens again. Was it your imagination or are you possibly on the right path? Which way now? Ahead, left or right?", 10,true),
+            //second movement in fog
+            new Target("Foggy void II","left", "use", "Left seems to have worked once before. But your hope slowly dissipates when you notice that the fog doesn't change a bit. Which way now? Ahead, left or right?", 10,false),
+            new Target("Foggy void II","right", "use", "You decide to turn a little to the right. Everything looks the same. Which way now? Ahead, left or right?", 10,false),
+            new Target("Foggy void II","ahead", "use", "You walk slowly and hold your breath after a few steps. A soft ringing reaches your ears. It sounds like a small bell. Pure and bright, even if very quiet. Which way now? Ahead, left or right?", 10,true),
+            //third movement in fog
+            new Target("Foggy void III","ahead", "use", "Disoriented, you stumble around in the void. No matter how much you walk, it always looks the same. Which way now? Ahead, left or right?", 10,false),
+            new Target("Foggy void III","right", "use", "Still nothing but dense fog. Slowly you are getting desperate. Which way now? Ahead, left or right?", 10,false),
+            new Target("Foggy void III","left", "use", "You're getting impatient. There must be an exit somewhere. Your steps become faster. Looking down, you can't see your feet. In the distance, you imagine a small light on the ground. Is it your imagination? It becomes clearer and clearer the closer you get. You notice how you almost start running and you have to be careful not to lose your sister behind you. One more step. Solid ground under your feet. One more step. Solid ground under your feet. One more step. Emptiness. You can't react as fast as you fall. Small pebbles accompany your fall and you also hear your sister scream as you fall together. The impact is strangely gentle, although you can feel stony ground beneath you. As you blink and try to stand up, you notice that the fog has completely disappeared. All you see now is the vastness of a huge cave. In the center of the cave, illuminated by a bluish light, rises a statue of a large cat. In some places it is broken, but its individual pieces still float as if held by magic where they were once assembled.", 10,true),
+            new Target("Light flooded cave","", "look", "", 10,false),
+            new Target("Light flooded cave","cat", "look", "", 10,false),
+            new Target("Light flooded cave","sister", "look", "", 10,false),
     };
 
 

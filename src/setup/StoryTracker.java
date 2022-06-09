@@ -4,7 +4,7 @@ public class StoryTracker {
 
     private int tracker = 0;
 
-    private String[] locations = {"Cage","Storage Room", "Hallway (Basement)", "Hallway (Basement) II", "Eerie Crypt (left room)", "Ruins of a crumbled church", "Ruins of a crumbled church ", "Eerie Crypt (left room) II"};
+    private String[] locations = {"Cage","Storage Room", "Hallway (Basement)", "Hallway (Basement) II", "Eerie Crypt (left room)", "Ruins of a crumbled church", "Ruins of a crumbled church ", "Hallway (Basement) III", "Hallway (Basement) IV", "Foggy void", "Foggy void II", "Foggy void III", "Light flooded cave"};
 
     //Cage
     private String[] targets_0= {"sister","piece of wire"};
@@ -27,10 +27,25 @@ public class StoryTracker {
     //Ruins of a crumbled church <- Mit Leerzeichen hinten dran
     private String[] targets_6= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion"};
 
-    //Eerie Crypt (left room) II
-    private String[] targets_7= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion"};
+    //Hallway (Basement) III
+    private String[] targets_7= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion", "dandelion"};
 
-    private String[][] targets = {targets_0, targets_1, targets_2, targets_3, targets_4, targets_5, targets_6, targets_7};
+    //Hallway (Basement) IV
+    private String[] targets_8= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion", "dandelion"};
+
+    //Foggy void
+    private String[] targets_9= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion", "dandelion", "ahead", "right", "left"};
+
+    //Foggy void II
+    private String[] targets_10= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion", "dandelion", "ahead", "right", "left"};
+
+    //Foggy void III
+    private String[] targets_11= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion", "dandelion", "ahead", "right", "left"};
+
+    //Light flooded cave
+    private String[] targets_12= {"sister","piece of wire", "door ahead", "cat", "right door", "left door", "door behind", "raven", "button", "pedestal", "marble", "chapel", "cloth", "lion", "dandelion", "ahead", "right", "left", "cat"};
+
+    private String[][] targets = {targets_0, targets_1, targets_2, targets_3, targets_4, targets_5, targets_6, targets_7, targets_8, targets_9, targets_10, targets_11, targets_12};
 
     public void progress(){
        tracker +=1;

@@ -1,6 +1,7 @@
 package setup;
 
 public class StoryTracker {
+
     private int tracker = 0;
 
     private String[] locations = {"Cage","Storage Room", "Hallway (Basement)", "Hallway (Basement) II", "Eerie Crypt (left room)", "Ruins of a crumbled church", "Ruins of a crumbled church ", "Eerie Crypt (left room) II"};
@@ -42,4 +43,8 @@ public class StoryTracker {
     public String[] getTargets() {
         return targets[tracker];
     }
+    public int getTracker() {
+        return tracker;
+    }
+
 }

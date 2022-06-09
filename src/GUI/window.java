@@ -108,18 +108,18 @@ public class window {
         ImageLogo = new JButton(new ImageIcon("src/GUI/resources/kartenIcon.png"));
 
         //Second Image
-        ImageIcon shinybigCat = new ImageIcon("src/GUI/resources/secondCard.png");
-        Image shinyCat = shinybigCat.getImage();
-        Image newshinyCat = shinyCat.getScaledInstance(180,250,Image.SCALE_SMOOTH);
-        ImageIcon smolshinyCard = new ImageIcon(newshinyCat);
+        ImageIcon lionCat = new ImageIcon("src/GUI/resources/secondCard.png");
+        Image lionCatImage = lionCat.getImage();
+        Image newlionCat = lionCatImage.getScaledInstance(180,250,Image.SCALE_SMOOTH);
+        ImageIcon smolshinyCard = new ImageIcon(newlionCat);
 
         //Neues Label für die erste karte
         JLabel card1 = new JLabel();
-        card1.setIcon(smolCatCard);
+        card1.setIcon(smolshinyCard);
         card1.setHorizontalAlignment(JLabel.LEFT);
         card1.setBackground(Color.black);
         JLabel card2 = new JLabel();
-        card2.setIcon(smolshinyCard);
+        card2.setIcon(smolCatCard);
         card2.setHorizontalAlignment(JLabel.RIGHT);
         card2.setBackground(Color.black);
         JFrame cardFrame = new JFrame("Your collected Cards");
@@ -136,7 +136,7 @@ public class window {
         cardFrame.getContentPane().setBackground(Color.black);
 
         //"Achievement list"
-        String[] achievementNames = {"Cat", "Temple"};
+        String[] achievementNames = {"lion", "cat"};
 
 
         ImageLogo.addActionListener(new ActionListener() {
@@ -145,11 +145,11 @@ public class window {
                // player.getAchievements()[0][1] = "1"; //this is a way to change if achievement is unlocked
                 for (int i = 0; i < player.getAchievements().length; i++) {
                     for (int j = 0; j < 2; j++) {
-                        if(player.getAchievements()[i][j].equalsIgnoreCase("Cat") && player.getAchievements()[i][j+1] == "1"){ //only Cat Achievement
+                        if(player.getAchievements()[i][j].equalsIgnoreCase("lion") && player.getAchievements()[i][j+1] == "1"){ //only Cat Achievement
                            System.out.println(player.getAchievements()[i][j] + " - " + player.getAchievements()[i][j+1]);
                             card1.setVisible(true);
                             }
-                        if(player.getAchievements()[i][j].equalsIgnoreCase("temple") && player.getAchievements()[i][j+1] == "1"){
+                        if(player.getAchievements()[i][j].equalsIgnoreCase("cat") && player.getAchievements()[i][j+1] == "1"){
                             System.out.println(player.getAchievements()[i][j] + " - " + player.getAchievements()[i][j+1]);
                             card2.setVisible((true));
                         }

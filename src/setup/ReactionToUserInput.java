@@ -39,6 +39,7 @@ public class ReactionToUserInput {
             try {
                 Integer option = Integer.parseInt(firstWord);
                 Reaction out = storyHandler.handle(new Reaction(storyTracker,location,option, locked, oldTarget, player,mainTextShow));
+                achievementChecker(out);
                 locked = out.isLocked();
                 //System.out.println(locked + " ------" + option + "-------" + out.getOption());
                 return out.getTarget().getName() + ": " + out.getTarget().getDialogue() +"\n";
@@ -59,6 +60,7 @@ public class ReactionToUserInput {
                     }
                     else{
                         Reaction out = storyHandler.handle(reaction);
+                        achievementChecker(out);
                         locked = out.isLocked();
                         oldTarget = out.getTarget();
                         if (locked == true) {
@@ -79,6 +81,17 @@ public class ReactionToUserInput {
 
 
 
+    }
+
+
+    public static void achievementChecker(Reaction reaction){
+        if(reaction.getStoryTracker().getTracker() == 2) {
+            reaction.getPlayer().achievements[0][1] = "1";
+        }
+        if(reaction.getStoryTracker().getTracker() == 3){
+            reaction.getPlayer().achievements[1][1] = "1";
+
+        }
     }
 }
 

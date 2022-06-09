@@ -15,6 +15,17 @@ public class StoryHandler {
             reaction.getLocation().setText("Location: " + reaction.getStoryTracker().getLocation());
             reaction.getTarget().setProgression(false);
         }
+
+
+
+        if(reaction.getStoryTracker().getTracker() == 2) {
+            reaction.getPlayer().achievements[0][1] = "1";
+        }
+        if(reaction.getStoryTracker().getTracker() == 3){
+            reaction.getPlayer().achievements[1][1] = "1";
+
+        }
+
         if(reaction.getOption()==null) {
             //simple targets
             if(reaction.getTarget().getState() == 10) {

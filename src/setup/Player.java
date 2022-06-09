@@ -15,6 +15,8 @@ public class Player {
 
     public static ArrayList<Item> itemList = new ArrayList<Item>();
 
+
+    public String[][] achievements = {{"Lion","0"},{"Cat", "0"}};
     public String[][] getAchievements() {
         return achievements;
     }
@@ -23,8 +25,6 @@ public class Player {
     public void setAchievements(String[][] achievements) {
         this.achievements = achievements;
     }
-
-    private String[][] achievements = {{"Cat","1"},{"temple", "1"}};
 
     private String location;
 

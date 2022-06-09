@@ -11,7 +11,7 @@ public class BattleSystem {
 
     static Random random = new Random();
 
-    static long delayInMS = 1;
+    static long delayInMS = 500;
 
     static int min = 1;
     static int max = 10;

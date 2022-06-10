@@ -82,7 +82,7 @@ public class data {
             new Target("Hallway (Basement) II","sister", "talk", "Did you see where the cat went?", 1,false),
             new Target("Hallway (Basement) II","sister", "talk", "No. I was covering my eyes all the time.", 2,false),
             //To Sister. Player: End conversation
-            new Target("Hallway (Basement) II","sister", "talk", "End conversation", 1,false),
+            new Target("Hallway (Basement) II","sister", "talk", "End conversation", 9,false),
             new Target("Hallway (Basement) II","sister", "talk", "I’m sorry I couldn't help you.", 2,false),
             new Target("Hallway (Basement) II","raven", "look", "The huge raven sits calmly on the door handle and doesn't avert its penetrating gaze from you for a second. Every time you try to look at him, you have to turn away because you can't withstand his gaze on you. You shudder at the thought of the animal at your back and squeeze your sister's little hand a little tighter.", 10,false),
             //Text when conversation with raven is started:
@@ -97,7 +97,7 @@ public class data {
             new Target("Hallway (Basement) II","raven", "talk", "Can you open the door for me?", 1,false),
             new Target("Hallway (Basement) II","raven", "talk", "I could do that for you, if you gave me some pure gold and nothing less.", 2,false),
             //To Raven. Player: End conversation
-            new Target("Hallway (Basement) II","raven", "talk", "End Conversation", 1,false),
+            new Target("Hallway (Basement) II","raven", "talk", "End conversation", 9,false),
             new Target("Hallway (Basement) II","raven", "talk", "Bring me treasure, little thing.", 2,false),
             new Target("Hallway (Basement) II","button", /*name2: "raven",*/ "use", "Raven: ~Hahahaha what is this? Do you want me to get angry? Back off, vermin.~", 10,false),
             new Target("Hallway (Basement) II","button", "look", "The button looks really dirty. You try to scrape off some of the dirt with your fingers, but no chance. The stuff is just too tight. If only there was some way to clean it.", 10,false),
@@ -120,7 +120,7 @@ public class data {
             new Target("Ruins of a crumbled church ","lion", "talk", "Who are you?", 1,false),
             new Target("Ruins of a crumbled church ","lion", "talk", "Just a lost memory of a god that honored the brave back in the days to pass every obstacle they encountered. I am the force to give you this power. You proved your character and nothing shall hold you back.", 2,false),
             //To Lion. Player: End conversation
-            new Target("Ruins of a crumbled church ","lion", "talk", "End Conversation", 1,false),
+            new Target("Ruins of a crumbled church ","lion", "talk", "End conversation", 9,false),
             new Target("Ruins of a crumbled church ","lion", "talk", "Take care and be mindful of the power I gave you.", 2,true),
 
             //Chapter 3
@@ -140,7 +140,7 @@ public class data {
             new Target("Hallway (Basement) III","raven", "talk", "You won't believe what happened to me!", 1,false),
             new Target("Hallway (Basement) III","raven", "talk", "I am mentally superior to you. Don't try to lie to me. I've eaten some animals twice the size of you and your little companion.", 2,false),
             //To Raven. Player: End Conversation
-            new Target("Hallway (Basement) III","raven", "talk", "End Conversation", 1,false),
+            new Target("Hallway (Basement) III","raven", "talk", "End conversation", 9,false),
             new Target("Hallway (Basement) III","raven", "talk", "Bring me treasure, little thing.", 2,false),
             new Target("Hallway (Basement) III","cloth", /*name2: "button",*/ "use", "You start polishing the dirty button with the silky cloth. Slowly it begins to shimmer beautifully. Looks almost like a golden coin.", 10,true),
             new Target("Hallway (Basement) IV","button", /*name2: "raven",*/ "use", "Raven: ~Oh that looks shiny. Give it to me and I'll open the door for you~ You hand the polished, glittery button to the raven. ~Gold. Jewelry. Valuables.~ he cheers. For a moment, you watch the raven rejoice in his newfound treasures. He doesn't seem to notice that it's a simple plastic gold-plated button. You feel a slight pang of guilt, but you would do anything to save your sister. Besides, the raven seems to be thievishly happy about your offering. A brief moment passes as you watch the raven rejoice in its new possession. Then, without giving you another glance, he opens the door, fluttering. Without hesitation, you walk through, your sister close behind you, before the raven can change its mind.", 10,true),
@@ -158,9 +158,36 @@ public class data {
             new Target("Foggy void III","ahead", "use", "Disoriented, you stumble around in the void. No matter how much you walk, it always looks the same. Which way now? Ahead, left or right?", 10,false),
             new Target("Foggy void III","right", "use", "Still nothing but dense fog. Slowly you are getting desperate. Which way now? Ahead, left or right?", 10,false),
             new Target("Foggy void III","left", "use", "You're getting impatient. There must be an exit somewhere. Your steps become faster. Looking down, you can't see your feet. In the distance, you imagine a small light on the ground. Is it your imagination? It becomes clearer and clearer the closer you get. You notice how you almost start running and you have to be careful not to lose your sister behind you. One more step. Solid ground under your feet. One more step. Solid ground under your feet. One more step. Emptiness. You can't react as fast as you fall. Small pebbles accompany your fall and you also hear your sister scream as you fall together. The impact is strangely gentle, although you can feel stony ground beneath you. As you blink and try to stand up, you notice that the fog has completely disappeared. All you see now is the vastness of a huge cave. In the center of the cave, illuminated by a bluish light, rises a statue of a large cat. In some places it is broken, but its individual pieces still float as if held by magic where they were once assembled.", 10,true),
-            new Target("Light flooded cave","", "look", "", 10,false),
-            new Target("Light flooded cave","cat", "look", "", 10,false),
-            new Target("Light flooded cave","sister", "look", "", 10,false),
+            new Target("Light flooded cave","", "look", "The cave you are in is huge. You are on a small ledge. A few meters in front of you it goes down, but from your point of view you have an incredible view of the cat statue (cat) in the middle. It towers loftily in the center of the cave. You feel overwhelmed by the sight and for another moment you just stand there admiring what you see.", 10,false),
+            new Target("Light flooded cave","cat", "look", "The cat statue looks frighteningly real. You're surprised you don't have the urge to flee. Normally, cats aren't your favorite animals. But this statue exudes a certain calm and peacefulness. Strangely, you feel that there is a certain deceitfulness in its gaze, but you are sure that it means you no harm. Small pebbles and fragments of the statue magically fly around her.", 10,false),
+            new Target("Light flooded cave","sister", "look", "Your sister seems to be as overwhelmed as you are. You didn't see her get up after the fall. But she looks unharmed, and if you didn't know she had just fallen, you wouldn't suspect it. Her gaze rests on the cat, but she doesn't look frightened, just as fascinated by the sight as you are.", 10,false),
+            new Target("Light flooded cave","sister", "talk", "Your sister looks unharmed and speechlessly admires the statue in the middle of the cave.", 0,false),
+            //To sister. Player: Did you hurt yourself in the fall?
+            new Target("Light flooded cave","sister", "talk", "Did you hurt yourself in the fall?", 1,false),
+            new Target("Light flooded cave","sister", "talk", "I am fine. Strangely enough, I didn't feel the impact at all.", 2,false),
+            //To sister. Player: You do not have to be afraid. The cat will not hurt you.
+            new Target("Light flooded cave","sister", "talk", "You do not have to be afraid. The cat will not hurt you.", 1,false),
+            new Target("Light flooded cave","sister", "talk", "I am not afraid. I know that she will not hurt us.", 2,false),
+            //To sister. Player: End conversation
+            new Target("Light flooded cave","sister", "talk", "End conversation", 9,false),
+            new Target("Light flooded cave","sister", "talk", "We should talk to it, right?", 2,false),
+            new Target("Light flooded cave","cat", "talk", "The cat looks so real and alive even though it hasn't moved an inch.", 0,false),
+            //To cat. Player: Are you alive?
+            new Target("Light flooded cave","cat", "talk", "Are you alive?", 1,false),
+            new Target("Light flooded cave","cat", "talk", "Alive would not be the word I would use to describe myself. I exist as long as someone remembers me and there are little heroes like you who overcome obstacles with great cunning and a clever head.", 2,false),
+            //To cat. Player: What are you?
+            new Target("Light flooded cave","cat", "talk", "What are you?", 1,false),
+            new Target("Light flooded cave","cat", "talk", "You can imagine me as something you call a spirit. I am a part of your character since you proved that you have the necessary wisdom to face any challenge.", 2,false),
+            //To cat. Player: What happened?
+            new Target("Light flooded cave","cat", "talk", "What happened?", 1,false),
+            new Target("Light flooded cave","cat", "talk", "Your character is formed from the choices you make and very few make it to that place. You did something heroic to save your sister. You put yourself in danger to free her. Not through strength, not through courage, but through ingenuity, you overcame a great obstacle and brought yourself and your sister one step closer to freedom.", 2,false),
+            //To cat. Player: End conversation
+            new Target("Light flooded cave","cat", "talk", "End conversation", 9,false),
+            new Target("Light flooded cave","cat", "talk", "Return and find the last statue in the overgrown woods. A gate conquered by nature will guide you.", 2,true),
+
+            //Chapter 4
+            //TODO Text hinzufügen: The statue falls silent and at the same moment something seems to happen for the first time. Once again, you can see a soft glow appearing around the statue and a small ball of light coming out of its interior. The same small light you saw at the lion statue! A warm feeling flows through you as it slowly floats toward you and finally connects with you. Again you feel light and dazzled and when you open your eyes again you find yourself in the old familiar hallway.
+            new Target("Hallway (Basement) V","", "look", "Another time the hallway seems to have changed. To the left you can still see the pretty picture of the dandelion (dandelion). There is still no sign of the door. But as your gaze turns to the right, you see that the door on the right has also disappeared. You smile when you see the picture that has appeared on the wall in its place. It shows the interior of a cave and its floor overgrown with cat grass (grass). The large arch is still overgrown with plants (door ahead). Doesn't look like they're going to die anytime soon. In your back is the storage room (door behind).", 10,false),
     };
 
 

@@ -127,6 +127,17 @@ public class Player {
         return false;
 
     };
+
+    public boolean isValidItem(String itemName){
+        for (Item item: data.items){
+            if(item.getItemName().equals(itemName)){
+                return true;
+
+            }
+
+        }
+        return false;
+    };
     public void removeFromInventory(String itemName){
         for (Item item: data.items){
             if (item.getItemName().equals(itemName) && itemList.contains(item)){

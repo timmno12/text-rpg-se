@@ -1,5 +1,6 @@
 package setup;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class StoryHandler {
@@ -9,41 +10,59 @@ public class StoryHandler {
         ArrayList<Target> genAnswers = new ArrayList<>();
         Proxy proxy = new Proxy();
         BattleSystem battleSystem = new BattleSystem();
+
+        Target target = reaction.getTarget();
+        StoryTracker storyTracker = reaction.getStoryTracker();
+        JTextArea location = reaction.getLocation();
+        Player player = reaction.getPlayer();
+        JTextArea mainTextShow = reaction.getMainTextShow();
+        Integer option = reaction.getOption();
+
         //progress
-        if (reaction.getTarget().isProgression()) {
-            reaction.getStoryTracker().progress();
-            reaction.getLocation().setText("Location: " + reaction.getStoryTracker().getLocation());
-            reaction.getTarget().setProgression(false);
+        if (target.isProgression()) {
+            storyTracker.progress();
+            location.setText("Location: " + storyTracker.getLocation());
+            target.setProgression(false);
         }
 
-
-
-        if(reaction.getStoryTracker().getTracker() == 2) {
-            reaction.getPlayer().achievements[0][1] = "1";
+        //archievements
+        if(storyTracker.getTracker() == 2) {
+            player.achievements[0][1] = "1";
         }
-        if(reaction.getStoryTracker().getTracker() == 3){
-            reaction.getPlayer().achievements[1][1] = "1";
-
+        if(storyTracker.getTracker() == 3){
+            player.achievements[1][1] = "1";
         }
 
-        if(reaction.getOption()==null) {
-            //simple targets
-            if(reaction.getTarget().getState() == 10) {
-                if (reaction.getTarget().getActionType() == "take") {
-                    reaction.getPlayer().addToInventory(reaction.getTarget().getName());
+        //no dialogue
+        if(option ==null) {
+            //simple targets + take objects
+            if(target.getState() == 10) {
+                if (target.getActionType() == "take") {
+                    player.addToInventory(target.getName());
                 }
                 reaction.setLocked(false);
                 return reaction;
             }
+            //attack command leads to battle
+            if(target.getState() == 8){
+                battleSystem.startFight(reaction,data.enemies[0]);
+                mainTextShow.append("You started a fight with " + target.getName() + "\n");
+                if(target.isProgression()){
+                    storyTracker.progress();
+                    location.setText("Location: " + storyTracker.getLocation());
+                    target.setProgression(false);
+                }
+                return reaction;
+            }
 
             //output for first time talking
-            if(reaction.getMainTextShow()!=null && reaction.getTarget().getActionType().equalsIgnoreCase("talk")) {
+            if(mainTextShow !=null && target.getActionType().equalsIgnoreCase("talk")) {
                 playerAnswers = proxy.firstTimeTalking(playerAnswers,reaction);
                 int i = 0;
-                reaction.getMainTextShow().append(reaction.getTarget().getName() + ": " + reaction.getTarget().getDialogue() + "\nYou say...\n");
+                mainTextShow.append(target.getName() + ": " + target.getDialogue() + "\nYou say...\n");
                 while (i < playerAnswers.size()) {
                     System.out.println("Aufruf:" + i);
-                    reaction.getMainTextShow().append(i + 1 + ". " + playerAnswers.get(i).getDialogue() + "\n");
+                    mainTextShow.append(i + 1 + ". " + playerAnswers.get(i).getDialogue() + "\n");
 
                     i++;
                 }
@@ -54,33 +73,31 @@ public class StoryHandler {
         //dialog
         proxy.dialogue(playerAnswers,genAnswers,reaction);
 
-        //takes char input and gives correct dialogue
-            //end conversation with last dialogue option
-            if(reaction.getOption() == playerAnswers.size()){
-                Target t = genAnswers.get(reaction.getOption()-1);
-                if(t.getState() == 8){
 
-                    battleSystem.startFight(reaction,data.enemies[0]);
-                    reaction.getMainTextShow().append("You started a fight with " + reaction.getTarget().getName() + "\n");
-                    System.out.println("progress?  - " + playerAnswers.get(reaction.getOption()-1).isProgression());
-                    if(playerAnswers.get(reaction.getOption()-1).isProgression()){
-                        reaction.getStoryTracker().progress();
-                        reaction.getLocation().setText("Location: " + reaction.getStoryTracker().getLocation());
-                        reaction.getTarget().setProgression(false);
-                        System.out.println("yes progress");
-                    }
+        //end conversation with last dialogue option
+        if(option == playerAnswers.size()){
+            Target t = genAnswers.get(option -1);
+
+            //end of conversation leads to battle
+            if(t.getState() == 8){
+                battleSystem.startFight(reaction,data.enemies[0]);
+                mainTextShow.append("You started a fight with " + target.getName() + "\n");
+                if(playerAnswers.get(option -1).isProgression()){
+                    storyTracker.progress();
+                    location.setText("Location: " + storyTracker.getLocation());
+                    target.setProgression(false);
                 }
-
-                reaction.setTarget(t);
-                reaction.setLocked(false);
-
             }
-            else {
+
+            reaction.setTarget(t);
+            reaction.setLocked(false);
+
+        }
+        else {
             //other dialogue
-            Target t = genAnswers.get(reaction.getOption()-1);
+            Target t = genAnswers.get(option -1);
             reaction.setTarget(t);
             reaction.setLocked(true);
-
 
         }return reaction;
 

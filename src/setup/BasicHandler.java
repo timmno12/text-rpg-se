@@ -28,8 +28,8 @@ public class BasicHandler {
                ans= "It looks exactly how you think it does.";
                break;
 
-           case "go":
-               ans= "You can’t just go there.";
+           case "interact":
+               ans= "You can't interact with " + secondWord;
                 break;
 
            case "take":

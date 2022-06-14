@@ -3,6 +3,13 @@ package setup;
 public class Target {
     private String location;
     private String name;
+
+    public String getName2() {
+        return name2;
+    }
+
+    private String name2;
+
     private String actionType;
     private String dialogue;
     private int state;
@@ -57,9 +64,10 @@ public class Target {
 
     private boolean progression;
 
-    public Target(String location, String name, String actionType, String dialogue, int state, boolean progression) {
+    public Target(String location, String name ,String name2, String actionType, String dialogue, int state, boolean progression) {
         this.location = location;
         this.name = name;
+        this.name2=name2;
         this.actionType = actionType;
         this.dialogue = dialogue;
         this.state = state;

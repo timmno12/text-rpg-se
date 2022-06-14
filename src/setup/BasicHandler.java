@@ -13,15 +13,15 @@ public class BasicHandler {
 
        String ans=null;
        switch (firstWord){
-           case "use":
+           case "combine":
                if (player.isValidItem(secondWord)){
-                   ans="You try to use " +  secondWord + " but you can't find it in your pockets!";
+                   ans="You try to combine " +  secondWord + " but you can't find it in your pockets!";
                    break;
                }
 
 
 
-               ans= "You try to use " + secondWord +" but there is nothing you can use it on.";
+               ans= "You try to combine " + secondWord +" but there is nothing you can use it on.";
                break;
 
            case "look":

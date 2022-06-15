@@ -51,7 +51,7 @@ public class ReactionToUserInput {
         for (Target t : data.DATA) {
             if (storyTracker.getLocation().equalsIgnoreCase(t.getLocation())) {
                 // check if valid command in location ->
-                if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.contains(t.getName()) && secondWord.contains(t.getName2())) {
+                if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.toLowerCase().contains(t.getName()) && secondWord.toLowerCase().contains(t.getName2())) {
 
                     Reaction reaction = new Reaction(t, storyTracker, location, mainTextShow, player); //in
                     if (firstWord.equalsIgnoreCase("combine")&& !player.isInInventory(t.getName())){

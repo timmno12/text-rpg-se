@@ -35,9 +35,7 @@ public class data {
             new Target("Cage","sister","", "talk", "I'm scared..", 2,false),
 
             //test entry
-            new Target("Cage","item","", "take", "You picked up the item" , 10,false),
-            new Target("Cage","item2","", "take", "You picked up the item 2" , 10,false),
-            new Target("Cage","item2","", "use", "You used the item  2 lel" , 10,false),
+
 
             new Target("Storage Room","sister","", "talk", "Let's get out of here!", 10,false),
             new Target("Storage Room","piece of wire", "cage","combine", "You successfully unlock your sister's cage as well.", 10,true),

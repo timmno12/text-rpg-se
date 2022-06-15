@@ -130,7 +130,7 @@ public class Player {
 
     public boolean isValidItem(String itemName){
         for (Item item: data.items){
-            if(item.getItemName().equals(itemName)){
+            if(itemName.contains(item.getItemName())){
                 return true;
 
             }

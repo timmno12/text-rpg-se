@@ -9,19 +9,19 @@ public class BattleSystem {
 
     // TODO: Falls LP-Potions eingebaut werden muss nochmal über die keepfighting geschaut werden in Hinblick auf tempLP
 
-    static Random random = new Random();
+    private Random random = new Random();
 
-    static long delayInMS = 500;
+    private long delayInMS = 500;
 
-    static int min = 1;
-    static int max = 10;
-    static float rand;
-    static float rand2;
-    static float crit_rand;
-    static boolean crit = false;
-    static float critValue = 1.5f; //-> 1.5 entspricht einem Crit von 50% extra auf den normalen Schaden
-    static float tempUserLP;
-    static float tempEnemLP;
+    private int min = 1;
+    private int max = 10;
+    private float rand;
+    private float rand2;
+    private float crit_rand;
+    private boolean crit = false;
+    private float critValue = 1.5f; //-> 1.5 entspricht einem Crit von 50% extra auf den normalen Schaden
+    private float tempUserLP;
+    private float tempEnemLP;
 
     /* Dodgelogik
     Es wird max + Dodge gerechnet. User kommt dabei zb auf Gesamtwert = (max =) 10 + (dodge =) 10 = 20. dann wird eine
@@ -57,14 +57,14 @@ public class BattleSystem {
 
 
 
-    static public void startFight(Reaction reaction, Enemy enemy){
+    public void startFight(Reaction reaction, Enemy enemy){
         //System.out.println("Start fight " + reaction.getPlayer().getUserLP());
         tempUserLP = reaction.getPlayer().getUserLP();
         tempEnemLP = enemy.getEnemLP();
         enemyDodge(reaction, enemy);
     }
 
-    static public void userDodge(Reaction reaction, Enemy enemy){
+    public void userDodge(Reaction reaction, Enemy enemy){
         int dodgeValue = max + reaction.getPlayer().getUserDODGE();
         rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
         if(rand < max){
@@ -74,7 +74,7 @@ public class BattleSystem {
         }
     }
 
-    static public void enemyDodge(Reaction reaction, Enemy enemy){
+    public void enemyDodge(Reaction reaction, Enemy enemy){
         int dodgeValue = max + enemy.getEnemDODGE();
         rand = (random.nextInt((dodgeValue - min)+1) + min)/ 1.0f;
         if(rand < max){
@@ -84,7 +84,7 @@ public class BattleSystem {
         }
     }
 
-    static public void enemyWasHit(Reaction reaction, Enemy enemy) {
+    public void enemyWasHit(Reaction reaction, Enemy enemy) {
         if (lifepointChecker()) {
             System.out.println("DEAD" + tempUserLP + " ---" +tempEnemLP);
         } else {
@@ -118,7 +118,7 @@ public class BattleSystem {
         }
     }
 
-    static public void enemyDodged(Reaction reaction, Enemy enemy){
+    public void enemyDodged(Reaction reaction, Enemy enemy){
 
         //TODO Ausgabe: Ene konnte ausweichen und wurde nicht getroffen.
         try {
@@ -140,7 +140,7 @@ public class BattleSystem {
     }
 
 
-    static public void userWasHit(Reaction reaction, Enemy enemy){
+    public void userWasHit(Reaction reaction, Enemy enemy){
         if(lifepointChecker()) {
             System.out.println("DEAD" + tempUserLP + " ---" +tempEnemLP);
         }else{
@@ -174,7 +174,7 @@ public class BattleSystem {
 
     }
 
-    static public void userDodged(Reaction reaction, Enemy enemy){
+    public void userDodged(Reaction reaction, Enemy enemy){
 
         //TODO Ausgabe: Du konntest ausweichen.
         try {
@@ -192,7 +192,7 @@ public class BattleSystem {
         keepFighting(reaction, enemy);
     }
 
-    static public boolean lifepointChecker(){
+     public boolean lifepointChecker(){
         if(tempUserLP<= 0){
 
             try {
@@ -220,7 +220,7 @@ public class BattleSystem {
         return false;
     }
 
-    static public void keepFighting(Reaction reaction, Enemy enemy){
+    public void keepFighting(Reaction reaction, Enemy enemy){
 
         //TODO Ausgabe: Möchtest du weiterkämpfen -> Abfrage bei 25% und 50% vielleicht??
         if(reaction.getPlayer().getUserLP()*0.3f > tempUserLP){

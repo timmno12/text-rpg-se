@@ -48,7 +48,7 @@ public class data {
 
             new Target("Hallway (Basement)","door ahead","", "look", "The vines are so dense that you can’t see past them. ", 10,false),
             new Target("Hallway (Basement)","","", "look", "A sizable wooden hallway with a few decorative paintings. It’s dimly lit with a candle on each wall and connects to 4 rooms in total. You notice a cat curled up in front of one of the doors. At the end of the hallway there’s an arched entryway overgrown with vines that spread into the ceiling and the floor.", 10,false),
-            new Target("Hallway (Basement)","cat","", "attack", "You attack!", 8,true),
+            new Target("Hallway (Basement)","cat","", "attack", "You breathe heavily after giving the cat a hard blow. Growling, it jumps to the side and flees to some corner of the room. You don't see where she's gone, because a sparkling something draws all your attention.", 8,true),
             new Target("Hallway (Basement)","sister","", "talk", "If we wouldn’t have gotten knocked out and dumped into a cage I would almost say it’s cozy. But right now this place is scary, I just really want to get out of here. ", 1,false),
             new Target("Hallway (Basement)","sister","", "talk", "There must be a way out of here. Sometimes you need to look at the bigger picture first to understand. ", 1,false),
             new Target("Hallway (Basement)","cat","", "talk", "The cat opens its' eyes groggily and looks at you confused.", 0,false),

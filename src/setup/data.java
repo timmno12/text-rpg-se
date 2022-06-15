@@ -10,12 +10,6 @@ public class data {
             new Item("item2", "its an item 2 yo", 0, 0)
 
     };
-    public static PlayerClasses[] playerClasses = {
-            new PlayerClasses("Base","Base",100,7,7,6),
-            new PlayerClasses("Mage","Squirrel",100,10,5,5),
-            new PlayerClasses("Warrior","Mouse",100,9,10,1),
-            new PlayerClasses("Assassin","Frog",100,7,3,10)
-    };
 
     public static Enemy[] enemies = {
             new Enemy("cat",7,50,4,7)

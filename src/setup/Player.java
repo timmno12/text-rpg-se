@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Player {
     private String charName;
-    private String animalName;
+    private String animal;
     private String chosenClass;
     private int userDMG;
 
@@ -30,14 +30,31 @@ public class Player {
 
     //TODO Möglichkeit überlegen Werte von Classes heraus zubekommen um in Konstruktur des Users zu bekommen
     //TODO Eventuell durch Index einer Liste -> Main Ablauf Klasse??!?!?
-    public Player(/*, ArrayList<Item> itemList, String location */) {
-        this.charName = charName;
-        this.userDMG = userDMG;
-        this.userLP = userLP;
-        this.userDEF = userDEF;
-        this.userDODGE = userDODGE;
-        this.itemList = itemList;
-        this.location = location;
+    public Player(String chosenClass) {
+        if(chosenClass.equalsIgnoreCase("Frog")){
+        this.setChosenClass("Assassin");
+        this.setAnimal("Frog");
+        this.setUserLP(100);
+        this.setUserDEF(3);
+        this.setUserDODGE(10);
+        this.setUserDMG(7);
+
+        } else if(chosenClass.equalsIgnoreCase("Mouse")){
+            this.setChosenClass("Warrior");
+            this.setAnimal("Mouse");
+            this.setUserLP(100);
+            this.setUserDEF(10);
+            this.setUserDODGE(1);
+            this.setUserDMG(9);
+
+        }else if(chosenClass.equalsIgnoreCase("Squirrel")){
+            this.setChosenClass("Mage");
+            this.setAnimal("Squirrel");
+            this.setUserLP(100);
+            this.setUserDEF(5);
+            this.setUserDODGE(5);
+            this.setUserDMG(10);
+        }
     }
 
     public String getCharName() {
@@ -48,19 +65,19 @@ public class Player {
         this.charName = charName;
     }
 
-    public String getAnimalName() {
-        return animalName;
+    public String getAnimal() {
+        return animal;
     }
 
-    public void setAnimalName(PlayerClasses chosenClass) {this.animalName = chosenClass.getAnimalName();
+    public void setAnimal(String animal) {this.animal = animal;
     }
 
     public String getChosenClass() {
         return chosenClass;
     }
 
-    public void setChosenClass(PlayerClasses chosenClass) {
-        this.chosenClass = chosenClass.getClassName();
+    public void setChosenClass(String chosenClass) {
+        this.chosenClass = chosenClass;
     }
     public int getUserDMG() {
         return userDMG;

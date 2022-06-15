@@ -1,7 +1,6 @@
 package setup;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class UserInputService {
@@ -27,19 +26,6 @@ public class UserInputService {
 
         userInput.setText("");
 
-    }
-    public static void userSetup(JTextField userInput,JTextArea mainTextShow, Player player, StoryTracker storyTracker,JTextArea location){
-        Proxy proxy = new Proxy();
-        player.setChosenClass((PlayerClasses) Array.get(data.playerClasses,proxy.userChosenClass(userInput.getText())));
-        player.setAnimalName((PlayerClasses) Array.get(data.playerClasses,proxy.userChosenClass(userInput.getText())));
-        player.setUserLP(((PlayerClasses) Array.get(data.playerClasses,proxy.userChosenClass(userInput.getText()))).getClassLP());
-        player.setUserDEF(((PlayerClasses) Array.get(data.playerClasses,proxy.userChosenClass(userInput.getText()))).getClassDEF());
-        player.setUserDODGE(((PlayerClasses) Array.get(data.playerClasses,proxy.userChosenClass(userInput.getText()))).getClassDodge());
-        player.setUserDMG(((PlayerClasses) Array.get(data.playerClasses,proxy.userChosenClass(userInput.getText()))).getClassATK());
-        mainTextShow.append("You've choosen the " + player.getChosenClass() + "/" + player.getAnimalName() + "! Now the Story can begin!\n You wake up to the rattling cage right next to you. Your head aches. It’s dark but you can tell the " + player.getAnimalName().toLowerCase() + " in the other cage is your little sister.\n");
-        location.setText("Location: " + storyTracker.getLocation());
-
-        userInput.setText("");
     }
 
 }

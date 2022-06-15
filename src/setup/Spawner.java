@@ -8,8 +8,8 @@ public class Spawner {
 
     private String oldName = "";
 
-    public Player spawnPlayer() {
-        return new Player();
+    public Player spawnPlayer(String chosenClass) {
+        return new Player(chosenClass);
     }
 
     public void spawnObjects(String location, ArrayList<Target> targets) {

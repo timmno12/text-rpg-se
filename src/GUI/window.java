@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class window {
     private JTextArea location;
@@ -26,13 +25,14 @@ public class window {
     private boolean animalChosen = false;
 
     private Player player;
+    private String charName;
 
     private JTextField input;
     private JPanel mainPanel;
     private JButton ImageLogo;
     private String currentLocation = "???";
     private int currentLvl = 5;
-    private int currentLivePoints = 10;
+    private int currentLivePoints = 100;
 
     public window(){
         location.setText("Location: "+currentLocation);
@@ -44,7 +44,7 @@ public class window {
         spawner.spawnObjects(storyTracker.getLocation(),targets);
         sendMessageFromBackend("What is your name, fellow Traveller?");
 
-        player = spawner.spawnPlayer();
+
         input.addKeyListener(new KeyAdapter() {
 
             @Override
@@ -57,8 +57,8 @@ public class window {
                     if(input.getText().length() > 0) {
                         if (!nameEntered && !animalChosen) {
                             storyfield.append(">" + input.getText() + "\n");
-                            player.setCharName(input.getText());
-                            sendMessageFromBackend("Hello " + player.getCharName() + ". Which animal do you wanna be - \n" +
+                            charName = input.getText();
+                            sendMessageFromBackend("Hello " + charName + ". Which animal do you wanna be - \n" +
                                     "Base: Attack: 7, Defense: 7, Dodge: 6\n" +
                                     "Mouse: Attack: 9, Defense: 10, Dodge: 1\n" +
                                     "Squirrel: Attack: 10, Defense: 5, Dodge: 5\n" +
@@ -69,7 +69,12 @@ public class window {
                         } else if (nameEntered && !animalChosen) {
                             while (input.getText().equalsIgnoreCase("Base") || input.getText().equalsIgnoreCase("Mouse") || input.getText().equalsIgnoreCase("Squirrel") || input.getText().equalsIgnoreCase("Frog")){
                                 storyfield.append(">" + input.getText() + "\n");
-                                UserInputService.userSetup(input, storyfield, player, storyTracker, location);
+                                player = spawner.spawnPlayer(input.getText());
+                                player.setCharName(input.getText());
+                                storyfield.append("You've choosen the " + player.getChosenClass() + "/" + player.getAnimal() + "! Now the Story can begin!\n You wake up to the rattling cage right next to you. Your head aches. It’s dark but you can tell the " + player.getAnimal().toLowerCase() + " in the other cage is your little sister.\n");
+                                location.setText("Location: " + storyTracker.getLocation());
+
+                                input.setText("");
                                 animalChosen = true;
                             }
                         } else {

@@ -4,7 +4,7 @@ package setup;
 
 public class BasicHandler {
     private static String helpCommand(){
-        return "combine \n look \n help \n inventory \n take \n talk \n attack";
+        return "use \n combine \n look \n help \n go \n inventory \n take \n locations \n talk \n attack";
 
     }
 

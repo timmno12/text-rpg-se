@@ -87,10 +87,10 @@ public class ReactionToUserInput {
 
 
     public static void achievementChecker(Reaction reaction){
-        if(reaction.getStoryTracker().getTracker() == 2) {
+        if(reaction.getStoryTracker().getTracker() == 8) {
             reaction.getPlayer().achievements[0][1] = "1";
         }
-        if(reaction.getStoryTracker().getTracker() == 3){
+        if(reaction.getStoryTracker().getTracker() == 14){
             reaction.getPlayer().achievements[1][1] = "1";
 
         }

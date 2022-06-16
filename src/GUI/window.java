@@ -92,7 +92,9 @@ public class window {
     }
 
     public static void main(String[] args) {
-        JFrame window = new JFrame("Textadventure");
+        JFrame window = new JFrame("Little Big Adventure");
+        ImageIcon img = new ImageIcon("src/GUI/resources/windowIcon.png");
+        window.setIconImage(img.getImage());
         window.setResizable(false);
         window.setContentPane(new window().mainPanel);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

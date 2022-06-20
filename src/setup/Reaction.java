@@ -34,18 +34,6 @@ public class Reaction {
     }
 
 
-    public Reaction(StoryTracker storyTracker, JTextArea location, boolean locked, JTextArea mainTextShow) {
-
-        this.storyTracker = storyTracker;
-
-        this.location = location;
-
-        this.locked = locked;
-
-        this.mainTextShow = mainTextShow;
-
-    }
-
     public Reaction(StoryTracker storyTracker,JTextArea location, Integer option, boolean locked, Target target, Player player, JTextArea mainTextShow) {
 
         this.storyTracker = storyTracker;
@@ -87,21 +75,9 @@ public class Reaction {
         this.player = player;
     }
 
-    public void setStoryTracker(StoryTracker storyTracker) {
-
-        this.storyTracker = storyTracker;
-
-    }
-
     public JTextArea getLocation() {
 
         return location;
-
-    }
-
-    public void setLocation(JTextArea location) {
-
-        this.location = location;
 
     }
 

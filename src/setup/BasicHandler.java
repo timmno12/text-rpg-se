@@ -58,7 +58,7 @@ public class BasicHandler {
 
 
            default:
-               ans=firstWord +" " + secondWord + "Command is unclear. Be more specific or see “help” if you need any.";
+               ans=firstWord +" " + secondWord + "Command is unclear. Be more specific or see 'help' if you need any.";
 
 
 

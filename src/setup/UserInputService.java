@@ -9,11 +9,11 @@ public class UserInputService {
     private static StoryTracker storyTracker;
     private static ArrayList<Target> targets;
 
-    public UserInputService(JTextField userInput, JTextArea mainTextShow, StoryTracker storyTracker, JTextArea location,ArrayList<Target> targets) {
+    public UserInputService(JTextField userInput, JTextArea mainTextShow, StoryTracker storyTracker) {
         this.userInput = userInput;
         this.mainTextShow = mainTextShow;
         this.storyTracker = storyTracker;
-        this.targets = targets;
+
     }
 
 

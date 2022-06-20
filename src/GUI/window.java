@@ -143,7 +143,6 @@ public class window {
         cardFrame.getContentPane().setBackground(Color.black);
 
         //"Achievement list"
-        String[] achievementNames = {"lion", "cat"};
 
 
         ImageLogo.addActionListener(new ActionListener() {

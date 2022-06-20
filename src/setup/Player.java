@@ -13,7 +13,7 @@ public class Player {
     private int userDEF;
     private int userDODGE;
 
-    public static ArrayList<Item> itemList = new ArrayList<Item>();
+    public ArrayList<Item> itemList = new ArrayList<Item>();
 
 
     public String[][] achievements = {{"Lion","0"},{"Cat", "0"}};
@@ -21,10 +21,6 @@ public class Player {
         return achievements;
     }
 
-
-    public void setAchievements(String[][] achievements) {
-        this.achievements = achievements;
-    }
 
     private String location;
 
@@ -55,10 +51,6 @@ public class Player {
             this.setUserDODGE(5);
             this.setUserDMG(10);
         }
-    }
-
-    public String getCharName() {
-        return charName;
     }
 
     public void setCharName(String charName) {
@@ -111,15 +103,6 @@ public class Player {
         this.userDODGE = userDODGE;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-
 
     public void addToInventory(String itemName){
 
@@ -155,16 +138,7 @@ public class Player {
         }
         return false;
     };
-    public void removeFromInventory(String itemName){
-        for (Item item: data.items){
-            if (item.getItemName().equals(itemName) && itemList.contains(item)){
-                itemList.remove(item);
 
-            }
-
-        }
-
-    };
 
 
     public  String showInventory(){

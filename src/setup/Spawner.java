@@ -24,7 +24,4 @@ public class Spawner {
         }
     }
 
-    public void refreshState(String location, ArrayList<Target> targets) {
-        spawnObjects(location, targets);
-    }
 }

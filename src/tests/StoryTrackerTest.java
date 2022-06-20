@@ -15,11 +15,5 @@ class StoryTrackerTest {
     void progress() {
     }
 
-    @Test
-    void getLocation() {
-    }
 
-    @Test
-    void getTracker() {
-    }
 }

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 //import java.util.TreeMap;
 
 public class ReactionToUserInput {
-    private static JTextField userInput;
     private static boolean locked = false;
     private static Target oldTarget;
 

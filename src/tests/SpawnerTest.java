@@ -14,6 +14,7 @@ class SpawnerTest {
 
     @Test
     void spawnObjects() {
+        //Fragen ob wir das wirklich noch brauchen
     }
 
 

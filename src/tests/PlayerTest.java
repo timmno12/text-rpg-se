@@ -44,11 +44,15 @@ class PlayerTest {
 
     @Test
     void isValidItem() {
+        assertEquals(true, player.isValidItem("piece of wire"));
     }
 
 
 
     @Test
     void showInventory() {
+        assertEquals("You have no Items", player.showInventory());
+        player.addToInventory("piece of wire");
+        assertEquals("piece of wire" + " \n", player.showInventory());
     }
 }

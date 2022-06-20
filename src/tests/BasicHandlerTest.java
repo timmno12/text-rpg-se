@@ -27,9 +27,7 @@ class BasicHandlerTest {
 
 
 
-    @BeforeEach
-    void setUp() {
-    }
+
 
     @Test
     void testHandleLook() {

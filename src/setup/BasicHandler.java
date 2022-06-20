@@ -4,7 +4,13 @@ package setup;
 
 public class BasicHandler {
     private static String helpCommand(){
-        return "use \n combine \n look \n help \n go \n inventory \n take \n locations \n talk \n attack";
+        return " combine - zur Kombination eines Gegenstandes aus deinem Inventar und einem anderen \n" +
+                " look - gibt dir eine genauere Beschreibung des Gegenstandes oder der Umgebung \n" +
+                " help - zeigt dir alle anwendbare Befehle und deren nutzen \n" +
+                " inventory - zeigt dir welche Gegenstände du besitzt \n" +
+                " take - fügt einen Gegenstand deinem Inventar hinzu \n" +
+                " talk - startet eine Konversation \n" +
+                " attack - startet einen Kampf ";
 
     }
 
@@ -44,16 +50,10 @@ public class BasicHandler {
            case "help":
                ans=helpCommand();
                break;
-           //case "combine":
-               //return "You try to combine " + secondWord +   " and " +  secondWord + ". You don’t succeed.";
+
            case "inventory":
 
                ans= player.showInventory();
-               break;
-           case "locations":
-
-
-               ans= "You can go to : Storage Room & Hallway";
                break;
 
 

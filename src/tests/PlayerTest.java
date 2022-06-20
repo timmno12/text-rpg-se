@@ -9,29 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 class PlayerTest {
-
-
-
     Player player;
-
-
     @BeforeEach
     void setup(){
         player= new Player("Base");
     }
 
-
-
-
     @Test
     void addToInventory() {
         player.addToInventory("piece of wire");
         assertTrue(player.isInInventory("piece of wire"));
-
-
-
-
-
     }
 
     @Test
@@ -39,13 +26,10 @@ class PlayerTest {
         player.addToInventory("piece of wire");
         assertTrue(player.isInInventory("piece of wire"));
         assertFalse(player.isInInventory("button"));
-
     }
 
     @Test
-    void isValidItem() {
-        assertEquals(true, player.isValidItem("piece of wire"));
-    }
+    void isValidItem() {assertEquals(true, player.isValidItem("piece of wire"));}
 
 
 

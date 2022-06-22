@@ -15,6 +15,8 @@ public class ReactionToUserInput {
 
     public static String reactToUserInput(JTextField userInput, StoryTracker storyTracker, JTextArea location, ArrayList<Target> targets, Player player, JTextArea mainTextShow) {
         StoryHandler storyHandler = new StoryHandler();
+        Proxy proxy = new Proxy();
+        ArrayList<Target> possibleTargets=new ArrayList<>();
         String input = userInput.getText();
         int spaceIndex = input.indexOf(" ");
 
@@ -47,7 +49,9 @@ public class ReactionToUserInput {
             }
         }
 
-        for (Target t : data.DATA) {
+        proxy.getTargets(possibleTargets);
+        for (Target t : possibleTargets) {
+        //for (Target t : data.DATA) {
             if (storyTracker.getLocation().equalsIgnoreCase(t.getLocation())) {
 
                 // check if valid command in location ->

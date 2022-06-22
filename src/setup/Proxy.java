@@ -27,4 +27,15 @@ public class Proxy {
             }
         }
     }
+
+    public ArrayList<Target> getTargets(ArrayList<Target> possibleTargets){
+        for(Target temp:data.DATA) {
+            possibleTargets.add(temp);
+        }
+        return possibleTargets;
+    }
+
+    public Enemy getEnemy(){
+        return data.enemies[0];
+    }
 }

@@ -104,11 +104,22 @@ public class data {
             new Target("Ruins of a crumbled church","location","", "look", "Light refracts in the dirty, splintered windows. Nature has reclaimed most of the building and it looks like no one has been here in decades. Your sister still holds your hand with a firm grip. In the center you see a huge statue made of stone. It looks like a lion (lion). At its foot lies a small piece of cloth.(cloth).", 10,false),
             new Target("Ruins of a crumbled church","cloth","", "look", "It looks pretty dirty and you wonder why it catches your eye so much.", 10,false),
             new Target("Ruins of a crumbled church","cloth","", "take", "You pick up the piece of fabric. It still looks a bit dirty at first glance, but it is much silkier than expected. You feel the strange urge to talk to the statue", 10,true),
+            new Target("Ruins of a crumbled church","lion","", "look", "The lion statue is huge. Not even necessarily by its mass, but by its charisma. As soon as your eyes reach the lion, it's hard to take your eyes off it. The statue looks so alive, although it is obviously made of stone.", 10,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "Hello?", 1,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "....", 2,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "Ehem?", 1,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "....", 2,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "Can you hear me?", 1,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "....", 2,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "End Conversation", 9,false),
+            new Target("Ruins of a crumbled church","lion","", "talk", "The statue is absolutely still. You still have the feeling that it is not a normal statue. But why won't it speak? A strikingly bright beam of light shines on the piece of cloth (cloth)", 2,false),
+            new Target("Ruins of a crumbled church ","location","", "look", "Light refracts in the dirty, splintered windows. Nature has reclaimed most of the building and it looks like no one has been here in decades. Your sister still holds your hand with a firm grip. In the center you see a huge statue made of stone. It looks like a lion (lion). You took the cloth already.", 10,false),
             new Target("Ruins of a crumbled church ","lion","", "look", "The lion statue is huge. Not even necessarily by its mass, but by its charisma. As soon as your eyes reach the lion, it's hard to take your eyes off it. The statue looks so alive, although it is obviously made of stone.", 10,false),
             new Target("Ruins of a crumbled church ","button","","interact", "The button falls down. It echoes unreal loud in the chapel. You bend down and pick up the dirty button. It goes back into your pocket.", 10,false),
             new Target("Ruins of a crumbled church ","button","lion","combine", "~This is the prize you received when you selflessly faced the beast.~", 10,false),
             new Target("Ruins of a crumbled church ","cloth","button", "combine", "This is not the right place to combine this. You should wait until you get back.", 10,false),
             //To Lion. Player: What happened?
+            new Target("Ruins of a crumbled church ","lion","", "talk", "It looks majestic", 0,false),
             new Target("Ruins of a crumbled church ","lion","", "talk", "What happened?", 1,false),
             new Target("Ruins of a crumbled church ","lion","", "talk", "You just traveled between the worlds. Something happened so that you proved your bravery. I saw you fighting off a creature not just bigger, but more dangerous and deceitful than you are. You were brave and protected your sister at all costs. This is why you are here.", 2,false),
             //To Lion. Player: Who are you?
@@ -119,7 +130,9 @@ public class data {
             new Target("Ruins of a crumbled church ","lion","", "talk", "It doesn't matter where we are. It only matters how we are.", 2,false),
             //To Lion. Player: End conversation
             new Target("Ruins of a crumbled church ","lion","", "talk", "End conversation", 9,false),
-            new Target("Ruins of a crumbled church ","lion","", "talk", "Take care and be mindful of the power I gave you.", 2,true),
+            new Target("Ruins of a crumbled church ","lion","", "talk", "Take care and be mindful of the power I gave you. Now look close (interact lion)", 2,false),
+            new Target("Ruins of a crumbled church ","lion","", "interact", "A small light emerges from inside the statue. You see how it floats calmly towards you. You do not retreat and the light touches you. A warm tingling sensation flows through you and the fear you have been carrying around with you suddenly dissolves into thin air. You look at your sister. She looks at you uncertainly, but the smile you give her also makes her smile hopefully. Suddenly you find yourself back in the hallway with your sister holding your hand.", 10,true),
+
 
             //Chapter 3
             //TODO Text hinzufügen: A small light emerges from inside the statue. You see how it floats calmly towards you. You do not retreat and the light touches you. A warm tingling sensation flows through you and the fear you have been carrying around with you suddenly dissolves into thin air. You look at your sister. She looks at you uncertainly, but the smile you give her also makes her smile hopefully. Suddenly you find yourself back in the hallway with your sister holding your hand.
@@ -181,7 +194,8 @@ public class data {
             new Target("Light flooded cave","cat","", "talk", "Your character is formed from the choices you make and very few make it to that place. You did something heroic to save your sister. You put yourself in danger to free her. Not through strength, not through courage, but through ingenuity, you overcame a great obstacle and brought yourself and your sister one step closer to freedom.", 2,false),
             //To cat. Player: End conversation
             new Target("Light flooded cave","cat","", "talk", "End conversation", 9,false),
-            new Target("Light flooded cave","cat","", "talk", "Return and find the last statue in the overgrown woods. A gate conquered by nature will guide you.", 2,true),
+            new Target("Light flooded cave","cat","", "talk", "Return and find the last statue in the overgrown woods. A gate conquered by nature will guide you. Now look close (interact cat)", 2,false),
+            new Target("Light flooded cave","cat","", "interact", "The statue falls silent and at the same moment something seems to happen for the first time. Once again, you can see a soft glow appearing around the statue and a small ball of light coming out of its interior. The same small light you saw at the lion statue! A warm feeling flows through you as it slowly floats toward you and finally connects with you. Again you feel light and dazzled and when you open your eyes again you find yourself in the old familiar hallway", 10,true),
 
             //Chapter 4
             //TODO Text hinzufügen: The statue falls silent and at the same moment something seems to happen for the first time. Once again, you can see a soft glow appearing around the statue and a small ball of light coming out of its interior. The same small light you saw at the lion statue! A warm feeling flows through you as it slowly floats toward you and finally connects with you. Again you feel light and dazzled and when you open your eyes again you find yourself in the old familiar hallway.

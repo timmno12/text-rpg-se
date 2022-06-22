@@ -59,7 +59,6 @@ public class window {
                             storyfield.append(">" + input.getText() + "\n");
                             charName = input.getText();
                             sendMessageFromBackend("Hello " + charName + ". Which animal do you wanna be - \n" +
-                                    "Base: Attack: 7, Defense: 7, Dodge: 6\n" +
                                     "Mouse: Attack: 9, Defense: 10, Dodge: 1\n" +
                                     "Squirrel: Attack: 10, Defense: 5, Dodge: 5\n" +
                                     "Frog: Attack: 7, Defense: 3, Dodge: 10\n" +

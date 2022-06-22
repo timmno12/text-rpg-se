@@ -49,16 +49,20 @@ public class ReactionToUserInput {
 
         for (Target t : data.DATA) {
             if (storyTracker.getLocation().equalsIgnoreCase(t.getLocation())) {
+
                 // check if valid command in location ->
                 if (firstWord.equalsIgnoreCase(t.getActionType()) && secondWord.toLowerCase().contains(t.getName()) && secondWord.toLowerCase().contains(t.getName2())) {
 
+
                     Reaction reaction = new Reaction(t, storyTracker, location, mainTextShow, player); //in
-                    if (firstWord.equalsIgnoreCase("combine")&& !player.isInInventory(t.getName())){
+                    if (firstWord.equalsIgnoreCase("combine") && !player.isInInventory(t.getName())){
+
 
                         return BasicHandler.handle(firstWord, secondWord, player) + "\n";
 
                     }
                     else{
+
 
                         Reaction out = storyHandler.handle(reaction);
                         achievementChecker(out);
@@ -76,6 +80,7 @@ public class ReactionToUserInput {
 
 
                 }
+
             }
         }
             return BasicHandler.handle(firstWord, secondWord, player) + "\n";

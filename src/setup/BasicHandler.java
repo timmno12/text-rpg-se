@@ -4,13 +4,14 @@ package setup;
 
 public class BasicHandler {
     private static String helpCommand(){
-        return " combine - zur Kombination eines Gegenstandes aus deinem Inventar und einem anderen \n" +
-                " look - gibt dir eine genauere Beschreibung des Gegenstandes oder der Umgebung \n" +
-                " help - zeigt dir alle anwendbare Befehle und deren nutzen \n" +
-                " inventory - zeigt dir welche Gegenstände du besitzt \n" +
-                " take - fügt einen Gegenstand deinem Inventar hinzu \n" +
-                " talk - startet eine Konversation \n" +
-                " attack - startet einen Kampf ";
+        return "combine - To combine two items from your inventory\n" +
+                "look - Gives you a more detailed description of the object or the environment (i.e 'look location') \n" +
+                "interact - Interact with somebody or something" +
+                "inventory - Shows you what items you own \n" +
+                "take - Adds an item to your inventory \n" +
+                "talk - Starts a conversation \n" +
+                "attack - Starts a fight " +
+                "help - Shows you all applicable commands and their use \n" ;
 
     }
 
@@ -35,7 +36,11 @@ public class BasicHandler {
                break;
 
            case "interact":
-               ans= "You can't interact with " + secondWord;
+               if(secondWord.equals("")){
+                   ans="You can't interact with nothing";
+               }else {
+                   ans = "You can't interact with " + secondWord;
+               }
                 break;
 
            case "take":

@@ -114,6 +114,9 @@ public class data {
             //To Lion. Player: Who are you?
             new Target("Ruins of a crumbled church ","lion","", "talk", "Who are you?", 1,false),
             new Target("Ruins of a crumbled church ","lion","", "talk", "Just a lost memory of a god that honored the brave back in the days to pass every obstacle they encountered. I am the force to give you this power. You proved your character and nothing shall hold you back.", 2,false),
+            //
+            new Target("Ruins of a crumbled church ","lion","", "talk", "Where am I?", 1,false),
+            new Target("Ruins of a crumbled church ","lion","", "talk", "It doesn't matter where we are. It only matters how we are.", 2,false),
             //To Lion. Player: End conversation
             new Target("Ruins of a crumbled church ","lion","", "talk", "End conversation", 9,false),
             new Target("Ruins of a crumbled church ","lion","", "talk", "Take care and be mindful of the power I gave you.", 2,true),

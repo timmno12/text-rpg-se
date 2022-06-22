@@ -86,7 +86,7 @@ public class BattleSystem {
 
     public void enemyWasHit(Reaction reaction, Enemy enemy) {
         if (lifepointChecker()) {
-            System.out.println("DEAD" + tempUserLP + " ---" +tempEnemLP);
+
         } else {
 
             int DEFValue = max + enemy.getEnemDEF();
@@ -142,7 +142,7 @@ public class BattleSystem {
 
     public void userWasHit(Reaction reaction, Enemy enemy){
         if(lifepointChecker()) {
-            System.out.println("DEAD" + tempUserLP + " ---" +tempEnemLP);
+
         }else{
             int DEFValue = max + reaction.getPlayer().getUserDEF();
             int balanceValue = 1 / 2;

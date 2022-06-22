@@ -26,10 +26,10 @@ public class StoryHandler {
         }
 
         //archievements
-        if(storyTracker.getTracker() == 2) {
+        if(storyTracker.getTracker() == 8) {
             player.achievements[0][1] = "1";
         }
-        if(storyTracker.getTracker() == 3){
+        if(storyTracker.getTracker() == 14){
             player.achievements[1][1] = "1";
         }
 
@@ -45,7 +45,7 @@ public class StoryHandler {
             }
             //attack command leads to battle
             if(target.getState() == 8){
-                battleSystem.startFight(reaction,data.enemies[0]);
+                battleSystem.startFight(reaction,proxy.getEnemy());
                 mainTextShow.append("You started a fight with " + target.getName() + "\n");
                 if(target.isProgression()){
                     storyTracker.progress();
